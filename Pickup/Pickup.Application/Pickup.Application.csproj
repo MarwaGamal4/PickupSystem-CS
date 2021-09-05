@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.1.0" />
+    <PackageReference Include="LazyCache" Version="2.1.3" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Pickup.Domain\Pickup.Domain.csproj" />
+    <ProjectReference Include="..\Pickup.Shared\Pickup.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Features\CustomersPlans\Commands\AddEdit\" />
+    <Folder Include="Features\CustomersPlans\Commands\Delete\" />
+    <Folder Include="Features\CustomersPlans\Queries\GetAll\" />
+    <Folder Include="Features\CustomersPlans\Queries\GetById\" />
+    <Folder Include="Features\Customers\Commands\AddEdit\" />
+    <Folder Include="Features\Customers\Commands\Delete\" />
+    <Folder Include="Features\Customers\Queries\GetAll\" />
+    <Folder Include="Features\Customers\Queries\GetById\" />
+    <Folder Include="Features\DeliveryRpt\Commands\" />
+    <Folder Include="Features\DeliveryRpt\Queries\GetById\" />
+    <Folder Include="Features\Invoices\Commands\AddEdit\" />
+    <Folder Include="Features\Invoices\Commands\Delete\" />
+    <Folder Include="Features\Invoices\Queries\GetAll\" />
+    <Folder Include="Features\Invoices\Queries\GetById\" />
+    <Folder Include="Features\Plans\Commands\Delete\" />
+    <Folder Include="Features\Plans\Queries\GetAll\" />
+    <Folder Include="Features\Plans\Queries\GetById\" />
+    <Folder Include="Features\PlanTypes\Commands\Delete\" />
+    <Folder Include="Features\PlanTypes\Queries\GetById\" />
+    <Folder Include="Features\Reporsts\Commands\" />
+    <Folder Include="Features\Reporsts\Queries\" />
+    <Folder Include="Features\Transactions\Commands\AddEdit\" />
+    <Folder Include="Features\Transactions\Commands\Delete\" />
+    <Folder Include="Features\Transactions\Queries\GetAll\" />
+    <Folder Include="Features\Transactions\Queries\GetById\" />
+    <Folder Include="Validators\Features\CustomersPlans\Commands\AddEdit\" />
+    <Folder Include="Validators\Features\Customers\Commands\AddEdit\" />
+    <Folder Include="Validators\Features\Invoices\Commands\AddEdit\" />
+    <Folder Include="Validators\Features\Plans\Commands\AddEdit\" />
+    <Folder Include="Validators\Features\PlanTypes\Commands\AddEdit\" />
+    <Folder Include="Validators\Features\Transactions\Commands\AddEdit\" />
+  </ItemGroup>
+
+</Project>

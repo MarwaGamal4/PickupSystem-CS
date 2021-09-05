@@ -1,0 +1,42 @@
+﻿
+<div class="notification">
+    <MudMenu MaxHeight="300"  Icon="@Icons.Material.Filled.MarkEmailUnread" Direction="Direction.Bottom" OffsetY="true" Color="Color.Inherit">
+        <MudPaper>
+            <MudMenuItem Style="width:300px; background-color:aliceblue">
+                <MudText Typo="Typo.subtitle1">Ahmed Magdy</MudText>
+                <MudText Typo="Typo.caption">Sales Report</MudText>
+            </MudMenuItem>
+            <MudDivider Vertical="false" />
+            <MudMenuItem Style="width:300px">
+                <MudText Typo="Typo.subtitle1">Ali Mohamed</MudText>
+                <MudText Typo="Typo.caption">Kindly Find Attached File </MudText>
+                <MudText><MudLink Typo="Typo.caption" Href="#"> Branch Transaction </MudLink><MudIcon Size="Size.Small" Icon="@Icons.Material.Filled.AttachFile"></MudIcon></MudText>
+            </MudMenuItem>
+            <MudMenuItem Style="width:300px; background-color:aliceblue">
+                <MudText Typo="Typo.subtitle1">Karim Magdy</MudText>
+                <MudText Typo="Typo.caption">New Sales Report</MudText>
+            </MudMenuItem>
+            <MudMenuItem Style="width:300px; background-color:aliceblue">
+                <MudText Typo="Typo.subtitle1">Abdullah Acc</MudText>
+                <MudText Typo="Typo.caption">New Finance Report</MudText>
+            </MudMenuItem>
+            <MudMenuItem Style="width:300px; background-color:aliceblue">
+                <MudText Typo="Typo.subtitle1">System Admin</MudText>
+                <MudText Typo="Typo.caption">Roles Confirmation</MudText>
+            </MudMenuItem>
+        </MudPaper>
+        <MudText Align="Align.Center"> <MudLink Typo="Typo.body2" Href="#">All Messages</MudLink></MudText>
+    </MudMenu>
+    <MudBadge Style="position:absolute; margin-top:10px;margin-left:-10px" Overlap="true" Color="Color.Error" Content="3"></MudBadge>
+    @*@if (MessagesCounter > 0)
+    {
+        <span class="badge" data-badge="@(MessagesCounter)"></span>
+    }*@
+
+</div>
+
+@code {
+    private int _MessageCounter = 3;
+    public int MessagesCounter { get { return _MessageCounter; } set { _MessageCounter = value;StateHasChanged(); } }
+
+}

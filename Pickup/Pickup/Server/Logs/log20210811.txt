@@ -1,0 +1,25 @@
+2021-08-11 00:15:04.888 +02:00 [INF] Now listening on: https://localhost:5001
+2021-08-11 00:15:04.932 +02:00 [INF] Now listening on: http://localhost:5000
+2021-08-11 00:15:04.935 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-08-11 00:15:04.936 +02:00 [INF] Hosting environment: Development
+2021-08-11 00:15:04.936 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-08-11 00:15:55.468 +02:00 [INF] Now listening on: https://localhost:5001
+2021-08-11 00:15:55.499 +02:00 [INF] Now listening on: http://localhost:5000
+2021-08-11 00:15:55.503 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-08-11 00:15:55.503 +02:00 [INF] Hosting environment: Development
+2021-08-11 00:15:55.504 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-08-11 00:18:56.341 +02:00 [INF] Now listening on: https://localhost:5001
+2021-08-11 00:18:56.369 +02:00 [INF] Now listening on: http://localhost:5000
+2021-08-11 00:18:56.372 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-08-11 00:18:56.372 +02:00 [INF] Hosting environment: Development
+2021-08-11 00:18:56.372 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-08-11 00:20:20.939 +02:00 [INF] Now listening on: https://localhost:5001
+2021-08-11 00:20:20.975 +02:00 [INF] Now listening on: http://localhost:5000
+2021-08-11 00:20:20.977 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-08-11 00:20:20.977 +02:00 [INF] Hosting environment: Development
+2021-08-11 00:20:20.978 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-08-11 00:21:56.467 +02:00 [INF] Now listening on: https://localhost:5001
+2021-08-11 00:21:56.497 +02:00 [INF] Now listening on: http://localhost:5000
+2021-08-11 00:21:56.500 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-08-11 00:21:56.501 +02:00 [INF] Hosting environment: Development
+2021-08-11 00:21:56.501 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

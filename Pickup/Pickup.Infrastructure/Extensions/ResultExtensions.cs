@@ -1,0 +1,4 @@
+﻿
+namespace Pickup.Infrastructure.Extensions
+{
+}

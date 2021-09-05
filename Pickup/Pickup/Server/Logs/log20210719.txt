@@ -1,0 +1,38 @@
+2021-07-19 17:42:30.340 +02:00 [ERR] Failed executing DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [CustomerPlans] (
+    [Id] int NOT NULL IDENTITY,
+    [PlanName] nvarchar(max) NULL,
+    [CustomerId] int NOT NULL,
+    [BranchId] int NOT NULL,
+    [RemainingMealsCount] int NOT NULL,
+    [RemainingSnacksCount] int NOT NULL,
+    [Notes] nvarchar(max) NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [CreatedOn] datetime2 NOT NULL,
+    [LastModifiedBy] nvarchar(max) NULL,
+    [LastModifiedOn] datetime2 NULL,
+    CONSTRAINT [PK_CustomerPlans] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_CustomerPlans_Branches_BranchId] FOREIGN KEY ([BranchId]) REFERENCES [Branches] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_CustomerPlans_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE CASCADE
+);
+2021-07-19 17:44:30.968 +02:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Transactions] (
+    [Id] int NOT NULL IDENTITY,
+    [BranchId] int NOT NULL,
+    [CustomerId] int NOT NULL,
+    [CustomerPlanId] int NOT NULL,
+    [MealCount] int NOT NULL,
+    [SnackCount] int NOT NULL,
+    [RefNum] int NOT NULL,
+    [Notes] nvarchar(max) NULL,
+    [CreditBranchId] int NOT NULL,
+    [CreatedBy] nvarchar(max) NULL,
+    [CreatedOn] datetime2 NOT NULL,
+    [LastModifiedBy] nvarchar(max) NULL,
+    [LastModifiedOn] datetime2 NULL,
+    CONSTRAINT [PK_Transactions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Transactions_Branches_BranchId] FOREIGN KEY ([BranchId]) REFERENCES [Branches] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_Branches_CreditBranchId] FOREIGN KEY ([CreditBranchId]) REFERENCES [Branches] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_CustomerPlans_CustomerPlanId] FOREIGN KEY ([CustomerPlanId]) REFERENCES [CustomerPlans] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Transactions_Customers_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [Customers] ([Id]) ON DELETE CASCADE
+);

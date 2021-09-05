@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pickup.Server</name>
+    </assembly>
+    <members>
+        <member name="T:Pickup.Server.Extensions.MethodGroupAttribute">
+            <summary>
+            Forces method to be displayed within specified group, regardless of controller
+            </summary>
+        </member>
+        <member name="P:Pickup.Server.Extensions.MethodGroupAttribute.GroupName">
+            <summary>
+            Group name
+            </summary>
+        </member>
+        <member name="M:Pickup.Server.Extensions.MethodGroupAttribute.#ctor(System.String)">
+            <summary>
+            ctor
+            </summary>
+            <param name="groupName"></param>
+        </member>
+    </members>
+</doc>

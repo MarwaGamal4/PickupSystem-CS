@@ -1,0 +1,247 @@
+2021-07-14 14:23:48.395 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 14:23:48.467 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 14:23:48.475 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 14:23:48.475 +02:00 [INF] Hosting environment: Development
+2021-07-14 14:23:48.476 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 18:34:36.530 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 18:34:36.565 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 18:34:36.567 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 18:34:36.567 +02:00 [INF] Hosting environment: Development
+2021-07-14 18:34:36.568 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 18:35:44.706 +02:00 [INF] Seeded Administrator Role.
+2021-07-14 18:35:45.045 +02:00 [INF] Seeded User with Administrator Role.
+2021-07-14 18:35:45.052 +02:00 [INF] Seeded Basic Role.
+2021-07-14 18:35:45.068 +02:00 [INF] Seeded User with Basic Role.
+2021-07-14 18:35:45.191 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 18:35:45.193 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 18:35:45.201 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 18:35:45.201 +02:00 [INF] Hosting environment: Development
+2021-07-14 18:35:45.201 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 18:38:24.996 +02:00 [INF] Seeded Administrator Role.
+2021-07-14 18:38:25.328 +02:00 [INF] Seeded User with Administrator Role.
+2021-07-14 18:38:25.334 +02:00 [INF] Seeded Basic Role.
+2021-07-14 18:38:25.350 +02:00 [INF] Seeded User with Basic Role.
+2021-07-14 18:38:25.473 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 18:38:25.476 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 18:38:25.479 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 18:38:25.479 +02:00 [INF] Hosting environment: Development
+2021-07-14 18:38:25.479 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 18:46:30.955 +02:00 [INF] Seeded Administrator Role.
+2021-07-14 18:46:31.284 +02:00 [INF] Seeded User with Administrator Role.
+2021-07-14 18:46:31.293 +02:00 [INF] Seeded Basic Role.
+2021-07-14 18:46:31.309 +02:00 [INF] Seeded User with Basic Role.
+2021-07-14 18:46:31.435 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 18:46:31.437 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 18:46:31.439 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 18:46:31.440 +02:00 [INF] Hosting environment: Development
+2021-07-14 18:46:31.440 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 18:53:36.202 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 18:53:36.235 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 18:53:36.237 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 18:53:36.237 +02:00 [INF] Hosting environment: Development
+2021-07-14 18:53:36.237 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 18:58:36.920 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 18:58:36.954 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 18:58:36.956 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 18:58:36.957 +02:00 [INF] Hosting environment: Development
+2021-07-14 18:58:36.957 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 19:02:36.311 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 19:02:36.352 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 19:02:36.355 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 19:02:36.355 +02:00 [INF] Hosting environment: Development
+2021-07-14 19:02:36.356 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 19:46:51.332 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 19:46:51.367 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 19:46:51.369 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 19:46:51.369 +02:00 [INF] Hosting environment: Development
+2021-07-14 19:46:51.369 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 20:12:26.621 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 20:12:26.655 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 20:12:26.658 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 20:12:26.658 +02:00 [INF] Hosting environment: Development
+2021-07-14 20:12:26.658 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 20:19:21.328 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 20:19:21.373 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 20:19:21.376 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 20:19:21.377 +02:00 [INF] Hosting environment: Development
+2021-07-14 20:19:21.377 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 20:25:41.389 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 20:25:41.424 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 20:25:41.427 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 20:25:41.427 +02:00 [INF] Hosting environment: Development
+2021-07-14 20:25:41.427 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 20:38:32.357 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 20:38:32.382 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 20:38:32.385 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 20:38:32.385 +02:00 [INF] Hosting environment: Development
+2021-07-14 20:38:32.385 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 20:41:39.046 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 20:41:39.078 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 20:41:39.080 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 20:41:39.080 +02:00 [INF] Hosting environment: Development
+2021-07-14 20:41:39.081 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 20:44:32.768 +02:00 [INF] Application is shutting down...
+2021-07-14 22:11:48.571 +02:00 [INF] Now listening on: https://localhost:5001
+2021-07-14 22:11:48.607 +02:00 [INF] Now listening on: http://localhost:5000
+2021-07-14 22:11:48.611 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-07-14 22:11:48.611 +02:00 [INF] Hosting environment: Development
+2021-07-14 22:11:48.611 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-07-14 22:13:14.116 +02:00 [ERR] Failed executing DbCommand (12ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = DateTimeOffset), @p16='?' (Size = 256), @p17='?' (Size = 256), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (DbType = Boolean), @p21='?' (Size = 8000) (DbType = AnsiString), @p22='?' (Size = 4000), @p23='?' (DbType = DateTime2), @p24='?' (Size = 4000), @p25='?' (DbType = Boolean), @p26='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Identity].[Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [CreatedBy], [CreatedOn], [DeletedOn], [Email], [EmailConfirmed], [FirstName], [IsActive], [IsDeleted], [LastModifiedBy], [LastModifiedOn], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [ProfilePictureDataUrl], [RefreshToken], [RefreshTokenExpiryTime], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+2021-07-14 22:13:14.125 +02:00 [ERR] Failed executing DbCommand (28ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = DateTimeOffset), @p16='?' (Size = 256), @p17='?' (Size = 256), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (DbType = Boolean), @p21='?' (Size = 8000) (DbType = AnsiString), @p22='?' (Size = 4000), @p23='?' (DbType = DateTime2), @p24='?' (Size = 4000), @p25='?' (DbType = Boolean), @p26='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Identity].[Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [CreatedBy], [CreatedOn], [DeletedOn], [Email], [EmailConfirmed], [FirstName], [IsActive], [IsDeleted], [LastModifiedBy], [LastModifiedOn], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [ProfilePictureDataUrl], [RefreshToken], [RefreshTokenExpiryTime], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+2021-07-14 22:13:14.137 +02:00 [ERR] Failed executing DbCommand (40ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (DbType = DateTimeOffset), @p16='?' (Size = 256), @p17='?' (Size = 256), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (DbType = Boolean), @p21='?' (Size = 8000) (DbType = AnsiString), @p22='?' (Size = 4000), @p23='?' (DbType = DateTime2), @p24='?' (Size = 4000), @p25='?' (DbType = Boolean), @p26='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Identity].[Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [CreatedBy], [CreatedOn], [DeletedOn], [Email], [EmailConfirmed], [FirstName], [IsActive], [IsDeleted], [LastModifiedBy], [LastModifiedOn], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [ProfilePictureDataUrl], [RefreshToken], [RefreshTokenExpiryTime], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26);
+2021-07-14 22:13:14.177 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'Pickup.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'Identity.Users' with unique index 'UserNameIndex'. The duplicate key value is (AHMED4122).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:5fcbc743-2558-4d89-9d59-4df3df1dca67
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'Identity.Users' with unique index 'UserNameIndex'. The duplicate key value is (AHMED4122).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:5fcbc743-2558-4d89-9d59-4df3df1dca67
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2021-07-14 22:13:14.177 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'Pickup.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'Identity.Users' with unique index 'UserNameIndex'. The duplicate key value is (AHMED4122).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7243cd93-ed39-4b36-97ab-57752f9a3975
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'Identity.Users' with unique index 'UserNameIndex'. The duplicate key value is (AHMED4122).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:7243cd93-ed39-4b36-97ab-57752f9a3975
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2021-07-14 22:13:14.177 +02:00 [ERR] An exception occurred in the database while saving changes for context type 'Pickup.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'Identity.Users' with unique index 'UserNameIndex'. The duplicate key value is (AHMED4122).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:9e863698-a55c-4c93-b58e-ab20eb3781d2
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'Identity.Users' with unique index 'UserNameIndex'. The duplicate key value is (AHMED4122).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__277_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:9e863698-a55c-4c93-b58e-ab20eb3781d2
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)

@@ -1,0 +1,25 @@
+﻿@page "/home"
+@page "/"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Home> _localizer
+<MudContainer>
+    <MudGrid>
+        <MudItem xs="12" sm="12" md="12">
+            <div class="d-flex justify-center">
+                <MudIcon Icon="@CustomIcons.Lowcalories" Color="Color.Primary" Size="Size.Large" ViewBox="0 35 1050 830" Style="width: 650px; height: 400px; margin-top:0px; margin-left:0px " />
+                @*<img src="images/Logo.png" alt="Logo" width="300px">*@
+                @*<LowcaloriesLogo Color="black" SizeW="1200"/>*@
+                    @*<LCLogo />*@
+            </div>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="12">
+         <MudText  Align="Align.Center" Typo="Typo.h6">Pickup System v1.0</MudText>
+            <MudText Align="Align.Center" Typo="Typo.h5" Class="smaller">Welcome To Lowcalories Pickup System, Made With Love By <MudLink Typo="Typo.h5" Href="http://nsyssol.com/">New System Solution</MudLink></MudText>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="12">
+            <MudText Align="Align.Center">
+               If You Faced Any Issue Fell Free To <MudLink Href="http://nsyssol.com/#/contact-us">Contact</MudLink> With Us 
+            </MudText>
+        </MudItem>
+        <div style="margin:50px"></div>
+    </MudGrid>
+</MudContainer>

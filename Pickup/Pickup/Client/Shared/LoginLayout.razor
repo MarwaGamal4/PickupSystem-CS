@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+
+
+<MudSnackbarProvider />
+
+<MudContainer  MaxWidth="MaxWidth.Small" Class="d-flex align-center" Style="height: 100vh;" >
+    <div class="d-flex flex-column mud-width-full justify-center">
+        <MudPaper Square="true" Elevation="25" Class="pa-6 align-center" Width="100%" MaxWidth="500px" Style="text-align: -webkit-center;"  >
+            @*<MudIcon Icon="@Icons.Custom.Brands.MudBlazor" Size="Size.Large" Style="width:100px; height:100px;" />*@
+            <img src="images/Logo.png" alt="Logo" style="width:250px; height:200px;">
+            <MudText>Pickup System</MudText>
+            @Body
+        </MudPaper>
+        <MudAlert Severity="Severity.Info" Class="mt-8 mud-width-full" Style="max-width:500px;" Elevation="25">Authentication is required, Please sign in.</MudAlert>
+    </div>
+</MudContainer>
+
+@code {
+   
+}
