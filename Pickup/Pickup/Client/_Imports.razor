@@ -24,6 +24,7 @@
 @using Pickup.Client.Infrastructure.Managers.Catalog.Product
 @using Pickup.Client.Infrastructure.Managers.Catalog.Brand
 @using Pickup.Client.Infrastructure.Managers.Branch
+@using Pickup.Client.Infrastructure.Managers.DeliveryRPT
 @using Pickup.Client.Infrastructure.Managers.Dashboard
 @using Pickup.Client.Infrastructure.Managers.Communication
 @using Pickup.Client.Infrastructure.Managers.Audit
@@ -68,3 +69,4 @@
 @inject ILocalStorageService _localStorage;
 @inject IJSRuntime _jsRuntime;
 @inject IDocumentManager _documentManager;
+@inject IDeliveryRptManager _deliveryManager 
