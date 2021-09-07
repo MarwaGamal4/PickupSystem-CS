@@ -27,9 +27,15 @@ namespace Pickup.Infrastructure.Repositories
                 line.DeliveryNote = Note ?? "";
                 line.DriverLatitude = LAT ?? "";
                 line.DriverLongitude = LONG ?? "";
+                line.ActionTime = DateTime.Now;
                 return await _dbContext.SaveChangesAsync();
             }
               return await Task.FromResult<int>(0);
+        }
+
+        public async Task<DeliveryRPT> FindById(int id)
+        {
+            return await _dbContext.DeliveryRpt.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<List<DeliveryRPT>> GetRPTByBranch(string BranchName)

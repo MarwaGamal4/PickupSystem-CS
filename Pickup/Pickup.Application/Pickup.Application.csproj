@@ -27,7 +27,6 @@
     <Folder Include="Features\Customers\Commands\Delete\" />
     <Folder Include="Features\Customers\Queries\GetAll\" />
     <Folder Include="Features\Customers\Queries\GetById\" />
-    <Folder Include="Features\DeliveryRpt\Commands\" />
     <Folder Include="Features\DeliveryRpt\Queries\GetById\" />
     <Folder Include="Features\Invoices\Commands\AddEdit\" />
     <Folder Include="Features\Invoices\Commands\Delete\" />

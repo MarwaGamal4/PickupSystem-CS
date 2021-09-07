@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pickup.Application.Features.DeliveryRpt.Commands.SetDeliveryStatus;
 using Pickup.Application.Features.DeliveryRpt.Queries.GetAll;
 using Swashbuckle.AspNetCore.Annotations;
 using System;
@@ -25,6 +26,13 @@ namespace Pickup.Server.Controllers.v1
         {
             var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { BranchName = branchName,date=date });
             return Ok(rpt);
+        }
+
+
+        [HttpPost("Driver/DeliveryState")]
+        public async Task<IActionResult> Post(SetStatusCommand command)
+        {
+            return Ok(await _mediator.Send(command));
         }
 
         [HttpGet("branch/{branchName}/{dateFrom}/{dateTo}")]

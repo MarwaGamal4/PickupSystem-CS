@@ -3,12 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Remove="Shared\Components\BlazorHeroLogo2.razor" />
-    <Content Remove="wwwroot\service-worker.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Pickup.Shared.Wrapper
@@ -100,6 +101,11 @@ namespace Pickup.Shared.Wrapper
         public new static Task<Result<T>> FailAsync(List<string> messages)
         {
             return Task.FromResult(Fail(messages));
+        }
+
+        public static Task<Result<int>> FailAsync(object p)
+        {
+            throw new NotImplementedException();
         }
 
         public new static Result<T> Success()
