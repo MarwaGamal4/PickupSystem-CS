@@ -38,41 +38,59 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAll
         {
             if (request.BranchName != null)
             {
-                if (request.date != null)
+                //if (request.date != null)
+                //{
+                //    var RptListDate = await _rptRepository.GetRPTByBranch(request.BranchName, request.date);
+                //    var mappedRptDate = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDate);
+                //    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDate);
+                //}
+                //else if (request.dateFrom != null && request.dateTo != null)
+                //{
+                //    var RptListDateRange = await _rptRepository.GetRPTByBranch(request.BranchName, request.dateFrom,request.dateTo);
+                //    var mappedRptDateRange = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDateRange);
+                //    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDateRange);
+                //}
+                //var RptList = await _rptRepository.GetRPTByBranch(request.BranchName);
+                //var mappedRpt = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptList);
+                //return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRpt);
+                if (request.DriverName != null)
                 {
-                    var RptListDate = await _rptRepository.GetRPTByBranch(request.BranchName, request.date);
-                    var mappedRptDate = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDate);
-                    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDate);
+                    if (request.date != null)
+                    {
+                        var RptListDate = await _rptRepository.GetRPTByDriver(request.DriverName, request.BranchName, request.date);
+                        var mappedRptDate = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDate);
+                        return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDate);
+                    }
+                    else if (request.dateFrom != null && request.dateTo != null)
+                    {
+                        var RptListDateRange = await _rptRepository.GetRPTByDriver(request.DriverName, request.BranchName, request.dateFrom, request.dateTo);
+                        var mappedRptDateRange = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDateRange);
+                        return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDateRange);
+                    }
+                    var RptList = await _rptRepository.GetRPTByDriver(request.DriverName, request.BranchName);
+                    var mappedRpt = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptList);
+                    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRpt);
                 }
-                else if (request.dateFrom != null && request.dateTo != null)
-                {
-                    var RptListDateRange = await _rptRepository.GetRPTByBranch(request.BranchName, request.dateFrom,request.dateTo);
-                    var mappedRptDateRange = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDateRange);
-                    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDateRange);
-                }
-                var RptList = await _rptRepository.GetRPTByBranch(request.BranchName);
-                var mappedRpt = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptList);
-                return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRpt);
 
             }
-            else if (request.DriverName != null)
-            {
-                if (request.date != null)
-                {
-                    var RptListDate = await _rptRepository.GetRPTByDriver(request.DriverName, request.date);
-                    var mappedRptDate = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDate);
-                    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDate);
-                }
-                else if (request.dateFrom != null && request.dateTo != null)
-                {
-                    var RptListDateRange = await _rptRepository.GetRPTByDriver(request.DriverName, request.dateFrom, request.dateTo);
-                    var mappedRptDateRange = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDateRange);
-                    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDateRange);
-                }
-                var RptList = await _rptRepository.GetRPTByDriver(request.DriverName);
-                var mappedRpt = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptList);
-                return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRpt);
-            }
+            //else if (request.DriverName != null)
+            //{
+            //    if (request.date != null)
+            //    {
+            //        var RptListDate = await _rptRepository.GetRPTByDriver(request.DriverName, request.date);
+            //        var mappedRptDate = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDate);
+            //        return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDate);
+            //    }
+            //    else if (request.dateFrom != null && request.dateTo != null)
+            //    {
+            //        var RptListDateRange = await _rptRepository.GetRPTByDriver(request.DriverName, request.dateFrom, request.dateTo);
+            //        var mappedRptDateRange = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptListDateRange);
+            //        return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRptDateRange);
+            //    }
+            //    var RptList = await _rptRepository.GetRPTByDriver(request.DriverName);
+            //    var mappedRpt = _mapper.Map<List<GetAllDeliveryRptResponse>>(RptList);
+            //    return await Result<List<GetAllDeliveryRptResponse>>.SuccessAsync(mappedRpt);
+            //}
             else if (request.CID != null) 
             {
                 if (request.date != null)

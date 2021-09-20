@@ -12,9 +12,9 @@ namespace Pickup.Application.Interfaces.Repositories
         Task<List<DeliveryRPT>> GetRPTByBranch(string BranchName);
         Task<List<DeliveryRPT>> GetRPTByBranch(string BranchName , DateTime? date);
         Task<List<DeliveryRPT>> GetRPTByBranch(string BranchName, DateTime? dateFrom , DateTime? dateTo);
-        Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName);
-        Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, DateTime? date);
-        Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, DateTime? dateFrom, DateTime? dateTo);
+        Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, string BranchName);
+        Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName,string BranchName, DateTime? date);
+        Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, string BranchName, DateTime? dateFrom, DateTime? dateTo);
         Task<List<DeliveryRPT>> GetRPTByCID(int? CID);
         Task<List<DeliveryRPT>> GetRPTByCID(int? CID, DateTime? date);
         Task<List<DeliveryRPT>> GetRPTByCID(int? CID, DateTime? dateFrom, DateTime? dateTo);

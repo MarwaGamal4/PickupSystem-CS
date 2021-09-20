@@ -43,22 +43,22 @@ namespace Pickup.Server.Controllers.v1
             return Ok(rpt);
         }
 
-        [HttpGet("Driver/{DriverhName}")]
-        public async Task<IActionResult> GetByDriverhName(string DriverhName)
+        [HttpGet("Driver/{branchName}/{DriverhName}")]
+        public async Task<IActionResult> GetByDriverhName(string DriverhName , string branchName)
         {
-            var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { DriverName = DriverhName });
+            var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { DriverName = DriverhName,BranchName = branchName });
             return Ok(rpt);
         }
-        [HttpGet("Driver/{DriverhName}/{date}")]
-        public async Task<IActionResult> GetByDriverhName(string DriverhName ,  DateTime date)
+        [HttpGet("Driver/{branchName}/{DriverhName}/{date}")]
+        public async Task<IActionResult> GetByDriverhName(string DriverhName , string branchName,  DateTime date)
         {
-            var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { DriverName = DriverhName, date = date });
+            var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { DriverName = DriverhName, date = date, BranchName = branchName });
             return Ok(rpt);
         }
-        [HttpGet("Driver/{DriverhName}/{dateFrom}/{dateTo}")]
-        public async Task<IActionResult> GetByDriverhName(string DriverhName, DateTime dateFrom,  DateTime dateTo)
+        [HttpGet("Driver/{branchName}/{DriverhName}/{dateFrom}/{dateTo}")]
+        public async Task<IActionResult> GetByDriverhName(string DriverhName, string branchName, DateTime dateFrom,  DateTime dateTo)
         {
-            var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { DriverName = DriverhName, dateFrom = dateFrom, dateTo = dateTo });
+            var rpt = await _mediator.Send(new GetAllDeliveryRptQuery() { DriverName = DriverhName, dateFrom = dateFrom, dateTo = dateTo , BranchName = branchName });
             return Ok(rpt);
         }
 

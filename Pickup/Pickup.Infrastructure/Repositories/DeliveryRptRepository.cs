@@ -83,19 +83,19 @@ namespace Pickup.Infrastructure.Repositories
             return await _dbContext.DeliveryRpt.Where(c => c.CustomerPhone == CustomerPhone && c.PrintDate >= dateFrom && c.PrintDate <= dateTo).OrderBy(x => x.PrintDate).ToListAsync();
         }
 
-        public async Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName)
+        public async Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, string BranchName)
         {
-            return await _dbContext.DeliveryRpt.Where(d => d.DeliveryName == DriverName).OrderBy(x => x.PrintDate).ToListAsync();
+            return await _dbContext.DeliveryRpt.Where(d => d.DeliveryName == DriverName && d.BranchName == BranchName).OrderBy(x => x.PrintDate).ToListAsync();
         }
 
-        public async Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, DateTime? date)
+        public async Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, string BranchName, DateTime? date)
         {
-            return await _dbContext.DeliveryRpt.Where(d => d.DeliveryName == DriverName && d.PrintDate == date).OrderBy(x => x.PrintDate).ToListAsync();
+            return await _dbContext.DeliveryRpt.Where(d => d.DeliveryName == DriverName && d.BranchName == BranchName && d.PrintDate == date).OrderBy(x => x.PrintDate).ToListAsync();
         }
 
-        public async Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, DateTime? dateFrom, DateTime? dateTo)
+        public async Task<List<DeliveryRPT>> GetRPTByDriver(string DriverName, string BranchName, DateTime? dateFrom, DateTime? dateTo)
         {
-            return await _dbContext.DeliveryRpt.Where(d => d.DeliveryName == DriverName && d.PrintDate >= dateFrom && d.PrintDate <= dateTo).OrderBy(x => x.PrintDate).ToListAsync();
+            return await _dbContext.DeliveryRpt.Where(d => d.DeliveryName == DriverName && d.BranchName == BranchName && d.PrintDate >= dateFrom && d.PrintDate <= dateTo).OrderBy(x => x.PrintDate).ToListAsync();
         }
     }
 }
