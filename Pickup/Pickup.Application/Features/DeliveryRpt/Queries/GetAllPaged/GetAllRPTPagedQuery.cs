@@ -24,8 +24,8 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
         public string Branch { get; set; }
         public string Driver { get; set; }
         public int? CID { get; set; }
-        public int? Status { get; set; }
-        public GetAllRPTPagedQuery(int pageNumber, int pageSize, string searchString, DateTime? from , DateTime? to , string branch , string driver , int? cid , int? status)
+        public int?[] Status { get; set; }
+        public GetAllRPTPagedQuery(int pageNumber, int pageSize, string searchString, DateTime? from , DateTime? to , string branch , string driver , int? cid , int?[] status)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
@@ -58,7 +58,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
                 Id = e.Id,
                 DeliveryName = request.Driver?? e.DeliveryName,
                 DeliveryNote = e.DeliveryNote,
-                DeliveryStatus = request.Status?? e.DeliveryStatus,
+                DeliveryStatus = e.DeliveryStatus,
                 DriverLatitude = e.DriverLatitude,
                 DriverLongitude = e.DriverLongitude,
                 PrintDate = e.PrintDate,
@@ -69,7 +69,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
                 CustomerName = e.CustomerName,
                 CustomerPhone = e.CustomerPhone
             };
-            var RptFilterSpec = new DeliveryRPTFilterSpecification(request.SearchString);
+            var RptFilterSpec = new DeliveryRPTFilterSpecification(request.SearchString, request.Status);
 
             if (request.From != null && request.To == null)
             {
