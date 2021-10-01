@@ -17,7 +17,10 @@ namespace Pickup.Infrastructure.Repositories
         {
             _dbContext = dbContext;
         }
-
+        public async Task<IQueryable<DeliveryRPT>> getAll() 
+        {
+            return  _dbContext.DeliveryRpt.AsQueryable();
+        }
         public async Task<int> ChangeDeliverdState(int LineId, int DeliveryStatus, string Note, string LAT, string LONG)
         {
             var line = await _dbContext.DeliveryRpt.FirstOrDefaultAsync(x => x.Id == LineId);

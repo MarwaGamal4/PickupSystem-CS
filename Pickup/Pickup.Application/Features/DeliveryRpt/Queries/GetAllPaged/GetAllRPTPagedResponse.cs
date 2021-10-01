@@ -1,17 +1,14 @@
-﻿using Pickup.Domain.Contracts;
-using Pickup.Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pickup.Application.Models
+namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
 {
-   public class DeliveryRPT :  AuditableEntity
+   public class GetAllRPTPagedResponse
     {
-
+        public int Id { get; set; }
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string CustomerAddress { get; set; }
@@ -24,6 +21,5 @@ namespace Pickup.Application.Models
         public DateTime? ActionTime { get; set; }
         public string DeliveryNote { get; set; }
         public int DeliveryStatus { get; set; }
-
     }
 }
