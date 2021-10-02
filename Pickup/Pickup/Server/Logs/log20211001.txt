@@ -208,3 +208,4 @@ Error Number:10060,State:0,Class:20
 2021-10-01 17:13:58.813 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2021-10-01 17:13:58.813 +02:00 [INF] Hosting environment: Development
 2021-10-01 17:13:58.814 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2021-10-01 17:33:15.348 +02:00 [INF] Application is shutting down...

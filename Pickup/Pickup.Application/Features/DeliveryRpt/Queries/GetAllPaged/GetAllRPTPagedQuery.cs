@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using LinqKit;
+using MediatR;
 using Pickup.Application.Extensions;
 using Pickup.Application.Interfaces.Repositories;
 using Pickup.Application.Models;
@@ -53,10 +54,10 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
         public async Task<PaginatedResult<GetAllRPTPagedResponse>> Handle(GetAllRPTPagedQuery request, CancellationToken cancellationToken)
         {
 
-            Expression<Func<DeliveryRPT, GetAllRPTPagedResponse>> expression = e => new GetAllRPTPagedResponse
+            Expression<Func<DeliveryRPT, GetAllRPTPagedResponse>> expression = (e) => new GetAllRPTPagedResponse
             {
                 Id = e.Id,
-                DeliveryName = request.Driver?? e.DeliveryName,
+                DeliveryName =e.DeliveryName   ,
                 DeliveryNote = e.DeliveryNote,
                 DeliveryStatus = e.DeliveryStatus,
                 DriverLatitude = e.DriverLatitude,
@@ -64,48 +65,32 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
                 PrintDate = e.PrintDate,
                 ActionTime = e.ActionTime,
                 CustomerAddress = e.CustomerAddress,
-                BranchName = request.Branch?? e.BranchName,
-                CustomerId = request.CID?? e.CustomerId,
+                BranchName = e.BranchName,
+                CustomerId =  e.CustomerId,
                 CustomerName = e.CustomerName,
                 CustomerPhone = e.CustomerPhone
             };
-            var RptFilterSpec = new DeliveryRPTFilterSpecification(request.SearchString, request.Status);
-
+            
+           
+            var RptFilterSpec = new DeliveryRPTFilterSpecification(request.SearchString);
+            if (request.Branch != null)
+            {
+                RptFilterSpec.Criteria = RptFilterSpec.Criteria.And(x => x.BranchName == request.Branch);
+            }
+            if (request.Driver != null)
+            {
+                RptFilterSpec.Criteria = RptFilterSpec.Criteria.And(x => x.DeliveryName == request.Driver);
+            }
+            if (request.CID != null)
+            {
+                RptFilterSpec.Criteria = RptFilterSpec.Criteria.And(x => x.CustomerId == request.CID);
+            }
+            if (request.Status.Length>0)
+            {
+                    RptFilterSpec.Criteria = RptFilterSpec.Criteria.And(x=> request.Status.Contains(x.DeliveryStatus));
+            }
             if (request.From != null && request.To == null)
             {
-                //if (request.Branch != null && request.Driver == null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate == request.From && x.BranchName == request.Branch)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-                //if (request.Branch != null && request.Driver != null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate == request.From && x.BranchName == request.Branch && x.DeliveryName == request.Driver)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-                //if (request.CID != null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate == request.From && x.CustomerId == (int)request.CID)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-                //if (request.Driver != null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate == request.From && x.DeliveryName == request.Driver)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-
                 var dataa = await _unitOfWork.Repository<DeliveryRPT>().Entities
                .Specify(RptFilterSpec)
                .Select(expression).Where(x => x.PrintDate == request.From)
@@ -114,81 +99,13 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
             }
             else if (request.From != null && request.To != null)
             {
-                //if (request.Branch != null && request.Driver == null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To && x.BranchName == request.Branch)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-                //if (request.Branch != null && request.Driver != null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To && x.BranchName == request.Branch && x.DeliveryName == request.Driver)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-                //if (request.CID != null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To && x.CustomerId == request.CID)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-                //if (request.Driver != null)
-                //{
-                //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-                //        .Specify(RptFilterSpec)
-                //        .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To && x.DeliveryName == request.Driver)
-                //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-                //    return dataBranch;
-                //}
-
+               
                 var dataa = await _unitOfWork.Repository<DeliveryRPT>().Entities
                     .Specify(RptFilterSpec)
                     .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To)
                     .ToPaginatedListAsync(request.PageNumber, request.PageSize);
                 return dataa;
             }
-
-            //if (request.Branch != null && request.Driver == null)
-            //{
-            //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-            //        .Specify(RptFilterSpec)
-            //        .Select(expression).Where(x => x.BranchName == request.Branch)
-            //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-            //    return dataBranch;
-            //}
-            //if (request.Branch != null && request.Driver != null)
-            //{
-            //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-            //        .Specify(RptFilterSpec)
-            //        .Select(expression).Where(x => x.BranchName == request.Branch && x.DeliveryName == request.Driver)
-            //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-            //    return dataBranch;
-            //}
-            //if (request.CID != null)
-            //{
-            //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-            //        .Specify(RptFilterSpec)
-            //        .Select(expression).Where(x => x.CustomerId == (int)request.CID)
-            //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-            //    return dataBranch;
-            //}
-            //if (request.Driver != null)
-            //{
-            //    var dataBranch = await _unitOfWork.Repository<DeliveryRPT>().Entities
-            //        .Specify(RptFilterSpec)
-            //        .Select(expression).Where(x => x.DeliveryName == request.Driver)
-            //        .ToPaginatedListAsync(request.PageNumber, request.PageSize);
-            //    return dataBranch;
-            //}
-
-
-
 
             var data = await _unitOfWork.Repository<DeliveryRPT>().Entities
                .Specify(RptFilterSpec)
