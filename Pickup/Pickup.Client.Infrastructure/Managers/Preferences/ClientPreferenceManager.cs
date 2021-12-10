@@ -34,6 +34,14 @@ namespace Pickup.Client.Infrastructure.Managers.Preferences
             if (preference != null)
             {
                 preference.LanguageCode = languageCode;
+                if (languageCode == "ar-AR")
+                {
+                    preference.IsRTL = true;
+                }
+                else
+                {
+                    preference.IsRTL = false;
+                }
                 await SetPreference(preference);
             }
         }
