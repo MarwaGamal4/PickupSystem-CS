@@ -24,6 +24,7 @@ namespace Pickup.Application.Models
         public DateTime? ActionTime { get; set; }
         public string DeliveryNote { get; set; }
         public int DeliveryStatus { get; set; }
+        public string sender_from_driver { get; set; }
 
     }
 }

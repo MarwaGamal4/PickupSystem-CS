@@ -21,7 +21,7 @@ namespace Pickup.Infrastructure.Repositories
         {
             return  _dbContext.DeliveryRpt.AsQueryable();
         }
-        public async Task<int> ChangeDeliverdState(int LineId, int DeliveryStatus, string Note, string LAT, string LONG)
+        public async Task<int> ChangeDeliverdState(int LineId, int DeliveryStatus, string Note, string LAT, string LONG, string Driver)
         {
             var line = await _dbContext.DeliveryRpt.FirstOrDefaultAsync(x => x.Id == LineId);
             if (line != null)
@@ -31,6 +31,7 @@ namespace Pickup.Infrastructure.Repositories
                 line.DriverLatitude = LAT ?? "";
                 line.DriverLongitude = LONG ?? "";
                 line.ActionTime = DateTime.Now;
+                line.sender_from_driver = Driver ?? "";
                 return await _dbContext.SaveChangesAsync();
             }
               return await Task.FromResult<int>(0);

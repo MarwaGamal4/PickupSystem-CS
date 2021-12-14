@@ -22,6 +22,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Commands.SetDeliveryStatus
         public string deliveryNote { get; set; }
         [Required]
         public int deliveryStatus { get; set; }
+        public string sender_from_driver { get; set; }
 
     }
 
@@ -56,7 +57,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Commands.SetDeliveryStatus
                     return await Result<int>.FailAsync("You Must Provide You Location");
                 }
             }
-            var result = await _rptRepository.ChangeDeliverdState(request.id, request.deliveryStatus, request.deliveryNote, request.driverLatitude, request.driverLongitude);
+            var result = await _rptRepository.ChangeDeliverdState(request.id, request.deliveryStatus, request.deliveryNote, request.driverLatitude, request.driverLongitude,request.sender_from_driver);
             return await Result<int>.SuccessAsync(result,"Status Changed Successfuly");
         }
     }

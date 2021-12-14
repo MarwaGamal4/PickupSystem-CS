@@ -22,7 +22,7 @@ namespace Pickup.Application.Interfaces.Repositories
         Task<List<DeliveryRPT>> GetRPTByCustomerPhone(string CustomerPhone, DateTime? date);
         Task<List<DeliveryRPT>> GetRPTByCustomerPhone(string CustomerPhone, DateTime? dateFrom, DateTime? dateTo);
         Task<DeliveryRPT> FindById(int id);
-        Task<int> ChangeDeliverdState(int LineId , int DeliveryStatus ,string Note,string LAT , string LONG);
+        Task<int> ChangeDeliverdState(int LineId , int DeliveryStatus ,string Note,string LAT , string LONG, string Driver);
 
     }
 }
