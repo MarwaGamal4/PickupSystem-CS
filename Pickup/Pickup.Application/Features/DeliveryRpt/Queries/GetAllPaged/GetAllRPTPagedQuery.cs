@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
 {
-   public class GetAllRPTPagedQuery : IRequest<PaginatedResult<GetAllRPTPagedResponse>>
+   public class GetAllRPTPagedQuery : IRequest<CustomPagingResult<GetAllRPTPagedResponse>>
     {
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
@@ -26,7 +26,8 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
         public string Driver { get; set; }
         public int? CID { get; set; }
         public int?[] Status { get; set; }
-        public GetAllRPTPagedQuery(int pageNumber, int pageSize, string searchString, DateTime? from , DateTime? to , string branch , string driver , int? cid , int?[] status)
+        public string sender_from_driver { get; set; }
+        public GetAllRPTPagedQuery(int pageNumber, int pageSize, string searchString, DateTime? from , DateTime? to , string branch , string driver , int? cid , int?[] status , string Sender_from_driver)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;
@@ -37,11 +38,12 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
             From = from;
             To = to;
             Status = status;
+            sender_from_driver = Sender_from_driver;
         }
 
 
     }
-    public class GetAllRPTPagedQueryHandler : IRequestHandler<GetAllRPTPagedQuery, PaginatedResult<GetAllRPTPagedResponse>>
+    public class GetAllRPTPagedQueryHandler : IRequestHandler<GetAllRPTPagedQuery, CustomPagingResult<GetAllRPTPagedResponse>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IDeliveryRptRepository _rptRepository;
@@ -51,7 +53,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
             _rptRepository = rptRepository;
         }
 
-        public async Task<PaginatedResult<GetAllRPTPagedResponse>> Handle(GetAllRPTPagedQuery request, CancellationToken cancellationToken)
+        public async Task<CustomPagingResult<GetAllRPTPagedResponse>> Handle(GetAllRPTPagedQuery request, CancellationToken cancellationToken)
         {
 
             Expression<Func<DeliveryRPT, GetAllRPTPagedResponse>> expression = (e) => new GetAllRPTPagedResponse
@@ -68,7 +70,9 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
                 BranchName = e.BranchName,
                 CustomerId =  e.CustomerId,
                 CustomerName = e.CustomerName,
-                CustomerPhone = e.CustomerPhone
+                CustomerPhone = e.CustomerPhone,
+                sender_from_driver = e.sender_from_driver
+                
             };
             
            
@@ -89,12 +93,16 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
             {
                     RptFilterSpec.Criteria = RptFilterSpec.Criteria.And(x=> request.Status.Contains(x.DeliveryStatus));
             }
+            if (!string.IsNullOrEmpty(request.sender_from_driver))
+            {
+                RptFilterSpec.Criteria = RptFilterSpec.Criteria.And(x => x.sender_from_driver == request.sender_from_driver);
+            }
             if (request.From != null && request.To == null)
             {
                 var dataa = await _unitOfWork.Repository<DeliveryRPT>().Entities
                .Specify(RptFilterSpec)
                .Select(expression).Where(x => x.PrintDate == request.From)
-               .ToPaginatedListAsync(request.PageNumber, request.PageSize);
+               .ToCustomPaginatedListAsync(request.PageNumber, request.PageSize);
                 return dataa;
             }
             else if (request.From != null && request.To != null)
@@ -103,14 +111,14 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
                 var dataa = await _unitOfWork.Repository<DeliveryRPT>().Entities
                     .Specify(RptFilterSpec)
                     .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To)
-                    .ToPaginatedListAsync(request.PageNumber, request.PageSize);
+                    .ToCustomPaginatedListAsync(request.PageNumber, request.PageSize);
                 return dataa;
             }
 
             var data = await _unitOfWork.Repository<DeliveryRPT>().Entities
                .Specify(RptFilterSpec)
                .Select(expression)
-               .ToPaginatedListAsync(request.PageNumber, request.PageSize);
+               .ToCustomPaginatedListAsync(request.PageNumber, request.PageSize);
             return data;
 
         }

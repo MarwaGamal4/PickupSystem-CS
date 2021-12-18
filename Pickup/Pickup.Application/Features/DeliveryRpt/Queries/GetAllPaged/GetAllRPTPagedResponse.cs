@@ -21,5 +21,6 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
         public DateTime? ActionTime { get; set; }
         public string DeliveryNote { get; set; }
         public int DeliveryStatus { get; set; }
+        public string sender_from_driver { get; set; }
     }
 }
