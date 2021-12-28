@@ -16,5 +16,6 @@ namespace Pickup.Server.Services
 
         public string UserId { get; }
         public List<KeyValuePair<string, string>> Claims { get; set; }
+
     }
 }

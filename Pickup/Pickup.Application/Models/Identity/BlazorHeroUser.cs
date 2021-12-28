@@ -5,6 +5,7 @@ using Pickup.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using static Pickup.Shared.Constants.User.UserConstants;
 
 namespace Pickup.Application.Models.Identity
 {
@@ -30,6 +31,7 @@ namespace Pickup.Application.Models.Identity
         public bool IsActive { get; set; }
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
+        public UserType UserType { get; set; }
         public virtual ICollection<ChatHistory> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory> ChatHistoryToUsers { get; set; }
         public virtual ICollection<Branch> Branches { get; set; }

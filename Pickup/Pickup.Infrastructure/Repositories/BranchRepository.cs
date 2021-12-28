@@ -13,10 +13,12 @@ namespace Pickup.Infrastructure.Repositories
     {
         private readonly IRepositoryAsync<Branch> _repository;
         private readonly BlazorHeroContext _dbContext;
-        public BranchRepository(IRepositoryAsync<Branch> repository, BlazorHeroContext dbContext)
+        private readonly ERBSYSTEMContext _ErpContext;
+        public BranchRepository(IRepositoryAsync<Branch> repository, BlazorHeroContext dbContext , ERBSYSTEMContext eRBSYSTEMContext)
         {
             _repository = repository;
             _dbContext = dbContext;
+            _ErpContext = eRBSYSTEMContext;
         }
 
         public async Task<int> AddBranchesToUserh(string UserId, IList<Branch> BranchesList)

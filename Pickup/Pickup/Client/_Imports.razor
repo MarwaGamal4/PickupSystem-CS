@@ -29,6 +29,7 @@
 @using Pickup.Client.Infrastructure.Managers.Communication
 @using Pickup.Client.Infrastructure.Managers.Audit
 @using Pickup.Client.Infrastructure.Managers.Document
+@using Pickup.Client.Infrastructure.Managers.Plans
 
 @*Shared Libraries*@
 @using Pickup.Shared.Constants.Permission
@@ -63,6 +64,7 @@
 @inject IProductManager _productManager
 @inject IBrandManager _brandManager
 @inject IBranchManager _branchManager
+@inject IPlanManager _planManager
 @inject IDashboardManager _dashboardManager
 @inject IChatManager _chatManager
 @inject IAuditManager _auditManager

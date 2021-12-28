@@ -34,7 +34,6 @@
     <Folder Include="Features\Invoices\Queries\GetAll\" />
     <Folder Include="Features\Invoices\Queries\GetById\" />
     <Folder Include="Features\Plans\Commands\Delete\" />
-    <Folder Include="Features\Plans\Queries\GetAll\" />
     <Folder Include="Features\Plans\Queries\GetById\" />
     <Folder Include="Features\PlanTypes\Commands\Delete\" />
     <Folder Include="Features\PlanTypes\Queries\GetById\" />
@@ -44,6 +43,7 @@
     <Folder Include="Features\Transactions\Commands\Delete\" />
     <Folder Include="Features\Transactions\Queries\GetAll\" />
     <Folder Include="Features\Transactions\Queries\GetById\" />
+    <Folder Include="Models\ERP\" />
     <Folder Include="Validators\Features\CustomersPlans\Commands\AddEdit\" />
     <Folder Include="Validators\Features\Customers\Commands\AddEdit\" />
     <Folder Include="Validators\Features\Invoices\Commands\AddEdit\" />

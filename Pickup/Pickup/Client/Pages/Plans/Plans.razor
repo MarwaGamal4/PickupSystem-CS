@@ -1,0 +1,61 @@
+﻿@page "/Plans"
+@using Application.Features.Plans.Queries.Dto
+@using Microsoft.AspNetCore.SignalR.Client
+@inject Microsoft.Extensions.Localization.IStringLocalizer<Plans> localizer
+<HeroTitle Title="Plans" Description="Plans Manager" />
+<MudTable Dense="true" Items="@PlanList" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_Loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Exprission</MudTh>
+        <MudTh></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Nr">@context.Id</MudTd>
+        <MudTd DataLabel="Sign">@context.PlanName</MudTd>
+        <MudTd DataLabel="Name">@context.PlanExprission</MudTd>
+        <MudTd><MudIconButton OnClick="@(()=>InvokeModal(context))" Icon="@Icons.Material.Filled.Preview" aria-label="View"></MudIconButton></MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    public List<PlanDtoResponse> PlanList = new List<PlanDtoResponse>();
+    private bool _Loading = false;
+    [CascadingParameter] public HubConnection hubConnection { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        await GetPlansAsync();
+        hubConnection = hubConnection.TryInitialize(_navigationManager);
+        if (hubConnection.State == HubConnectionState.Disconnected)
+        {
+            await hubConnection.StartAsync();
+        }
+    }
+    private async Task GetPlansAsync()
+    {
+        _Loading = true;
+        var response = await _planManager.GetAllAsync();
+        if (response.Succeeded)
+        {
+            PlanList = response.Data.ToList();
+        }
+        else
+        {
+            foreach (var message in response.Messages)
+            {
+                _snackBar.Add(localizer[message], Severity.Error);
+            }
+        }
+        _Loading = false;
+    }
+    private async Task InvokeModal(PlanDtoResponse PlanModel)
+    {
+        var parameters = new DialogParameters();
+
+        parameters.Add("Plan", PlanModel);
+
+        var options = new DialogOptions { CloseButton = true, FullScreen = true, MaxWidth = MaxWidth.Medium, FullWidth = true, DisableBackdropClick = false };
+        var dialog = _dialogService.Show<PlanDetail>(PlanModel.PlanExprission, parameters, options);
+        var result = await dialog.Result;
+    }
+}

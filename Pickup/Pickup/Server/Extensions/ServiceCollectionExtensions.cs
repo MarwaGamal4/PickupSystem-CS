@@ -98,7 +98,7 @@ namespace Pickup.Server.Extensions
             => services
                 .AddDbContext<BlazorHeroContext>(options => options
                     .UseSqlServer(configuration.GetConnectionString("DefaultConnection")))
-            .AddTransient<IDatabaseSeeder, DatabaseSeeder>();
+            .AddTransient<IDatabaseSeeder, DatabaseSeeder>().AddDbContext<ERBSYSTEMContext>(o => o.UseSqlServer(configuration.GetConnectionString("Erp")));
 
         public static IServiceCollection AddIdentity(this IServiceCollection services)
         {
@@ -145,8 +145,10 @@ namespace Pickup.Server.Extensions
             services.AddTransient<IBranchRepository, BranchRepository>();
             services.AddTransient<IUserBranchRepository, UserBranchRepository>();
             services.AddTransient<IPlanTypeRepository, PlanTypeRepository>();
+            services.AddTransient<IPlanRepository, PlanRepository>();
             services.AddTransient<IDeliveryRptRepository, DeliveryRptRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+           // services.AddTransient<IUnitOfWorkErp, UnitOfWorkErp>();
             return services;
         }
 
@@ -184,9 +186,10 @@ namespace Pickup.Server.Extensions
                         },
                         OnChallenge = context =>
                         {
-                            context.HandleResponse();
+                            
                             context.Response.StatusCode = 401;
                             context.Response.ContentType = "application/json";
+                            context.HandleResponse();
                             var result = JsonConvert.SerializeObject(Result.Fail("You are not Authorized."));
                             return context.Response.WriteAsync(result);
                         },

@@ -43,7 +43,13 @@ namespace Pickup.Shared.Constants.Permission
             public const string Delete = "Permissions.Branches.Delete";
             public const string Users = "Permissions.Branches.Users";
         }
-
+        public static class Plans
+        {
+            public const string View = "Permissions.Plans.View";
+            public const string Create = "Permissions.Plans.Create";
+            public const string Edit = "Permissions.Plans.Edit";
+            public const string Delete = "Permissions.Plans.Delete";
+        }
         public static class DeliveryRPT
         {
             public const string View = "Permissions.DeliveryRPT.View";

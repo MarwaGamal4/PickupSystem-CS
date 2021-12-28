@@ -1,23 +1,25 @@
 ﻿
 
+using Pickup.Client.Infrastructure.Settings;
+
 namespace Pickup.Client.Infrastructure.Routes
 {
    public static class BranchesEndpoints
     {
         public static string getBranchUsers(int BranchId)
         {
-            return $"api/v1/Branches/{BranchId}";
+            return $"{ApiVirsion.Api_Virsion}/Branches/{BranchId}";
         }
         public static string GetUserBranches(string Userid) 
         {
-            return $"api/v1/Branches/GetUserBranches/{Userid}";
+            return $"{ApiVirsion.Api_Virsion}/Branches/GetUserBranches/{Userid}";
         }
-        public static string AddUsersToBranch = "api/v1/Branches/AddUsers/";
-        public static string AddBranchsToUser = "api/v1/Branches/AddBranchsToUser/";
-        public static string GetAll = "api/v1/branches";
+        public static string AddUsersToBranch = $"{ApiVirsion.Api_Virsion}/Branches/AddUsers/";
+        public static string AddBranchsToUser = $"{ApiVirsion.Api_Virsion}/Branches/AddBranchsToUser/";
+        public static string GetAll = $"{ApiVirsion.Api_Virsion}/branches";
 
-        public static string Delete = "api/v1/branches";
-        public static string Save = "api/v1/branches";
-        public static string GetCount = "api/v1/branches/count";
+        public static string Delete = $"{ApiVirsion.Api_Virsion}/branches";
+        public static string Save = $"{ApiVirsion.Api_Virsion}/branches";
+        public static string GetCount = $"{ApiVirsion.Api_Virsion}/branches/count";
     }
 }
