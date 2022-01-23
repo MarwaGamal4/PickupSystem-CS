@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Pickup.Application.Interfaces.Services;
 using Pickup.Application.Interfaces.Services.Identity;
 using Pickup.Application.Requests.Identity;
 using Pickup.Shared.Constants.Permission;
@@ -13,10 +14,11 @@ namespace Pickup.Server.Controllers.Identity
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-
-        public UserController(IUserService userService)
+        private readonly ICurrentUserService _currentUser;
+        public UserController(IUserService userService, ICurrentUserService currentUser)
         {
             _userService = userService;
+            _currentUser = currentUser;
         }
 
         //[Authorize(Policy = Permissions.Users.View)]
@@ -84,6 +86,13 @@ namespace Pickup.Server.Controllers.Identity
         public async Task<IActionResult> ResetPasswordAsync(ResetPasswordRequest request)
         {
             return Ok(await _userService.ResetPasswordAsync(request));
+        }
+
+        [HttpGet("GetUserType")]
+        public async Task<IActionResult> GetUserType()
+        {
+            var userRoles = await _userService.GetCurrentUserTypeAsync(_currentUser.UserId);
+            return Ok(userRoles);
         }
     }
 }

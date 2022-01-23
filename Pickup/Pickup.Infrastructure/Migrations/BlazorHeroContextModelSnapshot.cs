@@ -247,6 +247,9 @@ namespace Pickup.Infrastructure.Migrations
                     b.Property<string>("ToUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("isReaded")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("FromUserId");
@@ -262,9 +265,6 @@ namespace Pickup.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("BranchId")
                         .HasColumnType("int");
@@ -307,9 +307,6 @@ namespace Pickup.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -328,7 +325,7 @@ namespace Pickup.Infrastructure.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PlanId")
+                    b.Property<int?>("PlanId")
                         .HasColumnType("int");
 
                     b.Property<string>("PlanName")
@@ -341,8 +338,6 @@ namespace Pickup.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BranchId");
 
                     b.HasIndex("CustomerId");
 
@@ -534,9 +529,14 @@ namespace Pickup.Infrastructure.Migrations
                     b.Property<int>("InvoiceId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PickupLogId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("InvoiceId");
+
+                    b.HasIndex("PickupLogId");
 
                     b.ToTable("Inv_Images");
                 });
@@ -547,9 +547,6 @@ namespace Pickup.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("BranchId")
                         .HasColumnType("int");
@@ -566,14 +563,11 @@ namespace Pickup.Infrastructure.Migrations
                     b.Property<int>("CustomerPlanId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("Internal_Num")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Discountvalue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Internal_Num")
-                        .HasColumnType("int");
+                    b.Property<string>("InvoiceURL")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
@@ -584,19 +578,25 @@ namespace Pickup.Infrastructure.Migrations
                     b.Property<decimal>("MealPrice")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal>("MealsAmount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PlanId")
+                    b.Property<int>("RemainingMeals")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RemainingSnacks")
                         .HasColumnType("int");
 
                     b.Property<decimal>("SnackPrice")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Tax")
+                    b.Property<decimal>("SnacksAmount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("TotalMealsCounr")
+                    b.Property<int>("TotalMealsCount")
                         .HasColumnType("int");
 
                     b.Property<int>("TotalSnacksCount")
@@ -616,9 +616,55 @@ namespace Pickup.Infrastructure.Migrations
 
                     b.HasIndex("CustomerPlanId");
 
-                    b.HasIndex("PlanId");
-
                     b.ToTable("Invoices");
+                });
+
+            modelBuilder.Entity("Pickup.Application.Models.PickupLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BranchID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CustomerID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InvoiceID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MealsCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("POS_res_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SnacksCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BranchID");
+
+                    b.HasIndex("CustomerID");
+
+                    b.HasIndex("InvoiceID");
+
+                    b.ToTable("PickupLogs");
                 });
 
             modelBuilder.Entity("Pickup.Application.Models.Plan", b =>
@@ -726,6 +772,12 @@ namespace Pickup.Infrastructure.Migrations
                     b.Property<int>("CustomerPlanId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Inv_url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InvoiceID")
+                        .HasColumnType("int");
+
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -736,9 +788,6 @@ namespace Pickup.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Notes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RefNum")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SnackCount")
@@ -753,6 +802,8 @@ namespace Pickup.Infrastructure.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("CustomerPlanId");
+
+                    b.HasIndex("InvoiceID");
 
                     b.ToTable("Transactions");
                 });
@@ -994,38 +1045,30 @@ namespace Pickup.Infrastructure.Migrations
 
             modelBuilder.Entity("Pickup.Application.Models.CustomerPlan", b =>
                 {
-                    b.HasOne("Pickup.Application.Models.Branch", "branch")
-                        .WithMany()
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Pickup.Application.Models.Customer", "customer")
                         .WithMany("CustomerPlans")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Pickup.Application.Models.Plan", "plan")
+                    b.HasOne("Pickup.Application.Models.Plan", null)
                         .WithMany("CustomerPlans")
-                        .HasForeignKey("PlanId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("branch");
+                        .HasForeignKey("PlanId");
 
                     b.Navigation("customer");
-
-                    b.Navigation("plan");
                 });
 
             modelBuilder.Entity("Pickup.Application.Models.Inv_Images", b =>
                 {
                     b.HasOne("Pickup.Application.Models.Invoice", "invoice")
-                        .WithMany("Inv_Images")
+                        .WithMany()
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Pickup.Application.Models.PickupLog", null)
+                        .WithMany("Inv_Images")
+                        .HasForeignKey("PickupLogId");
 
                     b.Navigation("invoice");
                 });
@@ -1050,9 +1093,30 @@ namespace Pickup.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Pickup.Application.Models.Plan", "plan")
+                    b.Navigation("branch");
+
+                    b.Navigation("customer");
+
+                    b.Navigation("customerPlan");
+                });
+
+            modelBuilder.Entity("Pickup.Application.Models.PickupLog", b =>
+                {
+                    b.HasOne("Pickup.Application.Models.Branch", "branch")
                         .WithMany()
-                        .HasForeignKey("PlanId")
+                        .HasForeignKey("BranchID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Pickup.Application.Models.Customer", "customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Pickup.Application.Models.Invoice", "invoice")
+                        .WithMany()
+                        .HasForeignKey("InvoiceID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1060,9 +1124,7 @@ namespace Pickup.Infrastructure.Migrations
 
                     b.Navigation("customer");
 
-                    b.Navigation("customerPlan");
-
-                    b.Navigation("plan");
+                    b.Navigation("invoice");
                 });
 
             modelBuilder.Entity("Pickup.Application.Models.Plan", b =>
@@ -1102,6 +1164,12 @@ namespace Pickup.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Pickup.Application.Models.Invoice", "invoice")
+                        .WithMany("Transactions")
+                        .HasForeignKey("InvoiceID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("branch");
 
                     b.Navigation("CreditBranch");
@@ -1109,6 +1177,8 @@ namespace Pickup.Infrastructure.Migrations
                     b.Navigation("customer");
 
                     b.Navigation("customerPlan");
+
+                    b.Navigation("invoice");
                 });
 
             modelBuilder.Entity("Pickup.Domain.Entities.Catalog.Product", b =>
@@ -1155,6 +1225,11 @@ namespace Pickup.Infrastructure.Migrations
                 });
 
             modelBuilder.Entity("Pickup.Application.Models.Invoice", b =>
+                {
+                    b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("Pickup.Application.Models.PickupLog", b =>
                 {
                     b.Navigation("Inv_Images");
                 });

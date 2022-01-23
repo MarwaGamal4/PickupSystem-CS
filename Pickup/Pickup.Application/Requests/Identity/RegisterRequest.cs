@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using static Pickup.Shared.Constants.User.UserConstants;
 
 namespace Pickup.Application.Requests.Identity
 {
@@ -30,5 +31,6 @@ namespace Pickup.Application.Requests.Identity
 
         public bool ActivateUser { get; set; } = false;
         public bool AutoConfirmEmail { get; set; } = false;
+        public UserType UserType { get; set; }
     }
 }

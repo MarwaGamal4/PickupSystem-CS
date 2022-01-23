@@ -1,7 +1,9 @@
 ﻿@page "/user-profile/{Id}"
 @using Pickup.Shared.Constants.Role
+@using Pickup.Shared.Constants.User
 @inject Microsoft.Extensions.Localization.IStringLocalizer<UserProfile> localizer
 <HeroTitle Title="@Title" Description="@Description" />
+<LoaingSpinner IsLoading="IsLoading"></LoaingSpinner>
 <MudGrid>
     <AuthorizeView Roles="@RoleConstants.AdministratorRole">
         <MudItem xs="12" sm="12" md="12">
@@ -15,6 +17,17 @@
                 <MudCardContent Class="pa-46" Style="padding:26px!important">
                     <MudGrid>
                         <MudCheckBox @bind-Checked="@Active" Label="@localizer["Active?"]" Color="Color.Primary"></MudCheckBox>
+                        @if (ShowBranch)
+                        {
+                            <MudItem md="3">
+                                <MudSelect T="UserConstants.UserType" @bind-Value="_UserType" Label="User Type" AnchorOrigin="Origin.BottomCenter">
+                                    <MudSelectItem Value="@(UserConstants.UserType.CustomerService)" />
+                                    <MudSelectItem Value="@(UserConstants.UserType.Branch)" />
+                                    <MudSelectItem Value="@(UserConstants.UserType.BranchOwner)" />
+                                </MudSelect>
+                            </MudItem>
+                        }
+
                         <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="ToggleUserStatus" ButtonType="ButtonType.Submit">@localizer["Save Changes"]</MudButton>
                     </MudGrid>
                 </MudCardContent>

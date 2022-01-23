@@ -1,0 +1,80 @@
+2022-01-20 13:01:41.294 +02:00 [WRN] Server msi:14488:57f56055 was considered dead by other servers, restarting...
+2022-01-20 13:01:41.311 +02:00 [WRN] Server msi:14488:57f56055 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2022-01-20 13:14:52.125 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 13:14:52.152 +02:00 [INF] Hosting environment: Development
+2022-01-20 13:14:52.155 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 13:17:00.889 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 13:17:00.955 +02:00 [INF] Hosting environment: Development
+2022-01-20 13:17:00.958 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 13:19:25.263 +02:00 [ERR] Execution DelayedJobScheduler is in the Failed state now due to an exception, execution will be retried no more than in 00:00:04
+System.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerConnection.AcquireLock(String resource, TimeSpan timeout)
+   at Hangfire.SqlServer.SqlServerConnection.AcquireDistributedLock(String resource, TimeSpan timeout)
+   at Hangfire.Server.DelayedJobScheduler.UseConnectionDistributedLock[T](JobStorage storage, Func`2 action)
+   at Hangfire.Server.DelayedJobScheduler.EnqueueNextScheduledJobs(BackgroundProcessContext context)
+   at Hangfire.Server.DelayedJobScheduler.Execute(BackgroundProcessContext context)
+   at Hangfire.Server.BackgroundProcessDispatcherBuilder.ExecuteProcess(Guid executionId, Object state)
+   at Hangfire.Processing.BackgroundExecution.Run(Action`2 callback, Object state)
+ClientConnectionId:0e389081-ac12-4892-abd2-a0474b7983a8
+Error Number:258,State:0,Class:20
+2022-01-20 16:51:55.737 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 16:51:55.776 +02:00 [INF] Hosting environment: Development
+2022-01-20 16:51:55.780 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 16:53:50.971 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 16:53:51.009 +02:00 [INF] Hosting environment: Development
+2022-01-20 16:53:51.012 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 16:54:49.753 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 16:54:49.786 +02:00 [INF] Hosting environment: Development
+2022-01-20 16:54:49.788 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 16:56:05.740 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 16:56:05.776 +02:00 [INF] Hosting environment: Development
+2022-01-20 16:56:05.779 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 16:58:27.254 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 16:58:27.288 +02:00 [INF] Hosting environment: Development
+2022-01-20 16:58:27.292 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 16:59:02.111 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 16:59:02.137 +02:00 [INF] Hosting environment: Development
+2022-01-20 16:59:02.139 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:12:31.860 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:12:31.888 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:12:31.890 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:14:06.681 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:14:06.714 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:14:06.716 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:15:14.325 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:15:14.356 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:15:14.358 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:16:34.844 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:16:34.882 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:16:34.886 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:17:55.236 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:17:55.268 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:17:55.271 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:18:38.803 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:18:38.845 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:18:38.848 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:34:08.000 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:34:08.032 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:34:08.035 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:36:14.639 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:36:14.675 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:36:14.679 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:37:01.678 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:37:01.713 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:37:01.716 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-20 17:37:49.617 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-20 17:37:49.642 +02:00 [INF] Hosting environment: Development
+2022-01-20 17:37:49.644 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

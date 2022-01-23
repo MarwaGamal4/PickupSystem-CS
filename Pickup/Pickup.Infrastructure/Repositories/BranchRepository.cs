@@ -14,7 +14,7 @@ namespace Pickup.Infrastructure.Repositories
         private readonly IRepositoryAsync<Branch> _repository;
         private readonly BlazorHeroContext _dbContext;
         private readonly ERBSYSTEMContext _ErpContext;
-        public BranchRepository(IRepositoryAsync<Branch> repository, BlazorHeroContext dbContext , ERBSYSTEMContext eRBSYSTEMContext)
+        public BranchRepository(IRepositoryAsync<Branch> repository, BlazorHeroContext dbContext, ERBSYSTEMContext eRBSYSTEMContext)
         {
             _repository = repository;
             _dbContext = dbContext;
@@ -34,17 +34,23 @@ namespace Pickup.Infrastructure.Repositories
             return await Task.FromResult<int>(_dbContext.SaveChanges());
         }
 
-        public async Task<int> AddUsersToBranch(int branchId ,IList<BlazorHeroUser> UsersList)
+        public async Task<int> AddUsersToBranch(int branchId, IList<BlazorHeroUser> UsersList)
         {
-            var branch =  _dbContext.Branches.Include(x=>x.Users).FirstOrDefault(x => x.Id == branchId);
+            var branch = _dbContext.Branches.Include(x => x.Users).FirstOrDefault(x => x.Id == branchId);
             branch.Users.Clear();
-             _dbContext.SaveChanges();
+            _dbContext.SaveChanges();
 
             foreach (var item in UsersList)
             {
-                branch.Users.Add(item) ;
+                branch.Users.Add(item);
             }
             return await Task.FromResult<int>(_dbContext.SaveChanges());
+        }
+
+        public async Task<string> GetBranchNameById(int BranchID)
+        {
+            var Branch = await _repository.Entities.FirstOrDefaultAsync(x => x.Id == BranchID);
+            return Branch.BranchName;
         }
 
         public async Task<bool> IsBranchExist(string BranchName)

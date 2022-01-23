@@ -13,5 +13,10 @@ namespace Pickup.Application.Interfaces.Services
         Task<IResult> SaveMessageAsync(ChatHistory message);
 
         Task<Result<IEnumerable<ChatHistoryResponse>>> GetChatHistoryAsync(string userId, string contactId);
+        Task<IResult> MarkAsRead(string userId, string Coontactuser);
+        Task<IResult> MarkAllAsRead(string userId);
+        Task<Result<IEnumerable<ChatUserResponse>>> GetOldMessages(string userId);
+
+
     }
 }

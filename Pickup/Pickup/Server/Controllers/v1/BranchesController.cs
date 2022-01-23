@@ -6,8 +6,10 @@ using Pickup.Application.Features.Branches.Commands.AddUserToBranch;
 using Pickup.Application.Features.Branches.Commands.Delete;
 using Pickup.Application.Features.Branches.Queries.GetAll;
 using Pickup.Application.Features.Branches.Queries.GetById;
+using Pickup.Application.Features.Branches.Queries.GetByUser;
 using Pickup.Application.Features.Users.Commands.AddEditBranchesToUser;
 using Pickup.Application.Features.Users.Queries.GetUserBranches;
+using Pickup.Application.Interfaces.Services;
 using Pickup.Shared.Constants.Permission;
 using System;
 using System.Collections.Generic;
@@ -19,11 +21,25 @@ namespace Pickup.Server.Controllers.v1
 
     public class BranchesController : BaseApiController<BranchesController>
     {
+        private readonly ICurrentUserService _currentUserService;
+
+        public BranchesController(ICurrentUserService currentUserService)
+        {
+            _currentUserService = currentUserService;
+        }
+
         [Authorize(Policy = Permissions.Branches.View)]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var branches = await _mediator.Send(new GetAllBranchesQuery());
+            return Ok(branches);
+        }
+
+        [HttpGet("GetAllByUser")]
+        public async Task<IActionResult> GetAllByUser()
+        {
+            var branches = await _mediator.Send(new GetBranchesByUserQuery() { UserID = _currentUserService.UserId });
             return Ok(branches);
         }
 

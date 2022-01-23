@@ -9,6 +9,6 @@ namespace Pickup.Client.Infrastructure.Routes
 {
     public class PlansEndpoints
     {
-        public static string GetAll = $"{ApiVirsion.Api_Virsion}/Plans";
+        public static string GetAll(string langCode) => $"{ApiVirsion.Api_Virsion}/Plans/{langCode}";
     }
 }

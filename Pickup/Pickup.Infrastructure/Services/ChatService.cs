@@ -67,13 +67,58 @@ namespace Pickup.Infrastructure.Services
         public async Task<Result<IEnumerable<ChatUserResponse>>> GetChatUsersAsync(string userId)
         {
             var allUsers = await _context.Users.Where(user => user.Id != userId).ToListAsync();
-            var chatUsers = _mapper.Map<IEnumerable<ChatUserResponse>>(allUsers);
+            var chatUsers = _mapper.Map<IEnumerable<ChatUserResponse>>(allUsers).ToList();
             return await Result<IEnumerable<ChatUserResponse>>.SuccessAsync(chatUsers);
+        }
+
+        public async Task<Result<IEnumerable<ChatUserResponse>>> GetOldMessages(string userId)
+        {
+            //var allUsers = await _context.Users.Where(user => user.Id != userId).ToListAsync();
+            var allUsers = await _context.Users.Where(x => x.Id != userId).Where(user => user.ChatHistoryFromUsers.Where(x => x.FromUserId == userId || x.ToUserId == userId).Count() > 0 || user.ChatHistoryToUsers.Where(x => x.FromUserId == userId || x.ToUserId == userId).Count() > 0).ToListAsync();
+            var chatUsers = _mapper.Map<IEnumerable<ChatUserResponse>>(allUsers).ToList();
+            var History = await _context.ChatHistories.Where(y => y.FromUserId == userId || y.ToUserId == userId).ToListAsync();
+            chatUsers.ForEach((x) =>
+            {
+                var LastMessage = History.Where(y => y.FromUserId == x.Id || y.ToUserId == x.Id).OrderByDescending(y => y.Id).FirstOrDefault();
+                x.LastMessage = LastMessage.Message;
+                if (LastMessage.FromUserId != userId)
+                {
+                    x.Readed = LastMessage.isReaded;
+                }
+            }
+                );
+            return await Result<IEnumerable<ChatUserResponse>>.SuccessAsync(chatUsers);
+
+        }
+
+        public async Task<IResult> MarkAllAsRead(string userId)
+        {
+            var Messages = await _context.ChatHistories.Where(x => x.ToUserId == userId).ToListAsync();
+            foreach (var item in Messages)
+            {
+                item.isReaded = true;
+            }
+            await _context.SaveChangesAsync();
+            return await Result.SuccessAsync();
+        }
+
+        public async Task<IResult> MarkAsRead(string userId, string Coontactuser)
+        {
+            var Messages = await _context.ChatHistories.Where(x => x.FromUserId == Coontactuser && x.ToUserId == userId).ToListAsync();
+            foreach (var item in Messages)
+            {
+                item.isReaded = true;
+            }
+            await _context.SaveChangesAsync();
+            return await Result.SuccessAsync();
         }
 
         public async Task<IResult> SaveMessageAsync(ChatHistory message)
         {
+
             message.ToUser = await _context.Users.Where(user => user.Id == message.ToUserId).FirstOrDefaultAsync();
+
+
             await _context.ChatHistories.AddAsync(message);
             await _context.SaveChangesAsync();
             return await Result.SuccessAsync();

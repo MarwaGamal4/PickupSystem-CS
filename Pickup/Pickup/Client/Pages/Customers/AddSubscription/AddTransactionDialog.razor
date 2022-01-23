@@ -1,0 +1,176 @@
+﻿@using Pickup.Application.Features.Customers.Dto
+@using Pickup.Application.Features.Branches.Queries.GetAll;
+@using System.IO
+@using Pickup.Application.Requests
+@inject IUserManager userManager
+@inject IBranchManager BranchManager
+@inject ICustomerManager _CustomerManager
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddSubscriptionDialog> localizer
+
+<EditForm Model="@Model" @ref="@form" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudDialog DisableSidePadding="true">
+        <DialogContent>
+            <MudGrid Justify="Justify.Center" Style="max-height: 85vh; overflow-y: scroll ">
+                <MudItem md="12">
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem md="6">
+                                @if (BranchList != null)
+                                {
+                                    <MudSelect T="int" @bind-Value="Model.BranchId" Text="@BranchName" Label="Branch" AnchorOrigin="Origin.BottomCenter">
+                                        @foreach (var item in BranchList)
+                                        {
+                                            <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
+
+                                        }
+                                    </MudSelect>
+                                }
+                            </MudItem>
+                            <MudItem md="6"></MudItem>
+                            <MudItem md="6"><MudAlert>Max. Meals @PlanModel.RemainingMeals</MudAlert></MudItem>
+                            <MudItem md="6"><MudNumericField Max="@PlanModel.RemainingMeals" Min="0" Label="Meals Count" @bind-Value="Model.MealsCount" /></MudItem>
+                            <MudItem md="6"><MudAlert>Max. Sancks @PlanModel.RemainingSnacks</MudAlert></MudItem>
+                            <MudItem md="6"><MudNumericField Max="@PlanModel.RemainingSnacks" Min="0" Label="Snacks Count" @bind-Value="Model.SnacksCount" /></MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+                    <MudCardContent>
+                        <style>
+                            .drag-drop-zone {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                transition: all .4s;
+                                min-height: 200px;
+                            }
+
+                            .drag-drop-input {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                opacity: 0;
+                                cursor: pointer;
+                                z-index: 2;
+                            }
+
+                            .drag-enter {
+                                box-shadow: var(--mud-elevation-10);
+                            }
+
+                            .list {
+                                padding: 2em;
+                                min-width: 100%;
+                            }
+                        </style>
+                        <div style="color:red">
+                            <ValidationMessage For="@(() => Model.Invoice_Image)"></ValidationMessage>
+                        </div>
+                        <MudPaper Style="position:relative" @ondragenter="@(()=>_dragEnterStyle="drag-enter")"
+                                  @ondragleave="@(()=>_dragEnterStyle=null)"
+                                  @ondragend="@(()=>_dragEnterStyle=null)"
+                                  Class=@("drag-drop-zone "+ _dragEnterStyle)>
+
+                            <InputFile OnChange="OnInputFileChanged" class="drag-drop-input" />
+
+                            @if (fileNames.Count() == 0)
+                            {
+                                <MudText Typo="Typo.h6">Drag and drop Invoce Refrence here or click</MudText>
+                            }
+                            else
+                            {
+                                <MudList Style="padding:2em;width:100%;" Dense="true">
+                                    @foreach (var file in fileNames)
+                                    {
+                                        <MudListItem @key="@file">
+                                            <MudChip Color="Color.Dark"
+                                                     Style="width:60px; overflow:hidden;"
+                                                     Text="@(file.Split(".").Last())" />
+                                            @file
+
+                                        </MudListItem>}
+
+                                </MudList>
+                            }
+                        </MudPaper>
+                    </MudCardContent>
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+            <WaitingSaveButton IsProcessing="IsProccissing" Color="Color.Primary" Text="Add"></WaitingSaveButton>
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+
+
+@code {
+    public bool IsProccissing { get; set; } = false;
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter]
+    public dtoCustomerPlanReponse PlanModel { get; set; }
+    void Cancel() => MudDialog.Cancel();
+    public dtoAddTransactionRequest Model { get; set; } = new();
+    EditForm form;
+    IList<string> fileNames = new List<string>();
+    public IBrowserFile file { get; set; }
+    string _dragEnterStyle;
+    public List<GetAllBranchesResponse> BranchList = new();
+    public string BranchName { get; set; } = "";
+
+    private async Task OnValidSubmit()
+    {
+        IsProccissing = true;
+        Model.PlanID = PlanModel.CustomerPlanID;
+        var result = await _CustomerManager.AddTransaction(Model);
+        if (result.Succeeded)
+        {
+            _snackBar.Add(localizer[result.Messages[0]], MudBlazor.Severity.Success);
+            MudDialog.Close(DialogResult.Ok(true));
+        }
+        else
+        {
+            foreach (var message in result.Messages)
+            {
+                _snackBar.Add(localizer[message], MudBlazor.Severity.Error);
+            }
+        }
+        IsProccissing = false;
+        StateHasChanged();
+
+    }
+
+    private async Task LoadDataAsync()
+    {
+        var Branches = await BranchManager.GetAllByUserAsync();
+        BranchList = Branches.Data;
+        Model.BranchId = BranchList.FirstOrDefault().Id;
+        BranchName = BranchList.FirstOrDefault().BranchName;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadDataAsync();
+
+    }
+    async void OnInputFileChanged(InputFileChangeEventArgs e)
+    {
+        var files = e.GetMultipleFiles();
+
+        fileNames = files.Select(f => f.Name).ToList();
+        file = e.File;
+        if (file != null)
+        {
+            var buffer = new byte[file.Size];
+            var extension = Path.GetExtension(file.Name);
+            var format = "application/octet-stream";
+            await file.OpenReadStream(file.Size).ReadAsync(buffer);
+            Model.Inv_url = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+            Model.Invoice_Image = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.Document, Extension = extension };
+        }
+
+
+
+    }
+
+}

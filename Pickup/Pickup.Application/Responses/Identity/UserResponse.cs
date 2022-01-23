@@ -1,5 +1,8 @@
 ﻿
+using Pickup.Application.Features.Branches.Queries.GetAll;
 using System.Collections;
+using System.Collections.Generic;
+using static Pickup.Shared.Constants.User.UserConstants;
 
 namespace Pickup.Application.Responses.Identity
 {
@@ -14,6 +17,8 @@ namespace Pickup.Application.Responses.Identity
         public bool EmailConfirmed { get; set; }
         public string PhoneNumber { get; set; }
         public string ProfilePictureDataUrl { get; set; }
+        public UserType userType { get; set; }
+        public List<GetAllBranchesResponse> Branches { get; set; }
 
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Pickup.Application.Interfaces.Services;
 using Pickup.Client.Extensions;
 using Pickup.Client.Infrastructure.Managers.Preferences;
 using Pickup.Client.Infrastructure.Settings;
@@ -18,6 +19,9 @@ namespace Pickup.Client
                           .CreateDefault(args)
                           .AddRootComponents()
                           .AddClientServices();
+
+            builder.Services.AddSingleton<AppState>();
+            builder.Services.AddTransient<AppState2>();
             var host = builder.Build();
             var storageService = host.Services.GetRequiredService<ClientPreferenceManager>();
             if (storageService != null)

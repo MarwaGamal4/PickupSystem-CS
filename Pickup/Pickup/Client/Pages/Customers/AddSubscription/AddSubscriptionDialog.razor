@@ -1,0 +1,258 @@
+﻿@using FluentValidation
+@using Pickup.Application.Features.Customers.Dto
+@using Pickup.Application.Features.Branches.Queries.GetAll;
+@using System.IO
+@using Pickup.Shared.Constants.User
+@using  Pickup.Application.Requests
+@inject IUserManager userManager
+@inject IBranchManager BranchManager
+@inject ICustomerManager _CustomerManager
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddSubscriptionDialog> localizer
+<EditForm Model="@CustomerModel" @ref="@form" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <MudDialog DisableSidePadding="true">
+        <DialogContent>
+            <MudGrid Justify="Justify.Center" Style="max-height: 85vh; overflow-y: scroll ">
+                <MudItem md="12">
+                    <MudCardContent>
+                        <MudGrid>
+                            <MudItem md="6">
+                                @if (BranchList != null)
+                                {
+                                    <MudSelect T="int" @bind-Value="CustomerModel.BranchId" Text="@BranchName" Label="Branch" AnchorOrigin="Origin.BottomCenter">
+                                        @foreach (var item in BranchList)
+                                        {
+                                            <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
+
+                                        }
+                                    </MudSelect>
+                                }
+                            </MudItem>
+                            <MudItem md="6">
+                                <MudSelect T="UserConstants.PlanType" @bind-Value="Plantype" Text="@UserConstants.PlanType.LOSE_WEIGHT.ToString()" Label="Plan Type" AnchorOrigin="Origin.BottomCenter">
+                                    @foreach (UserConstants.PlanType item in Enum.GetValues(typeof(UserConstants.PlanType)))
+                                    {
+                                        <MudSelectItem T="UserConstants.PlanType" Value="@item">@item.ToString().Replace("_", " ")</MudSelectItem>
+
+                                    }
+                                </MudSelect>
+                            </MudItem>
+                        </MudGrid>
+                    </MudCardContent>
+
+                    <MudCardContent Class="pa-0">
+                        <MudTable Items="@fList" Hover="true" Breakpoint="Breakpoint.None" Dense="@true" Elevation="0">
+                            <HeaderContent>
+                                <MudTh>Type</MudTh>
+                                <MudTh>Amount</MudTh>
+                            </HeaderContent>
+                            <RowTemplate Context="AA">
+                                <MudTd DataLabel="Type">
+                                    <MudForm>
+                                        <MudNumericField Min="0" Label="Meals Count" @bind-Value="CustomerModel.MealsQty" />
+                                    </MudForm>
+                                    <MudForm>
+                                        <MudNumericField Min="0" Label="Snacks Count" @bind-Value="CustomerModel.SnacksQty" />
+                                    </MudForm>
+                                </MudTd>
+                                <MudTd DataLabel="Amount">
+                                    <MudForm>
+                                        <MudNumericField Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" ValueChanged="@((Decimal newValue) => MealsAmountSetter(newValue))" Min="0" Label="Amonnt" Value="CustomerModel.MealsAmount" />
+                                    </MudForm>
+                                    <MudForm>
+                                        <MudNumericField Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" ValueChanged="@((Decimal newValue) => SnacksAmountSetter(newValue))" Min="0" Label="Amount" Value="CustomerModel.SnacksAmount" />
+                                    </MudForm>
+                                </MudTd>
+                            </RowTemplate>
+                            <PagerContent>
+                                <MudText Style="padding-right:30px" Align="Align.Right"> @TotalAmount</MudText>
+                            </PagerContent>
+                        </MudTable>
+
+                    </MudCardContent>
+                    <MudCardContent>
+                        <MudTextField T="string" @bind-Value="CustomerModel.Notes" Label="Notes" Variant="Variant.Text" Text="" Lines="3" />
+                    </MudCardContent>
+                    <MudCardContent>
+                        <style>
+                            .drag-drop-zone {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                transition: all .4s;
+                                min-height: 200px;
+                            }
+
+                            .drag-drop-input {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                opacity: 0;
+                                cursor: pointer;
+                                z-index: 2;
+                            }
+
+                            .drag-enter {
+                                box-shadow: var(--mud-elevation-10);
+                            }
+
+                            .list {
+                                padding: 2em;
+                                min-width: 100%;
+                            }
+                        </style>
+                        <div style="color:red">
+                            <ValidationMessage For="@(() => CustomerModel.Invoice_Image)"></ValidationMessage>
+                        </div>
+                        <MudPaper Style="position:relative" @ondragenter="@(()=>_dragEnterStyle="drag-enter")"
+                                  @ondragleave="@(()=>_dragEnterStyle=null)"
+                                  @ondragend="@(()=>_dragEnterStyle=null)"
+                                  Class=@("drag-drop-zone "+ _dragEnterStyle)>
+
+                            <InputFile OnChange="OnInputFileChanged" class="drag-drop-input" />
+
+                            @if (fileNames.Count() == 0)
+                            {
+                                <MudText Typo="Typo.h6">Drag and drop Invoce Refrence here or click</MudText>
+                            }
+                            else
+                            {
+                                <MudList Style="padding:2em;width:100%;" Dense="true">
+                                    @foreach (var file in fileNames)
+                                    {
+                                        <MudListItem @key="@file">
+                                            <MudChip Color="Color.Dark"
+                                                     Style="width:60px; overflow:hidden;"
+                                                     Text="@(file.Split(".").Last())" />
+                                            @file
+
+                                        </MudListItem>}
+
+                                </MudList>
+                            }
+                        </MudPaper>
+                    </MudCardContent>
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+            <WaitingSaveButton Text="Add" IsProcessing="IsSaving" Color="Color.Primary"></WaitingSaveButton>
+        </DialogActions>
+    </MudDialog>
+</EditForm>
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter] public int CustomerID { get; set; }
+
+    void Cancel() => MudDialog.Cancel();
+
+
+
+    EditForm form;
+    bool success;
+    private FluentValidationValidator _fluentValidationValidator;
+    private bool validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
+    public UserConstants.PlanType Plantype { get; set; }
+    private dtoSubscriptionRequest CustomerModel { get; set; } = new dtoSubscriptionRequest();
+    public bool IsSaving { get; set; } = false;
+    public List<GetAllBranchesResponse> BranchList = new();
+    public string BranchName { get; set; } = "";
+    private List<AmountForm> fList = new List<AmountForm>() { new AmountForm()
+    {
+        Name = "Meals",Amount = decimal.Parse("0.00") ,Qtty=0
+    } };
+    public string TotalAmount { get; set; } = "Total Amount : 0.00";
+    private void CalcAmount()
+    {
+        var Total = CustomerModel.SnacksAmount + CustomerModel.MealsAmount;
+        TotalAmount = $"Total Amount : {Total.ToString("0.00")}";
+    }
+    void MealsAmountSetter(decimal value)
+    {
+        CustomerModel.MealsAmount = value;
+        CalcAmount();
+    }
+    void SnacksAmountSetter(decimal value)
+    {
+        CustomerModel.SnacksAmount = value;
+        CalcAmount();
+    }
+    private async Task OnValidSubmit()
+    {
+        IsSaving = true;
+        CustomerModel.PlanName = $"{Plantype.ToDescriptionString()}-{CustomerModel.MealsQty}M-{CustomerModel.SnacksQty}S";
+        CustomerModel.CustomerId = CustomerID;
+        var result = await _CustomerManager.AddSubscription(CustomerModel);
+        if (result.Succeeded)
+        {
+            _snackBar.Add(localizer[result.Messages[0]], MudBlazor.Severity.Success);
+            CustomerModel = new dtoSubscriptionRequest();
+            fileNames.Clear();
+            CalcAmount();
+            CustomerModel.BranchId = BranchList.FirstOrDefault().Id;
+            StateHasChanged();
+            MudDialog.Close(DialogResult.Ok(true));
+        }
+        else
+        {
+            foreach (var message in result.Messages)
+            {
+                _snackBar.Add(localizer[message], MudBlazor.Severity.Error);
+            }
+        }
+
+        success = true;
+        StateHasChanged();
+        IsSaving = false;
+
+    }
+    protected override async Task OnInitializedAsync()
+    {
+
+        await LoadDataAsync();
+
+    }
+    private async Task LoadDataAsync()
+    {
+        var Branches = await BranchManager.GetAllByUserAsync();
+        BranchList = Branches.Data;
+        CustomerModel.BranchId = BranchList.FirstOrDefault().Id;
+        BranchName = BranchList.FirstOrDefault().BranchName;
+        // await Task.CompletedTask;
+    }
+    public class AmountForm
+    {
+        public string Name { get; set; }
+        public int Qtty { get; set; }
+        public decimal Amount { get; set; }
+    }
+    string _dragEnterStyle;
+    IList<string> fileNames = new List<string>();
+    public IBrowserFile file { get; set; }
+    async void OnInputFileChanged(InputFileChangeEventArgs e)
+    {
+        var files = e.GetMultipleFiles();
+
+        fileNames = files.Select(f => f.Name).ToList();
+        file = e.File;
+        if (file != null)
+        {
+            var buffer = new byte[file.Size];
+            var extension = Path.GetExtension(file.Name);
+            var format = "application/octet-stream";
+            await file.OpenReadStream(file.Size).ReadAsync(buffer);
+            CustomerModel.Inv_Url = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+            CustomerModel.Invoice_Image = new UploadRequest { Data = buffer, UploadType = Application.Enums.UploadType.Document, Extension = extension };
+        }
+
+
+
+    }
+
+    void Upload()
+    {
+        //Upload the files here
+    }
+
+}

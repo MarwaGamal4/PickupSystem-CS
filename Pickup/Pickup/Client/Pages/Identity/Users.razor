@@ -16,7 +16,8 @@
         <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.LastName)">@localizer["Last Name"]</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.UserName)">@localizer["UserName"]</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.Email)">@localizer["Email"]</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.PhoneNumber)">@localizer["PhoneNumber"]</MudTableSortLabel></MudTh>
+        @*<MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.PhoneNumber)">@localizer["PhoneNumber"]</MudTableSortLabel></MudTh>*@
+        <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.userType)">@localizer["User Type"]</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.EmailConfirmed)">@localizer["Email Confirmation"]</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel SortBy="new Func<UserResponse, object>(x => x.IsActive)">@localizer["Active"]</MudTableSortLabel></MudTh>
         <MudTh Style="text-align:right">@localizer["Actions"]</MudTh>
@@ -34,8 +35,11 @@
         <MudTd DataLabel="Email">
             <MudHighlighter Text="@context.Email" HighlightedText="@searchString" />
         </MudTd>
-        <MudTd DataLabel="PhoneNumber">
-            <MudHighlighter Text="@context.PhoneNumber" HighlightedText="@searchString" />
+        @*<MudTd DataLabel="PhoneNumber">
+                <MudHighlighter Text="@context.PhoneNumber" HighlightedText="@searchString" />
+            </MudTd>*@
+        <MudTd DataLabel="User Type">
+            <MudHighlighter Text="@context.userType.ToString()" HighlightedText="@searchString" />
         </MudTd>
         <MudTd DataLabel="EmailConfirmed"><MudCheckBox @bind-Checked="@context.EmailConfirmed" ReadOnly Color="Color.Secondary"></MudCheckBox></MudTd>
         <MudTd DataLabel="Active"><MudCheckBox @bind-Checked="@context.IsActive" ReadOnly Color="Color.Secondary"></MudCheckBox></MudTd>
@@ -43,7 +47,11 @@
             <MudMenu Label="@localizer["Actions"]" Variant="Variant.Filled" DisableElevation="true" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Secondary" Direction="Direction.Left" OffsetX="true">
                 <MudMenuItem OnClick="(()=>ViewProfile(context.Id))">@localizer["View Profile"]</MudMenuItem>
                 <MudMenuItem OnClick="(()=>ManageRoles(context.Id, context.Email))">@localizer["Manage Roles"]</MudMenuItem>
-                <MudMenuItem OnClick="(()=>ManageBranches(context.Id))">@localizer["Manage Branches"]</MudMenuItem>
+                @if (context.userType == Pickup.Shared.Constants.User.UserConstants.UserType.Branch || context.userType == Pickup.Shared.Constants.User.UserConstants.UserType.BranchOwner)
+                {
+                    <MudMenuItem OnClick="(()=>ManageBranches(context.Id))">@localizer["Manage Branches"]</MudMenuItem>
+                }
+
             </MudMenu>
         </MudTd>
     </RowTemplate>

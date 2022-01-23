@@ -14,11 +14,11 @@ namespace Pickup.Application.Features.Plans.Queries.GetAll
 {
     public class GetAllPlansQuery : IRequest<Result<List<PlanDtoResponse>>>
     {
-
+        public string LanguageCode { get; set; }
     }
     public class GetAllPlansQueryHandler : IRequestHandler<GetAllPlansQuery, Result<List<PlanDtoResponse>>>
     {
-       private protected IPlanRepository _PlanRepository;
+        private protected IPlanRepository _PlanRepository;
         private readonly IMapper _mapper;
 
         public GetAllPlansQueryHandler(IPlanRepository planRepository, IMapper mapper)
@@ -29,8 +29,8 @@ namespace Pickup.Application.Features.Plans.Queries.GetAll
 
         public async Task<Result<List<PlanDtoResponse>>> Handle(GetAllPlansQuery request, CancellationToken cancellationToken)
         {
-            var Plans = await _PlanRepository.GetAllAsync();
-            var MappedPlans =_mapper.Map<List<PlanDtoResponse>>(Plans);
+            var Plans = await _PlanRepository.GetAllAsync(request.LanguageCode);
+            var MappedPlans = _mapper.Map<List<PlanDtoResponse>>(Plans);
             return await Result<List<PlanDtoResponse>>.SuccessAsync(MappedPlans);
         }
     }

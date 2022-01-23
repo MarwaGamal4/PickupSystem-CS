@@ -1,0 +1,207 @@
+2022-01-19 17:08:59.273 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 17:08:59.301 +02:00 [INF] Hosting environment: Development
+2022-01-19 17:08:59.303 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 17:09:02.694 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 17:09:02.706 +02:00 [ERR] Connection ID "8142508149371305993", Request ID "8000000a-0005-7100-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-01-19 17:09:02.763 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 17:09:02.763 +02:00 [ERR] Connection ID "11745387846972735497", Request ID "8000000a-0004-a300-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-01-19 17:09:02.996 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 17:09:02.996 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 17:09:02.996 +02:00 [ERR] Connection ID "11745387846972735501", Request ID "8000000e-0004-a300-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-01-19 17:09:02.997 +02:00 [ERR] Connection ID "17005592194561605641", Request ID "8000000a-0000-ec00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-01-19 17:09:03.274 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 17:09:03.274 +02:00 [ERR] Connection ID "16501189044886044679", Request ID "80000008-0002-e500-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-01-19 17:09:03.324 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-01-19 17:09:03.324 +02:00 [ERR] Connection ID "17005592194561605643", Request ID "8000000c-0000-ec00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-01-19 17:23:27.343 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 17:23:27.368 +02:00 [INF] Hosting environment: Development
+2022-01-19 17:23:27.370 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 17:24:23.789 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 17:24:23.815 +02:00 [INF] Hosting environment: Development
+2022-01-19 17:24:23.817 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 17:49:09.458 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 17:49:09.485 +02:00 [INF] Hosting environment: Development
+2022-01-19 17:49:09.487 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 17:54:09.874 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 17:54:09.899 +02:00 [INF] Hosting environment: Development
+2022-01-19 17:54:09.901 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 17:55:19.812 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 17:55:19.837 +02:00 [INF] Hosting environment: Development
+2022-01-19 17:55:19.839 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:12:14.738 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:12:14.764 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:12:14.766 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:14:40.505 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:14:40.532 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:14:40.534 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:20:46.588 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:20:46.615 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:20:46.618 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:22:16.023 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:22:16.048 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:22:16.050 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:23:20.073 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:23:20.105 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:23:20.107 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:24:08.691 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:24:08.720 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:24:08.722 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:26:14.984 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:26:15.012 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:26:15.014 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:30:16.491 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:30:16.520 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:30:16.522 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:30:40.496 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:30:40.528 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:30:40.531 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:31:05.512 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:31:05.539 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:31:05.542 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:31:29.067 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:31:29.093 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:31:29.095 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:31:53.008 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:31:53.042 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:31:53.045 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:33:14.640 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:33:14.666 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:33:14.669 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:35:01.413 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:35:01.441 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:35:01.443 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:35:34.681 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:35:34.708 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:35:34.710 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:36:05.484 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:36:05.517 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:36:05.520 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:38:36.528 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:38:36.554 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:38:36.557 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:39:10.689 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:39:10.716 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:39:10.718 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:39:36.410 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:39:36.445 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:39:36.447 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:40:36.435 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:40:36.461 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:40:36.464 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:43:26.460 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:43:26.490 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:43:26.492 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:44:31.865 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:44:31.892 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:44:31.895 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:45:11.341 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:45:11.364 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:45:11.366 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:47:29.426 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:47:29.463 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:47:29.466 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:48:01.852 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:48:01.897 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:48:01.901 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:48:57.596 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:48:57.624 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:48:57.626 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-19 18:51:25.974 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-19 18:51:26.006 +02:00 [INF] Hosting environment: Development
+2022-01-19 18:51:26.009 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

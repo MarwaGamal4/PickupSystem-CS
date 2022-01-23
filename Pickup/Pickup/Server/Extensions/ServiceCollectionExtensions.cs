@@ -48,7 +48,7 @@ namespace Pickup.Server.Extensions
 
             services.AddSwaggerGen(c =>
             {
-                
+
                 //TODO - Lowercase Swagger Documents
                 //c.DocumentFilter<LowercaseDocumentFilter>();
                 //Refer - https://gist.github.com/rafalkasa/01d5e3b265e5aa075678e0adfd54e23f
@@ -72,7 +72,7 @@ namespace Pickup.Server.Extensions
                     BearerFormat = "JWT",
                     Description = "Input your Bearer token in this format - Bearer {your token here} to access this API",
                 });
-                
+
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     {
@@ -143,12 +143,13 @@ namespace Pickup.Server.Extensions
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<IBrandRepository, BrandRepository>();
             services.AddTransient<IBranchRepository, BranchRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IUserBranchRepository, UserBranchRepository>();
             services.AddTransient<IPlanTypeRepository, PlanTypeRepository>();
             services.AddTransient<IPlanRepository, PlanRepository>();
             services.AddTransient<IDeliveryRptRepository, DeliveryRptRepository>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-           // services.AddTransient<IUnitOfWorkErp, UnitOfWorkErp>();
+            // services.AddTransient<IUnitOfWorkErp, UnitOfWorkErp>();
             return services;
         }
 
@@ -186,7 +187,7 @@ namespace Pickup.Server.Extensions
                         },
                         OnChallenge = context =>
                         {
-                            
+
                             context.Response.StatusCode = 401;
                             context.Response.ContentType = "application/json";
                             context.HandleResponse();

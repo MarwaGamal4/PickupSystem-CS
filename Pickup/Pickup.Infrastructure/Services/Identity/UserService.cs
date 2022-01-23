@@ -12,6 +12,7 @@ using Pickup.Application.Requests.Identity;
 using Pickup.Application.Requests.Mail;
 using Pickup.Application.Responses.Identity;
 using Pickup.Shared.Constants.Role;
+using Pickup.Shared.Constants.User;
 using Pickup.Shared.Wrapper;
 using System;
 using System.Collections.Generic;
@@ -66,7 +67,9 @@ namespace Pickup.Infrastructure.Services.Identity
                 UserName = request.UserName,
                 PhoneNumber = request.PhoneNumber,
                 IsActive = request.ActivateUser,
-                EmailConfirmed = request.AutoConfirmEmail
+                EmailConfirmed = request.AutoConfirmEmail,
+                UserType = request.UserType
+
             };
             var userWithSameEmail = await _userManager.FindByEmailAsync(request.Email);
             if (userWithSameEmail == null)
@@ -80,7 +83,7 @@ namespace Pickup.Infrastructure.Services.Identity
                         var verificationUri = await SendVerificationEmail(user, origin);
                         var mailRequest = new MailRequest
                         {
-                            From = "mail@codewithmukesh.com",
+                            From = "noreply.lowcalories@gmail.com",
                             To = user.Email,
                             Body = $"{_localizer["Please confirm your account by"]} <a href='{verificationUri}'>{_localizer["clicking here"]}</a>.",
                             Subject = _localizer["Confirm Registration"]
@@ -114,7 +117,7 @@ namespace Pickup.Infrastructure.Services.Identity
 
         public async Task<IResult<UserResponse>> GetAsync(string userId)
         {
-            var user = await _userManager.Users.Where(u => u.Id == userId).FirstOrDefaultAsync();
+            var user = await _userManager.Users.Include(x => x.Branches).Where(u => u.Id == userId).FirstOrDefaultAsync();
             var result = _mapper.Map<UserResponse>(user);
             return await Result<UserResponse>.SuccessAsync(result);
         }
@@ -130,6 +133,7 @@ namespace Pickup.Infrastructure.Services.Identity
             if (user != null)
             {
                 user.IsActive = request.ActivateUser;
+                user.UserType = request.UserType;
                 var identityResult = await _userManager.UpdateAsync(user);
             }
             return await Result.SuccessAsync();
@@ -241,6 +245,13 @@ namespace Pickup.Infrastructure.Services.Identity
             var users = await _userManager.Users.ToListAsync();
             var result = _mapper.Map<List<UserResponse>>(users.Except(managers));
             return await Result<List<UserResponse>>.SuccessAsync(result);
+        }
+
+        public async Task<IResult<UserConstants.UserType>> GetCurrentUserTypeAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            return await Result<UserConstants.UserType>.SuccessAsync(user.UserType);
         }
     }
 }

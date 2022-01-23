@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Pickup.Application.Interfaces.Repositories
 {
-   public interface IPlanRepository
+    public interface IPlanRepository
     {
-        Task<bool> IsPlanExist(string PlanName , int PlanTypeId);
+        Task<bool> IsPlanExist(string PlanName, int PlanTypeId);
         Task<TbPlanMasterHdr> AddAsync(TbPlanMasterHdr planMasterHdr);
         Task<TbPlanMasterHdr> UpdateAsync(TbPlanMasterHdr planMasterHdr);
-        Task<List<TbPlanMasterHdr>> GetAllAsync();
-        Task<TbPlanMasterHdr> GetAsync(int id); 
-        
+        Task<List<TbPlanMasterHdr>> GetAllAsync(string LanguageCode);
+        Task<TbPlanMasterHdr> GetAsync(int id);
+
     }
 }

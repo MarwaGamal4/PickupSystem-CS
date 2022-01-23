@@ -1,4 +1,6 @@
 using Hangfire;
+using Hangfire.Dashboard;
+using Hangfire.Dashboard.BasicAuthorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -7,9 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Pickup.Application.Extensions;
+using Pickup.Client.Infrastructure.Settings;
 using Pickup.Infrastructure.Extensions;
 using Pickup.Server.Extensions;
 using Pickup.Server.Middlewares;
+using Pickup.Shared.Settings;
 using System.IO;
 
 
@@ -29,6 +33,7 @@ namespace Pickup.Server
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IPreference, ClientPreference>();
             services.AddSignalR();
             services.AddDatabase(_configuration);
             services.AddIdentity();
@@ -44,7 +49,7 @@ namespace Pickup.Server
             services.AddApplicationServices();
             services.AddSharedInfrastructure(_configuration);
             services.RegisterSwagger();
-           
+
             services.AddInfrastructureMappings();
             services.AddHangfire(x => x.UseSqlServerStorage(_configuration.GetConnectionString("DefaultConnection")));
             services.AddHangfireServer();
@@ -61,9 +66,31 @@ namespace Pickup.Server
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var options = new DashboardOptions()
+            {
+                Authorization = new IDashboardAuthorizationFilter[]
+    {
+        new BasicAuthAuthorizationFilter(
+            new BasicAuthAuthorizationFilterOptions
+            {
+                // Case sensitive login checking
+                LoginCaseSensitive = true,
+                // Users
+                Users = new[]
+                {
+                    new BasicAuthAuthorizationUser()
+                    {
+                        Login = "Admin",
+                        // Password as plain text, SHA1 will be used
+                        PasswordClear = "Admin"
+                    }
+                }
+            })
+    }
+            };
             app.UseExceptionHandling(env);
             app.UseHttpsRedirection();
-            app.UseHangfireDashboard("/jobs");
+
             app.UseMiddleware<ErrorHandlerMiddleware>();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
@@ -75,6 +102,7 @@ namespace Pickup.Server
             app.UseRequestLocalizationByCulture();
             app.UseRouting();
             app.UseAuthentication();
+            app.UseHangfireDashboard("/jobs", options);
             app.UseAuthorization();
             app.UseEndpoints();
             app.ConfigureSwagger();

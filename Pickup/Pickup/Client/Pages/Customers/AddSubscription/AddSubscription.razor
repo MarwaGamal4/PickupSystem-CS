@@ -1,0 +1,205 @@
+﻿@page "/Pickup/Customers"
+@using Pickup.Application.Features.Customers.Dto
+@using Application.Features.Customers.Queries.GetById
+@inject ICustomerManager customerManager
+@inject IDialogService Dialog
+<MudCard>
+    <MudCardContent>
+        <MudContainer Class="d-flex justify-center pt-2 px-1 mt-6">
+            <MudTextField HelperText="Search By Customer Phone" InputType="InputType.Search" OnAdornmentClick="SearchByPhoneAsync" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" Immediate="true" OnKeyDown="SearchByPhone" @bind-Value="Model.CustomerPhone" @bind-Value:event="ValueChanged" Class="pa-2 mx-2" T="string" Label="Customer Phone"></MudTextField>
+            <MudTextField HelperText="Search By Customer ID" InputType="InputType.Search" OnAdornmentClick="SearchByCIDAsync" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" Immediate="true" OnKeyDown="SearchByCID" @bind-Value="Model.CustomerID" @bind-Value:event="ValueChanged" Class="pa-2 mx-2" T="int?" Label="Customer ID"></MudTextField>
+            <MudTextField HelperText="Search By Customer Plan ID" InputType="InputType.Search" OnAdornmentClick="SearchByPlanIDAsync" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" Immediate="true" OnKeyDown="SearchByPlanID" @bind-Value="Model.CustomerPlanID" @bind-Value:event="ValueChanged" Class="pa-2 mx-2" T="int?" Label="Plan ID"></MudTextField>
+
+        </MudContainer>
+    </MudCardContent>
+</MudCard>
+<LoaingSpinner IsLoading="IsLoading"></LoaingSpinner>
+<MudPaper>
+    @if (NotFound)
+    {
+        <MudContainer Class="d-flex justify-center py-2 px-1 mt-6">
+            <MudText Color="Color.Error" Class="pa-2 mx-2" T="string">@NotFoundMessage ,You Can Add A Customer From <a href="/AddCustomer">Here</a></MudText>
+        </MudContainer>
+    }
+
+
+</MudPaper>
+@if (CustomerModel != null)
+{
+    <MudText Class="py-5">Basic Data</MudText>
+    <MudPaper Class="pa-5">
+        <MudGrid>
+            <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.Id" Label="ID"></MudTextField></MudItem>
+            <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.Name" Label="Name"></MudTextField></MudItem>
+            <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.BranchName" Label="Branch"></MudTextField></MudItem>
+            <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.Phone1" Label="Phone"></MudTextField></MudItem>
+            <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.Phone2" Label="Phone2"></MudTextField></MudItem>
+            <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.Notes" Label="Note"></MudTextField></MudItem>
+
+        </MudGrid>
+    </MudPaper>
+    <MudGrid>
+        <MudItem>
+            <MudText Class="my-5">Pickup Plans</MudText>
+        </MudItem>
+        <MudItem Class="py-5">
+            <MudIconButton OnClick="@((e) => OpenDialog())" Icon="@Icons.Material.Filled.Add"></MudIconButton>
+        </MudItem>
+    </MudGrid>
+    <MudGrid Spacing="2" Justify="Justify.Center">
+        @foreach (var item in CustomerModel.CustomerPlan)
+        {
+            <MudItem md="2" sm="6" xs="12">
+                <PlanCardComponent OnRenewClick="@((e)=> OpenRenewDialog(item))" OnAddTransactionClick="@((e)=> OpenTransactionDialog(item))" Model="item"></PlanCardComponent>
+            </MudItem>
+        }
+    </MudGrid>
+}
+@code {
+    public dtoCustomerRsponse CustomerModel { get; set; }
+    GetCutomerByIdQuery Model { get; set; } = new();
+    public bool NotFound { get; set; } = false;
+    public string NotFoundMessage { get; set; } = "";
+    DialogOptions closeButton = new DialogOptions() { CloseButton = true };
+    public bool IsLoading { get; set; } = false;
+    private async void SearchByPhoneAsync()
+    {
+        IsLoading = true;
+        Model.CustomerID = null;
+        Model.CustomerPlanID = null;
+        var response = await customerManager.GetCustomer(new GetCutomerByIdQuery { CustomerPhone = Model.CustomerPhone });
+        NotFound = !response.Succeeded;
+        if (response.Succeeded)
+        {
+            CustomerModel = response.Data;
+
+        }
+        else
+        {
+            CustomerModel = null;
+            foreach (var message in response.Messages)
+            {
+                _snackBar.Add(message, MudBlazor.Severity.Error);
+            }
+            NotFoundMessage = "Customer Not Found With This Phone Number";
+        }
+        IsLoading = false;
+        StateHasChanged();
+    }
+    private async void SearchByPlanIDAsync()
+    {
+        IsLoading = true;
+        Model.CustomerPhone = null;
+        Model.CustomerID = null;
+        var response = await customerManager.GetCustomer(new GetCutomerByIdQuery { CustomerPlanID = Model.CustomerPlanID });
+        NotFound = !response.Succeeded;
+        if (response.Succeeded)
+        {
+            CustomerModel = response.Data;
+        }
+        else
+        {
+            CustomerModel = null;
+            foreach (var message in response.Messages)
+            {
+                _snackBar.Add(message, MudBlazor.Severity.Error);
+            }
+            NotFoundMessage = "Customer Not Found Has Plan With This Plan ID";
+        }
+        IsLoading = false;
+        StateHasChanged();
+    }
+    private async void SearchByCIDAsync()
+    {
+        IsLoading = true;
+        Model.CustomerPhone = null;
+        Model.CustomerPlanID = null;
+        var response = await customerManager.GetCustomer(new GetCutomerByIdQuery { CustomerID = Model.CustomerID });
+        NotFound = !response.Succeeded;
+        if (response.Succeeded)
+        {
+            CustomerModel = response.Data;
+        }
+        else
+        {
+            CustomerModel = null;
+            foreach (var message in response.Messages)
+            {
+                _snackBar.Add(message, MudBlazor.Severity.Error);
+            }
+            NotFoundMessage = "Customer Not Found With This ID";
+        }
+        IsLoading = false;
+        StateHasChanged();
+    }
+    private void SearchByPhone(KeyboardEventArgs e)
+    {
+
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            SearchByPhoneAsync();
+        }
+
+    }
+    private async void OpenDialog()
+    {
+
+        DialogParameters parm = new DialogParameters();
+        parm.Add("CustomerID", CustomerModel.Id);
+        var dialog = Dialog.Show<AddSubscriptionDialog>("Add New Subscription", parm, closeButton);
+        var result = await dialog.Result;
+        if (!result.Cancelled)
+        {
+            RefreshPlans();
+        }
+    }
+    private async void RefreshPlans()
+    {
+        IsLoading = true;
+        var response = await customerManager.GetCustomer(new GetCutomerByIdQuery { CustomerID = CustomerModel.Id });
+        CustomerModel = response.Data;
+        IsLoading = false;
+        StateHasChanged();
+    }
+
+    private async void OpenTransactionDialog(dtoCustomerPlanReponse PlanModel)
+    {
+
+        DialogParameters parm = new DialogParameters();
+        parm.Add("PlanModel", PlanModel);
+        var dialog = Dialog.Show<AddTransactionDialog>("Add Transaction", parm, closeButton);
+        var result = await dialog.Result;
+        if (!result.Cancelled)
+        {
+            RefreshPlans();
+        }
+    }
+
+    private async void OpenRenewDialog(dtoCustomerPlanReponse PlanModel)
+    {
+
+        DialogParameters parm = new DialogParameters();
+        parm.Add("Plan", PlanModel);
+        var dialog = Dialog.Show<RenewSubscriptionDialog>("Renew Subscription", parm, closeButton);
+        var result = await dialog.Result;
+        if (!result.Cancelled)
+        {
+            RefreshPlans();
+        }
+    }
+    private void SearchByCID(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            SearchByCIDAsync();
+        }
+
+    }
+    private void SearchByPlanID(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            SearchByPlanIDAsync();
+        }
+    }
+}

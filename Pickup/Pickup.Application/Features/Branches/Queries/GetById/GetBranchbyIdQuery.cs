@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Pickup.Application.Features.Branches.Queries.GetById
 {
-   public class GetBranchbyIdQuery : IRequest<Result<GetBranchbyIdResponse>>
+    public class GetBranchbyIdQuery : IRequest<Result<GetBranchbyIdResponse>>
     {
         public int BranchId { get; set; }
     }
@@ -37,10 +37,11 @@ namespace Pickup.Application.Features.Branches.Queries.GetById
 
         public async Task<Result<GetBranchbyIdResponse>> Handle(GetBranchbyIdQuery request, CancellationToken cancellationToken)
         {
-            var branch = await _unitOfWork.Repository<Branch>().GetInclude(request.BranchId,x=>x.Users);
+            var branch = await _unitOfWork.Repository<Branch>().GetInclude(request.BranchId, x => x.Users);
             var BranchUser = branch.Users;
             List<UsersBranchResponse> userModel = new List<UsersBranchResponse>();
             var AllUsers = await _userManager.GetAllExecptAdminAsync();
+            AllUsers.Data.RemoveAll(x => x.userType == Shared.Constants.User.UserConstants.UserType.CustomerService);
             foreach (var user in AllUsers.Data)
             {
                 if (BranchUser.Any(x => x.Id == user.Id))

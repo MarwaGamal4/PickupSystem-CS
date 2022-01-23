@@ -1,4 +1,5 @@
-﻿using Pickup.Shared.Constants.Localization;
+﻿using Pickup.Client.Infrastructure.Managers;
+using Pickup.Shared.Constants.Localization;
 using Pickup.Shared.Settings;
 using System.Linq;
 

@@ -11,6 +11,8 @@ namespace Pickup.Application.Responses.Identity
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
+        public string LastMessage { get; set; }
+        public bool Readed { get; set; } = true;
         public virtual ICollection<ChatHistory> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory> ChatHistoryToUsers { get; set; }
     }

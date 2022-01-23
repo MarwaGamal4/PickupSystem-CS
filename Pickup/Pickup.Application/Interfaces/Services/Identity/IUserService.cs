@@ -4,6 +4,7 @@ using Pickup.Application.Responses.Identity;
 using Pickup.Shared.Wrapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Pickup.Shared.Constants.User;
 
 namespace Pickup.Application.Interfaces.Services.Identity
 {
@@ -14,6 +15,7 @@ namespace Pickup.Application.Interfaces.Services.Identity
         Task<int> GetCountAsync();
 
         Task<IResult<UserResponse>> GetAsync(string userId);
+        Task<IResult<UserConstants.UserType>> GetCurrentUserTypeAsync(string userId);
 
         Task<IResult> RegisterAsync(RegisterRequest request, string origin);
 

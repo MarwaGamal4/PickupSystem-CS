@@ -80,7 +80,7 @@ namespace Pickup.Client.Pages.Branches
                         _snackBar.Add(localizer[message], Severity.Error);
                     }
                 }
-            } 
+            }
 
         }
         private async Task InvokeModal(int id = 0)

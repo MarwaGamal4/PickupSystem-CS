@@ -67,5 +67,10 @@ namespace Pickup.Client.Infrastructure.Managers.Branch
             return await response.ToResult<UserBranchesQueryResponse>();
         }
 
+        public async Task<IResult<List<GetAllBranchesResponse>>> GetAllByUserAsync()
+        {
+            var response = await _httpClient.GetAsync(Routes.BranchesEndpoints.GetAllByUser);
+            return await response.ToResult<List<GetAllBranchesResponse>>();
+        }
     }
 }

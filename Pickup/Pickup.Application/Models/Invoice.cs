@@ -2,40 +2,41 @@
 using Pickup.Domain.Contracts;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Pickup.Application.Models
 {
-   public class Invoice : AuditableEntity
+    public class Invoice : AuditableEntity
     {
         public Invoice()
         {
-            Inv_Images = new HashSet<Inv_Images>();
+            Transactions = new HashSet<Transaction>();
         }
-        public int PlanId { get; set; }
+
         public InvoiceType invoiceType { get; set; }
-        public Plan plan { get; set; }
-        public decimal Amount { get; set; }
-        public decimal Tax { get; set; }
-        public decimal Discount { get; set; }
-        public decimal Discountvalue { get; set; }
+        public decimal MealsAmount { get; set; }
+        public decimal SnacksAmount { get; set; }
         public Branch branch { get; set; }
         public int BranchId { get; set; }
         public int CustomerId { get; set; }
         public Customer customer { get; set; }
         public PaymentType paymentType { get; set; }
-        public int Internal_Num { get; set; }
-
-        public virtual ICollection<Inv_Images> Inv_Images { get; set; }
+        public string Internal_Num { get; set; }
+        public string InvoiceURL { get; set; }
         public decimal MealPrice { get; set; }
         public decimal SnackPrice { get; set; }
-        public int TotalMealsCounr { get; set; }
+        public int TotalMealsCount { get; set; }
         public int TotalSnacksCount { get; set; }
         public int CustomerPlanId { get; set; }
-        public CustomerPlan customerPlan { get; set; }
         public string Notes { get; set; }
+        public int RemainingMeals { get; set; }
+        public int RemainingSnacks { get; set; }
+        [ForeignKey("CustomerPlanId")]
+        public CustomerPlan customerPlan { get; set; }
+        public ICollection<Transaction> Transactions { get; set; }
 
     }
 }

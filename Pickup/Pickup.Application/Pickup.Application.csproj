@@ -24,10 +24,10 @@
     <Folder Include="Features\CustomersPlans\Commands\Delete\" />
     <Folder Include="Features\CustomersPlans\Queries\GetAll\" />
     <Folder Include="Features\CustomersPlans\Queries\GetById\" />
-    <Folder Include="Features\Customers\Commands\AddEdit\" />
     <Folder Include="Features\Customers\Commands\Delete\" />
     <Folder Include="Features\Customers\Queries\GetAll\" />
-    <Folder Include="Features\Customers\Queries\GetById\" />
+    <Folder Include="Features\Customers\Queries\GetByPhone\" />
+    <Folder Include="Features\Customers\Queries\GetByPlanID\" />
     <Folder Include="Features\DeliveryRpt\Queries\GetById\" />
     <Folder Include="Features\Invoices\Commands\AddEdit\" />
     <Folder Include="Features\Invoices\Commands\Delete\" />
@@ -45,7 +45,6 @@
     <Folder Include="Features\Transactions\Queries\GetById\" />
     <Folder Include="Models\ERP\" />
     <Folder Include="Validators\Features\CustomersPlans\Commands\AddEdit\" />
-    <Folder Include="Validators\Features\Customers\Commands\AddEdit\" />
     <Folder Include="Validators\Features\Invoices\Commands\AddEdit\" />
     <Folder Include="Validators\Features\Plans\Commands\AddEdit\" />
     <Folder Include="Validators\Features\PlanTypes\Commands\AddEdit\" />

@@ -68,11 +68,12 @@ namespace Pickup.Client.Pages.Communication
             }
         }
 
-        private async Task OnKeyPressInChat(KeyboardEventArgs e)
+        private void OnKeyPressInChat(KeyboardEventArgs e)
         {
-            if (e.Key == "Enter")
+            if (e.Code == "Enter" || e.Code == "NumpadEnter")
             {
-                await SubmitAsync();
+                SubmitAsync();
+                //CurrentMessage = string.Empty;
             }
         }
 
@@ -116,15 +117,19 @@ namespace Pickup.Client.Pages.Communication
         [Parameter] public string CId { get; set; }
         [Parameter] public string CUserName { get; set; }
         [Parameter] public string CImageURL { get; set; }
+        [CascadingParameter(Name = "GetMessagess")] public Action GetMessages { get; set; }
 
         private async Task LoadUserChat(string userId)
         {
             open = false;
             var response = await _userManager.GetAsync(userId);
+
             if (response.Succeeded)
             {
                 var contact = response.Data;
                 CId = contact.Id;
+
+
                 CFullName = $"{contact.FirstName} {contact.LastName}";
                 CUserName = contact.UserName;
                 CImageURL = contact.ProfilePictureDataUrl;
@@ -143,6 +148,7 @@ namespace Pickup.Client.Pages.Communication
                         _snackBar.Add(localizer[message], Severity.Error);
                     }
                 }
+                await _chatManager.MarkasRead(CId);
             }
             else
             {
@@ -151,6 +157,7 @@ namespace Pickup.Client.Pages.Communication
                     _snackBar.Add(localizer[message], Severity.Error);
                 }
             }
+            GetMessagess();
         }
 
         private async Task GetUsersAsync()
@@ -172,7 +179,14 @@ namespace Pickup.Client.Pages.Communication
 
         private bool open;
         private Anchor ChatDrawer { get; set; }
-
+        public List<ChatUserResponse> ChatUsers = new List<ChatUserResponse>();
+        private async void GetMessagess()
+        {
+            var ChatUserss = await _chatManager.GetOldMessages();
+            ChatUsers = ChatUserss.Data.ToList();
+            appState.SetMessageCounter(ChatUsers.Where(x => x.Readed == false).Count());
+            StateHasChanged();
+        }
         private void OpenDrawer(Anchor anchor)
         {
             ChatDrawer = anchor;

@@ -2,35 +2,29 @@
 <MudDialog>
     <DialogContent>
         <MudContainer Style=" overflow-y: scroll">
-            @if (Plan != null)
-            {
-                <MudSimpleTable Style="overflow-x: auto;" Striped="true" Hover="true" Bordered="true" Elevation="5">
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Day Name</th>
-                            @foreach (var item in MealsCategory)
-                            {
-                                <th>@item</th>
-                            }
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for (int i = 1; i < Plan.TbPlanMasterLines.Max(x => x.Days) + 1; i++)
-                        {
-                            <tr>
-                                <td style="width: auto;justify-items:center">@i</td>
-                                <td style="width:fit-content">@Plan.TbPlanMasterLines.FirstOrDefault(x => x.Days == i).DaysNames</td>
-                                @foreach (var item in MealsCategory)
-                                {
-                                    <td style="max-width:30px; text-wrap: normal; word-wrap: break-word;">@Plan.TbPlanMasterLines.FirstOrDefault(x => x.Days == i && x.TypeName == item).MealName</td>
-                                }
+            <MudGrid>
+                <MudItem xs="6" md="3">
+                    <MudTextField T="string" ReadOnly="true" Text="@Plan.PlanName" Immediate="true" Label="Plan Name" Variant="Variant.Text" />
+                </MudItem>
+                <MudItem xs="6" md="3">
+                    <MudTextField T="string" ReadOnly="true" Text="@Plan.DaysCount.ToString()" MaxLength="25" Immediate="true" Label="Plan Days Count" Variant="Variant.Text" />
+                </MudItem>
+                <MudItem xs="6" md="3">
+                    <MudTextField T="string" ReadOnly="true" Text="@Plan.StartDate.ToShortDateString()" Immediate="true" Label="Counter" Variant="Variant.Text" />
+                </MudItem>
 
-                            </tr>
-                        }
-                    </tbody>
-                </MudSimpleTable>
-            }
+                <MudItem xs="6" md="3">
+                    <MudTextField T="string" ReadOnly="true" HelperText="This field uses MaxLength prop" Immediate="true" Label="Max Length" Variant="Variant.Text" />
+                </MudItem>
+            </MudGrid>
+            <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
+                <MudTabPanel Text="Plan Table">
+                    <PlanTable Plan="@Plan"></PlanTable>
+                </MudTabPanel>
+                <MudTabPanel Text="Pricing">
+                    <MudText>Content Two</MudText>
+                </MudTabPanel>
+            </MudTabs>
         </MudContainer>
     </DialogContent>
     <DialogActions>
@@ -50,5 +44,11 @@
         var PlanPerDay = Plan.TbPlanMasterLines.GroupBy(x => x.Days).ToList();
         return base.OnInitializedAsync();
     }
+    record MealsCategories
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+
 
 }

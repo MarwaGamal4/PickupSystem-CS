@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pickup.Application.Models
 {
-   public class CustomerPlan : AuditableEntity
+    public class CustomerPlan : AuditableEntity
     {
         public CustomerPlan()
         {
@@ -16,10 +16,6 @@ namespace Pickup.Application.Models
         public string PlanName { get; set; }
         public int CustomerId { get; set; }
         public Customer customer { get; set; }
-        public int BranchId { get; set; }
-        public Branch branch { get; set; }
-        public int PlanId { get; set; }
-        public Plan plan { get; set; }
         public int RemainingMealsCount { get; set; }
         public int RemainingSnacksCount { get; set; }
         public string Notes { get; set; }

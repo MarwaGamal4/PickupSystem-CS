@@ -1,42 +1,64 @@
-﻿
+﻿@inject IChatManager _ChatManager
+@inject AppState appState
 <div class="notification">
-    <MudMenu MaxHeight="300"  Icon="@Icons.Material.Filled.MarkEmailUnread" Direction="Direction.Bottom" OffsetY="true" Color="Color.Inherit">
-        <MudPaper>
-            <MudMenuItem Style="width:300px; background-color:aliceblue">
-                <MudText Typo="Typo.subtitle1">Ahmed Magdy</MudText>
-                <MudText Typo="Typo.caption">Sales Report</MudText>
-            </MudMenuItem>
-            <MudDivider Vertical="false" />
-            <MudMenuItem Style="width:300px">
-                <MudText Typo="Typo.subtitle1">Ali Mohamed</MudText>
-                <MudText Typo="Typo.caption">Kindly Find Attached File </MudText>
-                <MudText><MudLink Typo="Typo.caption" Href="#"> Branch Transaction </MudLink><MudIcon Size="Size.Small" Icon="@Icons.Material.Filled.AttachFile"></MudIcon></MudText>
-            </MudMenuItem>
-            <MudMenuItem Style="width:300px; background-color:aliceblue">
-                <MudText Typo="Typo.subtitle1">Karim Magdy</MudText>
-                <MudText Typo="Typo.caption">New Sales Report</MudText>
-            </MudMenuItem>
-            <MudMenuItem Style="width:300px; background-color:aliceblue">
-                <MudText Typo="Typo.subtitle1">Abdullah Acc</MudText>
-                <MudText Typo="Typo.caption">New Finance Report</MudText>
-            </MudMenuItem>
-            <MudMenuItem Style="width:300px; background-color:aliceblue">
-                <MudText Typo="Typo.subtitle1">System Admin</MudText>
-                <MudText Typo="Typo.caption">Roles Confirmation</MudText>
-            </MudMenuItem>
-        </MudPaper>
+    <MudMenu Dense="true" DisableRipple="true" @onclick="@OnMessagesClick" DisableElevation="true" MaxHeight="300" Icon="@_Icon()" Direction="Direction.Bottom" OffsetY="true" Color="Color.Inherit">
+
+        <MudContainer Style="height:245px;width:20vw; overflow-y: scroll; padding:0px;margin:0px">
+            <MudItem md="12">
+                <Pickup.Client.Shared.Components.MessagesComponents.MessageItem ChatUsers="ChatUsers"></Pickup.Client.Shared.Components.MessagesComponents.MessageItem>
+            </MudItem>
+        </MudContainer>
+        <MudDivider />
         <MudText Align="Align.Center"> <MudLink Typo="Typo.body2" Href="#">All Messages</MudLink></MudText>
     </MudMenu>
-    <MudBadge Style="position:absolute; margin-top:10px;margin-left:-10px" Overlap="true" Color="Color.Error" Content="3"></MudBadge>
-    @*@if (MessagesCounter > 0)
+    @if (appState.MessagesCounter > 0)
     {
-        <span class="badge" data-badge="@(MessagesCounter)"></span>
-    }*@
+        <MudBadge Style="position:absolute; margin-top:10px;margin-left:-10px" Overlap="true" Color="Color.Error" Content="@appState.MessagesCounter"></MudBadge>
+
+    }
 
 </div>
 
-@code {
-    private int _MessageCounter = 3;
-    public int MessagesCounter { get { return _MessageCounter; } set { _MessageCounter = value;StateHasChanged(); } }
 
+@code {
+    private int _MessageCounter = 0;
+    [Parameter]
+    public int MessagesCounter
+    {
+        get => _MessageCounter;
+        set
+        {
+            if (value == _MessageCounter)
+                return;
+
+            _MessageCounter = value;
+            if (ValueChanged.HasDelegate)
+            {
+                ValueChanged.InvokeAsync();
+            }
+        }
+    }
+    private async Task OnMessagesClick()
+    {
+        await _ChatManager.MarkAllasRead();
+
+        _MessageCounter = 0;
+        MessagesCounter = 0;
+        StateHasChanged();
+    }
+    [Parameter]
+    public EventCallback<ChangeEventArgs> ValueChanged { get; set; }
+    [Parameter]
+    public List<Pickup.Application.Responses.Identity.ChatUserResponse> ChatUsers { get; set; }
+    public string _Icon()
+    {
+        if (_MessageCounter > 0)
+        {
+            return Icons.Material.Filled.MarkEmailUnread;
+        }
+        else
+        {
+            return Icons.Material.Filled.Mail;
+        }
+    }
 }

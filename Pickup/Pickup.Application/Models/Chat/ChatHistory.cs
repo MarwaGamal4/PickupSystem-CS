@@ -10,6 +10,7 @@ namespace Pickup.Application.Models.Chat
         public string ToUserId { get; set; }
         public string Message { get; set; }
         public DateTime CreatedDate { get; set; }
+        public bool isReaded { get; set; } = false;
         public virtual BlazorHeroUser FromUser { get; set; }
         public virtual BlazorHeroUser ToUser { get; set; }
     }

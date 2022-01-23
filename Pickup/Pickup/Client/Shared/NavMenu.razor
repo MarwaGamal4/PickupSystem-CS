@@ -1,78 +1,115 @@
 ﻿@inject Microsoft.Extensions.Localization.IStringLocalizer<NavMenu> localizer
 @using System.Security.Claims
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IUserManager userManager
 @using Microsoft.AspNetCore.Components.Authorization
 <UserCard />
 <MudDivider Class="mb-4" />
-<MudNavMenu>
+<MudNavMenu Bordered="true">
     <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Home">@localizer["Home"]</MudNavLink>
-    <MudNavLink Href="/jobs" Icon="@Icons.Material.Outlined.Work">
-        @localizer["Hangfire"]
-    </MudNavLink>
-    <MudNavLink Href="#" Target="_blank" Icon="@Icons.Material.Outlined.ReadMore">
-        @localizer["Quick Start Guide"]
-    </MudNavLink>
-    <MudNavLink Href="/swagger/index.html" Target="_blank" Icon="@Icons.Material.Outlined.LiveHelp">
-        @localizer["Swagger"]
-    </MudNavLink>
-    <MudListSubheader Class="mt-2 mb-n2">@localizer["Personal"]</MudListSubheader>
-    <MudNavLink Href="/dashboard" Icon="@Icons.Material.Outlined.Dashboard">
-        @localizer["Dashboard"]
-    </MudNavLink>
-    <MudNavLink Href="/account" Icon="@Icons.Material.Outlined.SupervisorAccount">
-        @localizer["Account"]
-    </MudNavLink>
-    <MudNavLink Href="/document-store" Icon="@Icons.Material.Outlined.AttachFile">
-        @localizer["Document Store"]
-    </MudNavLink>
-    <MudNavLink Href="/audit-trails" Icon="@Icons.Material.Outlined.Security">
-        @localizer["Audit Trails"]
-    </MudNavLink>
-    @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Roles.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Users.View).Result.Succeeded)
-    {
-        <MudListSubheader Class="mt-2 mb-n2">
-            @localizer["Administrator"]
-        </MudListSubheader>
-        @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Users.View).Result.Succeeded)
-        {
-            <MudNavLink Href="/identity/users" Icon="@Icons.Material.Outlined.Person">
-                @localizer["Users"]
-            </MudNavLink>
-        }
-        @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Branches.View).Result.Succeeded)
-        {
-            <MudNavLink Href="/Admin/branches" Icon="@Icons.Material.Outlined.House">
-                @localizer["Branches"]
-            </MudNavLink>
-        }
-        @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Roles.View).Result.Succeeded)
-        {
-            <MudNavLink Href="/identity/roles" Icon="@Icons.Material.Outlined.Person">@localizer["Roles"]</MudNavLink>
-        }
-    }
 
-        <MudNavLink Href="/DeliveryRPT/Main" Icon="@Icons.Material.Outlined.Traffic">@localizer["Delivery View"]</MudNavLink>
-   
-
-    <MudListSubheader Class="mt-2 mb-n2">@localizer["Communication"]</MudListSubheader>
-    <MudNavLink Href="/chat" Icon="@Icons.Material.Outlined.Chat">
-        @localizer["Chat"]
-    </MudNavLink>
-    @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Products.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Brands.View).Result.Succeeded)
-    {
-        <MudListSubheader Class="mt-2 mb-n2">@localizer["Catalog Management"]</MudListSubheader>
-        @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Products.View).Result.Succeeded)
+    @*<MudListSubheader Class="mt-2 mb-n2"></MudListSubheader>*@
+    <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Personal"]">
+        @if (UserType != Pickup.Shared.Constants.User.UserConstants.UserType.Branch)
         {
-            <MudNavLink Href="/catalog/products" Icon="@Icons.Material.Outlined.CallToAction">
-                @localizer["Products"]
+            <MudNavLink Href="/dashboard" Icon="@Icons.Material.Outlined.Dashboard">
+                @localizer["Dashboard"]
             </MudNavLink>
+            <MudNavLink Href="/DeliveryRPT/Main" Icon="@Icons.Material.Outlined.Traffic">@localizer["Delivery View"]</MudNavLink>
         }
-        @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Brands.View).Result.Succeeded)
+        <MudNavLink Href="/account" Icon="@Icons.Material.Outlined.SupervisorAccount">
+            @localizer["Account"]
+        </MudNavLink>
+    </MudNavGroup>
+    <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Pickup System"]">
+        <MudNavLink Href="/Pickup/Customers" Icon="@Icons.Material.Outlined.Person">
+            @localizer["Customers"]
+        </MudNavLink>
+        <MudNavLink Href="/AddCustomer" Icon="@Icons.Material.Outlined.PersonAdd">
+            @localizer["Add New Customer"]
+        </MudNavLink>
+        <MudNavLink Href="/RenewCustomer" Icon="@Icons.Material.Outlined.Autorenew">
+            @localizer["Renew Subscription"]
+        </MudNavLink>
+        <MudNavLink Href="/Transaction" Icon="@Icons.Material.Outlined.Transform">
+            @localizer["Pickup Transaction"]
+        </MudNavLink>
+
+        @if (UserType != Pickup.Shared.Constants.User.UserConstants.UserType.Branch)
         {
-            <MudNavLink Href="/catalog/brands" Icon="@Icons.Material.Outlined.CallToAction">
+            <MudNavGroup Class="mt-2 mb-n2" Expanded="false" Title="@localizer["Reports"]">
+                <MudNavLink Href="/reports/Accountant" Icon="@Icons.Material.Outlined.Report">
+                    @localizer["Accountant reports"]
+                </MudNavLink>
+                <MudNavLink Href="/reports/Transaction" Icon="@Icons.Material.Outlined.AccountTree">@localizer["Transaction Reports"]</MudNavLink>
+            </MudNavGroup>
+        }
+
+    </MudNavGroup>
+    @if ((_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Roles.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Users.View).Result.Succeeded) && (UserType != Pickup.Shared.Constants.User.UserConstants.UserType.Branch || UserType != Pickup.Shared.Constants.User.UserConstants.UserType.BranchOwner))
+    {
+        <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Administrator"]">
+            <MudNavLink Href="/jobs" Icon="@Icons.Material.Outlined.Work">
+                @localizer["Hangfire"]
+            </MudNavLink>
+            <MudNavLink Href="#" Target="_blank" Icon="@Icons.Material.Outlined.ReadMore">
+                @localizer["Quick Start Guide"]
+            </MudNavLink>
+            <MudNavLink Href="/swagger/index.html" Target="_blank" Icon="@Icons.Material.Outlined.LiveHelp">
+                @localizer["Swagger"]
+            </MudNavLink>
+            @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Users.View).Result.Succeeded)
+            {
+                <MudNavLink Href="/identity/users" Icon="@Icons.Material.Outlined.Person">
+                    @localizer["Users"]
+                </MudNavLink>
+            }
+            <MudNavLink Href="/document-store" Icon="@Icons.Material.Outlined.AttachFile">
+                @localizer["Document Store"]
+            </MudNavLink>
+            <MudNavLink Href="/audit-trails" Icon="@Icons.Material.Outlined.Security">
+                @localizer["Audit Trails"]
+            </MudNavLink>
+            @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Branches.View).Result.Succeeded)
+            {
+                <MudNavLink Href="/Admin/branches" Icon="@Icons.Material.Outlined.House">
+                    @localizer["Branches"]
+                </MudNavLink>
+            }
+            @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Roles.View).Result.Succeeded)
+            {
+                <MudNavLink Href="/identity/roles" Icon="@Icons.Material.Outlined.Person">@localizer["Roles"]</MudNavLink>
+            }
+            <MudNavLink Href="/Plans" Icon="@Icons.Material.Outlined.CallToAction">
                 @localizer["Plans"]
             </MudNavLink>
-        }
+        </MudNavGroup>
+    }
+
+
+
+    <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Communication"]">
+        <MudNavLink Href="/chat" Icon="@Icons.Material.Outlined.Chat">
+            @localizer["Chat"]
+        </MudNavLink>
+    </MudNavGroup>
+    @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Products.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Brands.View).Result.Succeeded)
+    {
+        <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Catalog Management"]">
+
+            @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Products.View).Result.Succeeded)
+            {
+                <MudNavLink Href="/catalog/products" Icon="@Icons.Material.Outlined.CallToAction">
+                    @localizer["Products"]
+                </MudNavLink>
+            }
+            @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Brands.View).Result.Succeeded)
+            {
+                <MudNavLink Href="/catalog/brands" Icon="@Icons.Material.Outlined.CallToAction">
+                    @localizer["Plans"]
+                </MudNavLink>
+            }
+        </MudNavGroup>
     }
 </MudNavMenu>
 
@@ -82,5 +119,16 @@
     protected override async Task OnParametersSetAsync()
     {
         AuthenticationStateProviderUser = await _stateProvider.GetAuthenticationStateProviderUserAsync();
+    }
+    private Pickup.Shared.Constants.User.UserConstants.UserType UserType { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await userManager.GetUserType();
+        if (result.Succeeded)
+        {
+            UserType = result.Data;
+            StateHasChanged();
+        }
+
     }
 }

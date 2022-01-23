@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @inject Microsoft.Extensions.Localization.IStringLocalizer<MainLayout> localizer
-
+@inject AppState appState
+@inject AppState2 appState2
 <audio id="notification" src="/media/notification.mp3" />
 
 <MudThemeProvider Theme="_currentTheme" />
@@ -8,6 +9,7 @@
 <MudSnackbarProvider />
 <AuthorizeView>
     <NotAuthorized>
+        <MudOverlay @bind-Visible="IsLoading" DarkBackground="true" ZIndex="9999" />
         <MudAppBar Elevation="4" Color="Color.Primary">
             <MudAppBarSpacer />
             <LanguageSelector />
@@ -19,13 +21,18 @@
         <MudContainer MaxWidth="MaxWidth.Small" Class="d-flex align-center" Style="height: 100vh;">
             <MudPaper Elevation="25" Class="pa-8" Style="width: 500px;">
                 <CascadingValue Value="hubConnection">
-                    @Body
+                    <CascadingValue Value="GetMessagess">
+                        <CascadingValue Value="IsLoading" Name="Loading" IsFixed="false">
+                            @Body
+                        </CascadingValue>
+                    </CascadingValue>
                 </CascadingValue>
             </MudPaper>
         </MudContainer>
     </NotAuthorized>
     <Authorized>
         @(LoadDataAsync())
+        <MudOverlay @bind-Visible="IsLoading" DarkBackground="true" ZIndex="9999" />
         <MudLayout RightToLeft="false">
             <MudAppBar Elevation="4" Color="Color.Primary">
                 <MudIcon Icon="@CustomIcons.Lowcalories" Size="Size.Large" ViewBox="0 45 1200 830" Style="height: 90px; width: 90px; margin-left:-20px;margin-right:-20" />
@@ -34,7 +41,7 @@
 
                 <MudAppBarSpacer />
                 <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
-                    <Messages/>
+                    <Messages MessagesCounter="@appState.MessagesCounter" ChatUsers="ChatUsers" />
                     <MudTooltip Text="@localizer["Notifications"]">
                         <MudIconButton Icon="@Icons.Material.Filled.NotificationsActive" Color="Color.Inherit" />
                     </MudTooltip>
@@ -87,10 +94,14 @@
             </MudDrawer>
             <MudMainContent>
                 @*<MudToolBar DisableGutters="true">
-                </MudToolBar>*@
+                    </MudToolBar>*@
                 <MudContainer MaxWidth="MaxWidth.False" Class="mt-4">
                     <CascadingValue Value="hubConnection">
-                        @Body
+                        <CascadingValue Value="IsLoading" IsFixed="false" Name="IsLoading">
+                            <CascadingValue Value="GetMessagess">
+                                @Body
+                            </CascadingValue>
+                        </CascadingValue>
                     </CascadingValue>
                 </MudContainer>
             </MudMainContent>

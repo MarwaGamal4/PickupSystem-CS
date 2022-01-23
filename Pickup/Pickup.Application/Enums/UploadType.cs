@@ -13,10 +13,10 @@ namespace Pickup.Application.Enums
         [Description(@"Documents")]
         Document,
 
-        [Description(@"Images\Invoices")]
+        [Description(@"Documents\Invoices")]
         Invoice,
 
-        [Description(@"Images\Invoices\InternalInv")]
+        [Description(@"Documents\Invoices\TransactionInvoices")]
         internal_Inv
     }
 }

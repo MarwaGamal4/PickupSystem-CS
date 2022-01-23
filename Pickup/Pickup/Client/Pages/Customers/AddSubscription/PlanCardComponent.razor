@@ -1,0 +1,50 @@
+﻿@using Pickup.Application.Features.Customers.Dto
+@inject IDialogService Dialog
+@if (Model != null)
+{
+    <MudCard>
+        <MudCardHeader>
+            <CardHeaderContent>
+                <MudText Typo="Typo.caption">@Model.PlanName</MudText>
+            </CardHeaderContent>
+            <CardHeaderActions>
+                <MudMenu Icon="@Icons.Material.Filled.MoreVert">
+                    <MudMenuItem OnClick="OnRenewClick">Renew Plan</MudMenuItem>
+                    <MudMenuItem>Transactions</MudMenuItem>
+                    <MudMenuItem>Invoices</MudMenuItem>
+                    <MudMenuItem>Refund</MudMenuItem>
+                </MudMenu>
+            </CardHeaderActions>
+        </MudCardHeader>
+        <MudCardContent>
+            <MudGrid>
+                <MudItem>
+                    <MudText Typo="Typo.subtitle1">P.ID: @Model.CustomerPlanID</MudText>
+                    <MudText>R.Meals: @Model.RemainingMeals</MudText>
+                    <MudText>R.Snacks: @Model.RemainingSnacks</MudText>
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+        <MudCardActions>
+            @if (Model.RemainingMeals != 0 || Model.RemainingSnacks != 0)
+            {
+                <MudButton OnClick="OnAddTransactionClick" Variant="Variant.Text" Color="Color.Primary">Add Transaction</MudButton>
+            }
+            else
+            {
+                <MudButton OnClick="OnRenewClick" Variant="Variant.Text" Color="Color.Primary">Renew Plan</MudButton>
+
+            }
+        </MudCardActions>
+    </MudCard>
+}
+
+@code {
+    [Parameter]
+    public dtoCustomerPlanReponse Model { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnAddTransactionClick { get; set; }
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnRenewClick { get; set; }
+}

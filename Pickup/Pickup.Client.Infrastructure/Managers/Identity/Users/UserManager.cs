@@ -1,6 +1,7 @@
 ﻿using Pickup.Application.Requests.Identity;
 using Pickup.Application.Responses.Identity;
 using Pickup.Client.Infrastructure.Extensions;
+using Pickup.Shared.Constants.User;
 using Pickup.Shared.Wrapper;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -64,6 +65,12 @@ namespace Pickup.Client.Infrastructure.Managers.Identity.Users
         {
             var response = await _httpClient.PostAsJsonAsync(Routes.UserEndpoints.ResetPassword, request);
             return await response.ToResult();
+        }
+
+        public async Task<IResult<UserConstants.UserType>> GetUserType()
+        {
+            var response = await _httpClient.GetAsync(Routes.UserEndpoints.GetUserType);
+            return await response.ToResult<UserConstants.UserType>();
         }
     }
 }

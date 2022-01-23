@@ -31,7 +31,7 @@ namespace Pickup.Application.Models.Identity
         public bool IsActive { get; set; }
         public string RefreshToken { get; set; }
         public DateTime RefreshTokenExpiryTime { get; set; }
-        public UserType UserType { get; set; }
+        public UserType UserType { get; set; } = UserType.CustomerService;
         public virtual ICollection<ChatHistory> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory> ChatHistoryToUsers { get; set; }
         public virtual ICollection<Branch> Branches { get; set; }

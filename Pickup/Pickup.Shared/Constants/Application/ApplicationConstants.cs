@@ -20,6 +20,9 @@ namespace Pickup.Shared.Constants.Application
             public const string GetAllBrandsCacheKey = "all-brands";
             public const string GetAllBranchesCacheKey = "all-branches";
             public const string GetAllUserBranchesCacheKey = "all-userbranches";
+            public const string GetAllCustomersCacheKey = "all-customers";
+            public const string GetAllInvocesCacheKey = "all-Invoces";
+            public const string GetAllCustomersPlanCacheKey = "all-customersPlans";
         }
     }
 }

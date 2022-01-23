@@ -19,6 +19,7 @@ namespace Pickup.Application.Interfaces.Repositories
         Task<List<T>> GetPagedReponseAsync(int pageNumber, int pageSize);
 
         Task<T> AddAsync(T entity);
+        Task<List<T>> AddRangeAsync(List<T> entity);
 
         Task UpdateAsync(T entity);
 

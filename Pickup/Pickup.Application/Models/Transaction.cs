@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pickup.Application.Models
 {
-   public class Transaction : AuditableEntity
+    public class Transaction : AuditableEntity
     {
         [ForeignKey("branch")]
         public int BranchId { get; set; }
@@ -20,12 +20,15 @@ namespace Pickup.Application.Models
         public CustomerPlan customerPlan { get; set; }
         public int MealCount { get; set; }
         public int SnackCount { get; set; }
-        public string RefNum { get; set; }
+        public string Inv_url { get; set; }
         public string Notes { get; set; }
         [ForeignKey("CreditBranch")]
         public int CreditBranchId { get; set; }
         public Branch CreditBranch { get; set; }
         public decimal CreditValue { get; set; }
+        public int InvoiceID { get; set; }
+        [ForeignKey("InvoiceID")]
+        public Invoice invoice { get; set; }
 
     }
 }

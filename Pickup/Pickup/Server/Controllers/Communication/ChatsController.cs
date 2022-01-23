@@ -34,7 +34,16 @@ namespace Pickup.Server.Controllers.Communication
         {
             return Ok(await _chatService.GetChatUsersAsync(_currentUserService.UserId));
         }
-
+        [HttpGet("Mark/{contactId}")]
+        public async Task<IActionResult> MarkAsRead(string contactId)
+        {
+            return Ok(await _chatService.MarkAsRead(_currentUserService.UserId, contactId));
+        }
+        [HttpGet("MarkAll")]
+        public async Task<IActionResult> MarkAllAsRead()
+        {
+            return Ok(await _chatService.MarkAllAsRead(_currentUserService.UserId));
+        }
         //save chat message
         [HttpPost]
         public async Task<IActionResult> SaveMessageAsync(ChatHistory message)
@@ -43,6 +52,12 @@ namespace Pickup.Server.Controllers.Communication
             message.ToUserId = message.ToUserId;
             message.CreatedDate = DateTime.Now;
             return Ok(await _chatService.SaveMessageAsync(message));
+        }
+
+        [HttpGet("oldchat")]
+        public async Task<IActionResult> GetOldChat()
+        {
+            return Ok(await _chatService.GetOldMessages(_currentUserService.UserId));
         }
     }
 }

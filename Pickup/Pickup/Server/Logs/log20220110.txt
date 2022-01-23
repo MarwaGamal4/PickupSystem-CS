@@ -1,0 +1,91 @@
+2022-01-10 14:43:33.101 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:43:33.130 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:43:33.133 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:43:33.133 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:43:33.133 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:47:20.013 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:47:20.043 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:47:20.047 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:47:20.047 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:47:20.048 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:48:36.389 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:48:36.428 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:48:36.431 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:48:36.432 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:48:36.433 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:49:11.651 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:49:11.680 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:49:11.682 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:49:11.683 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:49:11.683 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:49:46.089 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:49:46.118 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:49:46.120 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:49:46.120 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:49:46.121 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:52:59.890 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:52:59.919 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:52:59.922 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:52:59.922 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:52:59.923 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:53:44.716 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:53:44.743 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:53:44.746 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:53:44.747 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:53:44.747 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:57:51.713 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:57:51.749 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:57:51.753 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:57:51.754 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:57:51.754 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 14:59:31.638 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 14:59:31.668 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 14:59:31.670 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 14:59:31.671 +02:00 [INF] Hosting environment: Development
+2022-01-10 14:59:31.671 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:00:24.323 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:00:24.353 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:00:24.356 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:00:24.356 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:00:24.356 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:01:04.002 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:01:04.030 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:01:04.033 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:01:04.033 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:01:04.033 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:01:38.211 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:01:38.246 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:01:38.248 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:01:38.249 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:01:38.249 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:03:18.287 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:03:18.319 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:03:18.321 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:03:18.321 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:03:18.323 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:22:19.790 +02:00 [INF] Application is shutting down...
+2022-01-10 15:29:08.822 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:29:08.850 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:29:08.854 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:29:08.855 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:29:08.855 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:33:03.011 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:33:03.039 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:33:03.042 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:33:03.043 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:33:03.043 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:36:04.888 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:36:04.933 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:36:04.936 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:36:04.936 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:36:04.936 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:38:58.809 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:38:58.848 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:38:58.852 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:38:58.852 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:38:58.853 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-01-10 15:39:35.263 +02:00 [INF] Now listening on: https://localhost:5001
+2022-01-10 15:39:35.355 +02:00 [INF] Now listening on: http://localhost:5000
+2022-01-10 15:39:35.359 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-01-10 15:39:35.359 +02:00 [INF] Hosting environment: Development
+2022-01-10 15:39:35.360 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

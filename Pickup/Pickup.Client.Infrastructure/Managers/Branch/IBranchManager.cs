@@ -19,5 +19,7 @@ namespace Pickup.Client.Infrastructure.Managers.Branch
         Task<IResult<GetBranchbyIdResponse>> GetBranchUsersAsync(int BranchId);
         Task<IResult<UserBranchesQueryResponse>> GetUserBranchessAsync(string UserId);
         Task<IResult<int>> AddBranchesToUser(AddEditBranchesToUserCommand request);
+        Task<IResult<List<GetAllBranchesResponse>>> GetAllByUserAsync();
+
     }
 }

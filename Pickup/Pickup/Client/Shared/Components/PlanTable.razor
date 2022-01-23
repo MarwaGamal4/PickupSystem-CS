@@ -1,0 +1,44 @@
+﻿@using Application.Features.Plans.Queries.Dto
+
+@if (Plan != null)
+{
+    <MudSimpleTable Style="overflow-x: auto;" Striped="true" Hover="true" Bordered="true" Elevation="5">
+        <thead>
+            <tr>
+                <th style="width: 40px; text-align: center">Day</th>
+                <th style="width: 70px; text-align: center">Day Name</th>
+                @foreach (var item in MealsCategory)
+                {
+                    <th style="text-align: center">@item</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 1; i < Plan.TbPlanMasterLines.Max(x => x.Days) + 1; i++)
+            {
+                <tr>
+                    <td style="width: 40px; text-align: center ">@i</td>
+                    <td style="width: 70px; text-align: center ">@Plan.TbPlanMasterLines.FirstOrDefault(x => x.Days == i).DaysNames</td>
+                    @foreach (var item in MealsCategory)
+                    {
+                        <td style="text-align: center">@Plan.TbPlanMasterLines.FirstOrDefault(x => x.Days == i && x.TypeName == item).MealName</td>
+                    }
+
+                </tr>
+            }
+        </tbody>
+    </MudSimpleTable>
+}
+@code {
+    [Parameter]
+    public PlanDtoResponse Plan { get; set; } = new PlanDtoResponse();
+    public List<string> MealsCategory = new List<string>();
+
+    protected override Task OnInitializedAsync()
+    {
+        MealsCategory = Plan.TbPlanMasterLines.Select(x => x.TypeName).Distinct().ToList();
+
+        var PlanPerDay = Plan.TbPlanMasterLines.GroupBy(x => x.Days).ToList();
+        return base.OnInitializedAsync();
+    }
+}

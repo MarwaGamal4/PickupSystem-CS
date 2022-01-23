@@ -1,0 +1,83 @@
+﻿@using Humanizer
+@using Pickup.Application.Responses.Identity
+
+@namespace Pickup.Client.Shared.Components.MessagesComponents
+<MudItem md="12">
+    @if (ChatUsers != null)
+    {
+        @*<div class="d-flex flex-column px-4" style="max-height:70vh;min-height:70vh; overflow:scroll;">*@
+        <MudList Class="px-0 py-0" Clickable="true">
+            @foreach (var user in ChatUsers)
+            {
+                <MudListItem Class="pa-0 px-0 pb-0" OnClick="(e)=> _navigationManager.NavigateTo(HrifLink(user))">
+
+                    <div class="@StyleClass(user)">
+                        <div class="mr-4">
+                            <MudBadge Class="my-3 ">
+                                @if (string.IsNullOrEmpty(user.ProfilePictureDataUrl))
+                                {
+                                    <MudAvatar Color="Color.Dark" Style="height: 50px; width: 50px; margin-right: 10px; margin-left: 10px; padding-top: 5px">@user.UserName.ToUpper().FirstOrDefault()</MudAvatar>
+                                }
+                                else
+                                {
+                                    <MudAvatar Image="@user.ProfilePictureDataUrl" Style="height: 50px; width: 50px; margin-right: 10px; margin-left: 10px; padding-top: 5px "> </MudAvatar>
+                                }
+                            </MudBadge>
+                        </div>
+                        <div>
+                            <div class="media-body">
+                                <h5 class="dropdown-item-title">
+                                    @user.FirstName @user.LastName
+                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                </h5>
+
+                                <h6 class="text-sm">@user.LastMessage</h6>
+                                <h6 style="font-size:9px" class="d-flex align-center py-0 px-0"><MudIcon Style="width: 20px; height:13px" Icon="@Icons.Filled.AccessTime"></MudIcon>@Mydate.Humanize()</h6>
+                            </div>
+                            @*<MudText Typo="Typo.body2" Class="mt-3 mb-n2">@user.FirstName @user.LastName</MudText>
+                                <MudText Typo="Typo.caption" Style="font-size: xx-small!important;">@user.LastMessage</MudText>*@
+
+                        </div>
+                    </div>
+
+                </MudListItem>
+                <MudDivider Vertical="false" />
+            }
+        </MudList>
+        @*</div>*@
+
+    }
+</MudItem>
+@code {
+    DateTime Mydate = DateTime.UtcNow;
+    [Parameter]
+    public List<ChatUserResponse> ChatUsers { get; set; }
+    [CascadingParameter]
+    public Action GetMessages { get; set; }
+    public string StyleClass(ChatUserResponse message)
+    {
+        if (message.Readed)
+        {
+            return "d-flex align-center py-0 px-0";
+        }
+        else
+        {
+            return "d-flex align-center py-0 px-0 item";
+        }
+        GetMessages();
+        StateHasChanged();
+    }
+    public string HrifLink(ChatUserResponse message)
+    {
+        return $"chat/{message.Id}";
+    }
+}
+<style>
+    .item {
+        background-color: #EEEDF0;
+    }
+
+        .item:hover {
+            background-color: #F0F0F0;
+        }
+</style>

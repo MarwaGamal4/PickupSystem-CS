@@ -39,6 +39,7 @@ namespace Pickup.Infrastructure.Contexts
         public DbSet<PlanType> planTypes { get; set; }
         public DbSet<DeliveryRPT> DeliveryRpt { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<PickupLog> PickupLogs { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

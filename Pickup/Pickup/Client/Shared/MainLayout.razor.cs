@@ -5,8 +5,11 @@ using Pickup.Client.Extensions;
 using Pickup.Client.Infrastructure.Settings;
 using Pickup.Shared.Constants.Application;
 using System;
+using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Pickup.Application.Responses.Identity;
+using System.Linq;
 
 namespace Pickup.Client.Shared
 {
@@ -17,6 +20,7 @@ namespace Pickup.Client.Shared
         private string SecondName { get; set; }
         private string Email { get; set; }
         private char FirstLetterOfName { get; set; }
+        public Action GetMessagess { get; set; }
 
         private async Task LoadDataAsync()
         {
@@ -35,12 +39,22 @@ namespace Pickup.Client.Shared
                 this.Email = user.GetEmail();
             }
         }
-
+        private int _MessagesCounter = 0;
         private MudTheme _currentTheme;
         private bool _drawerOpen = true;
-
+        public List<ChatUserResponse> ChatUsers { get; set; }
+        private async void GetMessages()
+        {
+            var ChatUserss = await _chatManager.GetOldMessages();
+            ChatUsers = ChatUserss.Data.ToList();
+            appState.SetMessageCounter(ChatUsers.Where(x => x.Readed == false).Count());
+            StateHasChanged();
+        }
         protected override async Task OnInitializedAsync()
         {
+            GetMessages();
+            //  appState2.GetMessages();
+            GetMessagess = GetMessages;
             _currentTheme = BlazorHeroTheme.DefaultTheme;
             _currentTheme = await _clientPreferenceManager.GetCurrentThemeAsync();
             _interceptor.RegisterEvent();
@@ -50,7 +64,9 @@ namespace Pickup.Client.Shared
             {
                 if (CurrentUserId == receiverUserId)
                 {
-                    _jsRuntime.InvokeAsync<string>("PlayAudio", "notification");
+                    GetMessages();
+                    // appState2.GetMessages();
+                    // _jsRuntime.InvokeAsync<string>("PlayAudio", "notification");
                     _snackBar.Add(message, Severity.Info, config =>
                     {
                         config.VisibleStateDuration = 10000;
@@ -61,6 +77,9 @@ namespace Pickup.Client.Shared
                         config.Onclick = snackbar =>
                         {
                             _navigationManager.NavigateTo($"chat/{senderUserId}");
+                            _chatManager.MarkasRead(senderUserId);
+                            GetMessages();
+                            //appState2.GetMessages();
                             return Task.CompletedTask;
                         };
                     });
@@ -122,7 +141,7 @@ namespace Pickup.Client.Shared
             _interceptor.DisposeEvent();
             //_ = hubConnection.DisposeAsync();
         }
-
+        public bool IsLoading { get; set; } = false;
         private HubConnection hubConnection;
         public bool IsConnected => hubConnection.State == HubConnectionState.Connected;
     }

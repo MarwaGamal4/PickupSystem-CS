@@ -38,5 +38,23 @@ namespace Pickup.Client.Infrastructure.Managers.Communication
             var data = await response.ToResult();
             return data;
         }
+        public async Task<IResult> MarkasRead(string ContactID)
+        {
+            var response = await _httpClient.GetAsync(Routes.ChatEndpoint.MarkAsRead(ContactID));
+            var data = await response.ToResult();
+            return data;
+        }
+        public async Task<IResult> MarkAllasRead()
+        {
+            var response = await _httpClient.GetAsync(Routes.ChatEndpoint.MarkAllAsRead);
+            var data = await response.ToResult();
+            return data;
+        }
+        public async Task<IResult<IEnumerable<ChatUserResponse>>> GetOldMessages()
+        {
+            var response = await _httpClient.GetAsync(Routes.ChatEndpoint.OldChat);
+            var data = await response.ToResult<IEnumerable<ChatUserResponse>>();
+            return data;
+        }
     }
 }

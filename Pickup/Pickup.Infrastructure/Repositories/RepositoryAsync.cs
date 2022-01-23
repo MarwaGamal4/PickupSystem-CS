@@ -62,15 +62,15 @@ namespace Pickup.Infrastructure.Repositories
             _dbContext.Entry(exist).CurrentValues.SetValues(entity);
             return Task.CompletedTask;
         }
-        public async Task<T> GetInclude(int id, Expression<Func<T, object>> include) 
+        public async Task<T> GetInclude(int id, Expression<Func<T, object>> include)
         {
 
-                return await _dbContext.Set<T>()
-                                   .AsNoTracking()
-                                   .Where(x => x.Id == id)
-                                   .Include(include)
-                                   .FirstOrDefaultAsync();
-            
+            return await _dbContext.Set<T>()
+                               .AsNoTracking()
+                               .Where(x => x.Id == id)
+                               .Include(include)
+                               .FirstOrDefaultAsync();
+
         }
 
         public async Task<int> ExecuteQry(string Query)
@@ -78,5 +78,10 @@ namespace Pickup.Infrastructure.Repositories
             return await _dbContext.Database.ExecuteSqlRawAsync(Query);
         }
 
+        public async Task<List<T>> AddRangeAsync(List<T> entity)
+        {
+            await _dbContext.Set<T>().AddRangeAsync(entity);
+            return entity;
+        }
     }
 }

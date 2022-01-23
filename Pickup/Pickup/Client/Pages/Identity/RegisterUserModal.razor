@@ -1,4 +1,5 @@
-﻿<EditForm Model="@registerUserModel" OnValidSubmit="SubmitAsync">
+﻿@using Pickup.Shared.Constants.User
+<EditForm Model="@registerUserModel" OnValidSubmit="SubmitAsync">
     <FluentValidationValidator @ref="_fluentValidationValidator" />
     <MudDialog>
         <TitleContent>
@@ -15,6 +16,13 @@
             <MudTextField For="@(() => registerUserModel.LastName)" @bind-Value="registerUserModel.LastName" Label="@localizer["Last Name"]" />
             <MudTextField For="@(() => registerUserModel.Email)" InputType="InputType.Email" @bind-Value="registerUserModel.Email" Label="@localizer["Email"]" />
             <MudTextField For="@(() => registerUserModel.PhoneNumber)" @bind-Value="registerUserModel.PhoneNumber" Label="@localizer["Phone Number"]" />
+            <MudItem md="12">
+                <MudSelect For="@(() => registerUserModel.UserType)" T="UserConstants.UserType" @bind-Value="registerUserModel.UserType" Label="User Type" AnchorOrigin="Origin.BottomCenter">
+                    <MudSelectItem Value="@(UserConstants.UserType.CustomerService)" />
+                    <MudSelectItem Value="@(UserConstants.UserType.Branch)" />
+                    <MudSelectItem Value="@(UserConstants.UserType.BranchOwner)" />
+                </MudSelect>
+            </MudItem>
             <MudTextField For="@(() => registerUserModel.Password)" InputType="@PasswordInput" Adornment="Adornment.End" AdornmentIcon="@PasswordInputIcon" OnAdornmentClick="TogglePasswordVisibility" @bind-Value="registerUserModel.Password" Label="@localizer["Password"]" />
             <MudTextField For="@(() => registerUserModel.ConfirmPassword)" InputType="InputType.Password" @bind-Value="registerUserModel.ConfirmPassword" Label="@localizer["Confirm Password"]" />
             <MudCheckBox @bind-Checked="@registerUserModel.ActivateUser" Label="@localizer["Activate User?"]" Color="Color.Primary"></MudCheckBox>

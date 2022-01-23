@@ -2,34 +2,87 @@
 @using Application.Features.Plans.Queries.Dto
 @using Microsoft.AspNetCore.SignalR.Client
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Plans> localizer
+
 <HeroTitle Title="Plans" Description="Plans Manager" />
-<MudTable Dense="true" Items="@PlanList" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_Loading" LoadingProgressColor="Color.Info">
+<MudTable ortLabel="Sort By" Dense="true" Items="@PlanList" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_Loading" LoadingProgressColor="Color.Info" Filter="new Func<PlanDtoResponse, bool>(Search)">
+    <ToolBarContent>
+        <div class="justify-center mud-text-align-center">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Success">Create</MudButton>
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Refresh" Color="Color.Success">Reload</MudButton>
+        </div>
+        <MudToolBarSpacer />
+        <MudTextField @bind-Value="searchString" Immediate="true" Placeholder="@localizer["Search for Plan"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
+    </ToolBarContent>
     <HeaderContent>
-        <MudTh>Id</MudTh>
-        <MudTh>Name</MudTh>
-        <MudTh>Exprission</MudTh>
+
+        <MudTh> <MudTableSortLabel SortBy="new Func<PlanDtoResponse, object>(x=>x.Id)">Id</MudTableSortLabel></MudTh>
+        <MudTh> <MudTableSortLabel SortBy="new Func<PlanDtoResponse, object>(x=>x.PlanName)">Name</MudTableSortLabel></MudTh>
+        <MudTh>
+            <MudTableSortLabel SortBy="new Func<PlanDtoResponse, object>(x=>x.PlanExprission)">Exprission</MudTableSortLabel>
+        </MudTh>
+        <MudTh> <MudTableSortLabel SortBy="new Func<PlanDtoResponse, object>(x=>x.IsActive)">State</MudTableSortLabel></MudTh>
         <MudTh></MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="Nr">@context.Id</MudTd>
-        <MudTd DataLabel="Sign">@context.PlanName</MudTd>
-        <MudTd DataLabel="Name">@context.PlanExprission</MudTd>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Name">@context.PlanName</MudTd>
+        <MudTd DataLabel="Exprission">@context.PlanExprission</MudTd>
+        <MudTd DataLabel="State">
+            <MudCheckBox Color="@CheckBoxColor(context)"
+                         CheckedIcon="@Icons.Filled.Circle"
+                         UncheckedIcon="@Icons.Filled.Circle"
+                         ReadOnly="true" Checked="@context.IsActive">
+
+            </MudCheckBox>
+        </MudTd>
         <MudTd><MudIconButton OnClick="@(()=>InvokeModal(context))" Icon="@Icons.Material.Filled.Preview" aria-label="View"></MudIconButton></MudTd>
     </RowTemplate>
 </MudTable>
 
+
 @code {
     public List<PlanDtoResponse> PlanList = new List<PlanDtoResponse>();
     private bool _Loading = false;
+    private string searchString = "";
     [CascadingParameter] public HubConnection hubConnection { get; set; }
+    public bool IsLoading { get; set; }
+
+    public Color CheckBoxColor(PlanDtoResponse Line)
+    {
+        if (Line.IsActive)
+        {
+            return Color.Tertiary;
+        }
+        return Color.Error;
+    }
     protected override async Task OnInitializedAsync()
     {
+        IsLoading = true;
         await GetPlansAsync();
         hubConnection = hubConnection.TryInitialize(_navigationManager);
         if (hubConnection.State == HubConnectionState.Disconnected)
         {
             await hubConnection.StartAsync();
         }
+        IsLoading = false;
+    }
+    private bool Search(PlanDtoResponse _plan)
+    {
+        if (string.IsNullOrWhiteSpace(searchString)) return true;
+        if (_plan.PlanExprission?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true)
+        {
+            return true;
+        }
+        if (_plan.PlanName?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true)
+        {
+            return true;
+        }
+        if (_plan.Id.ToString()?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true)
+        {
+            return true;
+        }
+
+        return false;
     }
     private async Task GetPlansAsync()
     {

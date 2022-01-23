@@ -14,5 +14,6 @@ namespace Pickup.Application.Interfaces.Repositories
         Task<bool> IsBranchInuse(int BranchId);
         Task<int> AddUsersToBranch(int branchId, IList<BlazorHeroUser> UsersList);
         Task<int> AddBranchesToUserh(string UserId, IList<Branch> BranchesList);
+        Task<string> GetBranchNameById(int BranchID);
     }
 }
