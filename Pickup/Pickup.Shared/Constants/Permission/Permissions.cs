@@ -50,6 +50,12 @@ namespace Pickup.Shared.Constants.Permission
             public const string Edit = "Permissions.Plans.Edit";
             public const string Delete = "Permissions.Plans.Delete";
         }
+        public static class Pickup
+        {
+            public const string View = "Permissions.Pickup.View";
+            public const string EditTransaction = "Permissions.Pickup.EditTransaction";
+            public const string EditInvoice = "Permissions.Pickup.EditInvoice";
+        }
         public static class DeliveryRPT
         {
             public const string View = "Permissions.DeliveryRPT.View";

@@ -1,0 +1,185 @@
+﻿@using Pickup.Application.Features.Customers.Dto
+@using Application.Features.Customers.Queries.GetTimeLine
+@inject ICustomerManager customerManager
+@inject NavigationManager navManager
+<MudDialog>
+    <DialogContent>
+        <MudContainer Style="max-height: 35vw;overflow-y: scroll">
+            <LoaingSpinner IsLoading="_Loading"></LoaingSpinner>
+            @if (TimelineData == null)
+            {
+                <MudOverlay DarkBackground="true" Absolute="false">
+                    <MudProgressCircular Style="height:100px;width:100px;" Color="Color.Secondary" Indeterminate="true" />
+                </MudOverlay>
+            }
+            else
+            {
+                <MudTimeline TimelineAlign="TimelineAlign.Start">
+                    @foreach (var item in TimelineData)
+                    {
+                        <MudTimelineItem Elevation="5" Size="@ItemSize(item)" Variant="Variant.Outlined" Color="Color.Info" TimelineAlign="@(GetAlign(item))">
+                            <ItemOpposite>
+                                <MudText Color="Color.Dark" Class="mud-text-secondary" Typo="Typo.body2"><a href="@INV_Url(item)" target="_blank" rel="noopener noreferrer">@item.TransactionDate</a></MudText>
+                            </ItemOpposite>
+                            <ItemDot>
+                                <MudAvatar Color="@DotColor(item)">@ItemDot(item)</MudAvatar>
+                            </ItemDot>
+                            <ItemContent>
+                                <MudText Typo="Typo.button">@ItemLineData(item) <MudChip Color="@DotColor(item)"><a style="color:white" href="@INV_Url(item)" target="_blank" rel="noopener noreferrer">@item.ServedBranchName</a></MudChip></MudText>
+                                <MudText Typo="Typo.body2" Class="mud-text-secondary">This Action Made By <b>@item.UserName</b></MudText>
+                            </ItemContent>
+                        </MudTimelineItem>
+                    }
+                </MudTimeline>
+            }
+
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Close</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    public List<dtoTimelineResponse> TimelineData { get; set; }
+    [Parameter] public int? CustomerID { get; set; }
+    [Parameter] public int? PlanId { get; set; }
+    [Parameter] public int? BranchId { get; set; }
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    void Cancel() => MudDialog.Cancel();
+    private TimelineAlign GetAlign(dtoTimelineResponse Item)
+    {
+        if (Item.TransactionType == TransType.Transaction)
+        {
+            return TimelineAlign.End;
+        }
+        return TimelineAlign.Start;
+    }
+    private Size ItemSize(dtoTimelineResponse Item)
+    {
+
+
+        if (Item.TransactionType == TransType.Transaction)
+        {
+            return Size.Small;
+        }
+        else
+        {
+            if (Item.invoiceType == Application.Enums.InvoiceType.New)
+            {
+                return Size.Large;
+            }
+            return Size.Medium;
+
+        }
+
+    }
+    private string INV_Url(dtoTimelineResponse Item)
+    {
+        return $"{navManager.BaseUri}{Item.Inv_Url}";
+    }
+    private string ItemDot(dtoTimelineResponse Item)
+    {
+        string Final = "";
+
+        if (Item.TransactionType == TransType.Transaction)
+        {
+            Final = "T";
+        }
+        else
+        {
+            if (Item.invoiceType == Application.Enums.InvoiceType.New)
+            {
+                Final = "N";
+            }
+            else
+            {
+                Final = "R";
+            }
+        }
+        return Final;
+    }
+
+    private Color DotColor(dtoTimelineResponse Item)
+    {
+
+
+        if (Item.TransactionType == TransType.Transaction)
+        {
+            return Color.Primary;
+        }
+        else
+        {
+            if (Item.invoiceType == Application.Enums.InvoiceType.New)
+            {
+                return Color.Secondary;
+            }
+            else
+            {
+                return Color.Tertiary;
+            }
+        }
+    }
+    private string ItemLineData(dtoTimelineResponse Item)
+    {
+        string Final = "";
+
+        if (Item.TransactionType == TransType.Transaction)
+        {
+            string a1 = "Customer Spent";
+            List<string> st = new List<string>();
+            if (Item.MealsCount > 0)
+            {
+                st.Add($"{Item.MealsCount} Meal");
+            }
+            if (Item.SnacksCount > 0)
+            {
+                st.Add($"{Item.MealsCount} Snack");
+            }
+            Final = $"{a1} {string.Join(" And ", st)} on Plan:{Item.PlanID} ";
+        }
+        else
+        {
+            if (Item.invoiceType == Application.Enums.InvoiceType.New)
+            {
+                Final = $"Customer Subscriped Plan:{Item.PlanID} {Item.MealsCount} Meal And {Item.SnacksCount} Snack With Total:{Item.TotalTransactionValue} ";
+            }
+            else
+            {
+                Final = $"Customer Renew Plan:{Item.PlanID} {Item.MealsCount} Meal And {Item.SnacksCount} Snack With Total:{Item.TotalTransactionValue} ";
+            }
+        }
+        return Final;
+
+    }
+
+    dtoGetCustomeTransactionsRequest RequestModel;
+    protected override async Task OnInitializedAsync()
+    {
+
+        RequestModel = new dtoGetCustomeTransactionsRequest();
+        RequestModel.CustomerID = CustomerID;
+        RequestModel.PlanID = PlanId;
+        RequestModel.BranchID = (int)BranchId;
+        await GetTimelineAsync();
+    }
+    public bool _Loading { get; set; }
+    private async Task GetTimelineAsync()
+    {
+        _Loading = true;
+        GetTimeLineQuery Request = new GetTimeLineQuery();
+        Request.Model = RequestModel;
+        var response = await customerManager.GetTimeline(Request);
+        if (response.Succeeded)
+        {
+            TimelineData = response.Data.ToList();
+        }
+        else
+        {
+            foreach (var message in response.Messages)
+            {
+                _snackBar.Add(message, Severity.Error);
+            }
+        }
+        _Loading = false;
+    }
+}

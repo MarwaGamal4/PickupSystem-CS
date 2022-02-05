@@ -3,6 +3,8 @@
 @using Application.Features.Customers.Queries.GetById
 @inject ICustomerManager customerManager
 @inject IDialogService Dialog
+@inject Microsoft.Extensions.Localization.IStringLocalizer<AddSubscription> localizer
+<HeroTitle Title="@localizer["Customers"]" Description="@localizer["Manage Pickup Customers"]" />
 <MudCard>
     <MudCardContent>
         <MudContainer Class="d-flex justify-center pt-2 px-1 mt-6">
@@ -26,7 +28,23 @@
 </MudPaper>
 @if (CustomerModel != null)
 {
-    <MudText Class="py-5">Basic Data</MudText>
+    @*<MudText Class="py-5">Basic Data</MudText>*@
+    <MudGrid>
+        <MudItem>
+            <MudText Class="my-5">Basic Data</MudText>
+        </MudItem>
+        <MudItem Class="py-5">
+            <MudTooltip Text="Account Timeline">
+                <MudIconButton OnClick="@((e) => OpenTimeLine())" Icon="@Icons.Material.Filled.Timeline"></MudIconButton>
+            </MudTooltip>
+            <MudTooltip Text="Account Transactions">
+                <MudIconButton OnClick="@((e) => OpenDialog())" Icon="@Icons.Material.Filled.TransferWithinAStation"></MudIconButton>
+            </MudTooltip>
+            <MudTooltip Text="Account Invoices">
+                <MudIconButton OnClick="@((e) => OpenDialog())" Icon="@Icons.Material.Filled.Receipt"></MudIconButton>
+            </MudTooltip>
+        </MudItem>
+    </MudGrid>
     <MudPaper Class="pa-5">
         <MudGrid>
             <MudItem Class="pa-5" md="4" sm="6" xs="12"><MudTextField ReadOnly="true" @bind-Value="@CustomerModel.Id" Label="ID"></MudTextField></MudItem>
@@ -50,7 +68,7 @@
         @foreach (var item in CustomerModel.CustomerPlan)
         {
             <MudItem md="2" sm="6" xs="12">
-                <PlanCardComponent OnRenewClick="@((e)=> OpenRenewDialog(item))" OnAddTransactionClick="@((e)=> OpenTransactionDialog(item))" Model="item"></PlanCardComponent>
+                <PlanCardComponent OnPlanTimelineClick="@((e)=>OpenPlanTimeLine(item.CustomerPlanID))" OnRenewClick="@((e)=> OpenRenewDialog(item))" OnAddTransactionClick="@((e)=> OpenTransactionDialog(item))" Model="item"></PlanCardComponent>
             </MudItem>
         }
     </MudGrid>
@@ -61,6 +79,7 @@
     public bool NotFound { get; set; } = false;
     public string NotFoundMessage { get; set; } = "";
     DialogOptions closeButton = new DialogOptions() { CloseButton = true };
+    DialogOptions fullScreen = new DialogOptions() { FullScreen = true, CloseButton = true };
     public bool IsLoading { get; set; } = false;
     private async void SearchByPhoneAsync()
     {
@@ -152,6 +171,25 @@
         {
             RefreshPlans();
         }
+    }
+
+    private async void OpenTimeLine()
+    {
+
+        DialogParameters parm = new DialogParameters();
+        parm.Add("CustomerID", CustomerModel.Id);
+        var dialog = Dialog.Show<CustomerTimelineDialog>("Customer Timeline", parm, fullScreen);
+        var result = await dialog.Result;
+    }
+
+
+    private async void OpenPlanTimeLine(int PlanID)
+    {
+
+        DialogParameters parm = new DialogParameters();
+        parm.Add("PlanId", PlanID);
+        var dialog = Dialog.Show<CustomerTimelineDialog>("Plan Timeline", parm, fullScreen);
+        var result = await dialog.Result;
     }
     private async void RefreshPlans()
     {

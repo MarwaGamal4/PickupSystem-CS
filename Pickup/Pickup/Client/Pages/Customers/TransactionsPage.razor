@@ -1,0 +1,227 @@
+﻿@page "/Transaction"
+@inject Microsoft.Extensions.Localization.IStringLocalizer<TransactionsPage> localizer
+@using Pickup.Application.Features.Branches.Queries.GetAll;
+@using Pickup.Application.Features.Customers.Queries.GetById
+@using Application.Features.Customers.Dto
+@using System.Security.Claims
+@inject IBranchManager BranchManager
+@inject ICustomerManager customerManager
+<HeroTitle Title="@localizer["Transactions"]" Description="@localizer["Manage And View Branch Transactions"]" />
+<MudPaper>
+    <MudGrid Class="pa-5">
+        <MudItem md="4" sm="6" xs="12">
+            @if (BranchList != null)
+            {
+                <MudSelect T="int" @bind-Value="Model.Model.BranchID" Text="@BranchName" Label="Branch" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in BranchList)
+                    {
+                        <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
+
+                    }
+                </MudSelect>
+            }
+        </MudItem>
+        <MudItem md="4" sm="6" xs="12">
+            <MudDateRangePicker Rounded="true" Label="Transaction Criteria Range" @bind-DateRange="_dateRange" />
+        </MudItem>
+        <MudItem md="4" sm="6" xs="12">
+            @if (AllBranchList != null)
+            {
+                <MudSelect T="int" @bind-Value="OppiseteBranchID" Text="ALL" Label="Opposite Branch" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in AllBranchList)
+                    {
+                        <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
+
+                    }
+                </MudSelect>
+            }
+        </MudItem>
+        <MudItem md="4" sm="6" xs="12">
+            <MudNumericField HideSpinButtons="true" @bind-Value="@Model.Model.InvoiceId" Label="Invoice Id" HelperText="(Optional)"></MudNumericField>
+        </MudItem>
+        <MudItem md="4" sm="6" xs="12">
+            <MudNumericField HideSpinButtons="true" @bind-Value="@Model.Model.CustomerID" Label="Customer Id" HelperText="(Optional)"></MudNumericField>
+        </MudItem>
+        <MudItem md="4" sm="6" xs="12">
+            <MudNumericField HideSpinButtons="true" @bind-Value="@Model.Model.PlanID" Label="Plan Id" HelperText="(Optional)"></MudNumericField>
+        </MudItem>
+        <MudItem md="4" sm="0" xs="0"></MudItem>
+        <MudItem md="4" sm="0" xs="0"></MudItem>
+        <MudItem md="4" sm="12" xs="12">
+            <WaitingSaveButton WaitingText="Searching.." IsProcessing="IsSerching" OnClick="Search" FullWidth="true" StartIcon="@Icons.Material.Filled.Search" Color="Color.Primary" Size="Size.Large" Variant="Variant.Outlined" Text="Search"></WaitingSaveButton>
+        </MudItem>
+    </MudGrid>
+    <MudPaper>
+        <MudTable Elevation="25" ServerData="@(new Func<TableState, Task<TableData<dtoPlanTransaction>>>(ServerReload))" Hover="true" Dense="true" Striped="true" @ref="table">
+            <LoadingContent>
+                <MudProgressCircular Class="ms-n1" Size="Size.Large" Indeterminate="true" />
+                <MudText Class="ms-2">Loading Data ..</MudText>
+            </LoadingContent>
+            <ToolBarContent>
+
+                @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Pickup.View).Result.Succeeded)
+                {
+                    <div class="justify-center mud-text-align-center">
+                        <MudButton Variant="Variant.Filled" OnClick="@(()=>OnSearch(""))" Color="Color.Secondary">@localizer["Reload"]</MudButton>
+                        <MudButton Variant="Variant.Filled" IconColor="Color.Tertiary" StartIcon="@Icons.Custom.FileFormats.FileExcel" OnClick="@(ExportToExcel)" Color="Color.Surface">@localizer["Export"]</MudButton>
+                    </div>
+                }
+                <MudSpacer />
+                <MudTextField T="string" ValueChanged="@(s=>OnSearch(s))" Placeholder="@localizer["Search"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh><MudTableSortLabel T="dtoPlanTransaction" SortLabel="TransactionIdField">@localizer["Transaction ID"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="dtoPlanTransaction" SortLabel="IvoiceIdField">@localizer["Invoice ID"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="dtoPlanTransaction" SortLabel="BranchField">@localizer["Branch"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="dtoPlanTransaction" SortLabel="OwnerBranchField">@localizer["Owner"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="dtoPlanTransaction" SortLabel="DateField">@localizer["Date"]</MudTableSortLabel></MudTh>
+                <MudTh><MudTableSortLabel T="dtoPlanTransaction" SortLabel="ValueField">@localizer["Value"]</MudTableSortLabel></MudTh>
+                <MudTh Style="text-align:right">@localizer["Actions"]</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Id">@context.TransactionID</MudTd>
+                <MudTd DataLabel="Invoice ID">
+                    <MudHighlighter Text="@context.InvoiceID.ToString()" HighlightedText="@searchString" />
+                </MudTd>
+                <MudTd DataLabel="Branch">@context.ServedBranchName</MudTd>
+                <MudTd DataLabel="Owner">
+                    <MudHighlighter Text="@context.OwnerBranchName" HighlightedText="@searchString" />
+                </MudTd>
+                <MudTd DataLabel="Date">
+                    <MudHighlighter Text="@context.TransactionDate.AddHours(2).ToString("d/M/yyyy h:m tt")" HighlightedText="@searchString" />
+                </MudTd>
+                <MudTd DataLabel="Rate">@context.TotalTransactionValue AED</MudTd>
+                <MudTd DataLabel="Actions" Style="text-align:right">
+                    <MudLink Target="_blank" Href="@context.Inv_Url"><MudIcon Icon="@Icons.Filled.Preview" /></MudLink>
+                </MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <TablePager />
+            </PagerContent>
+        </MudTable>
+    </MudPaper>
+</MudPaper>
+@code {
+    public bool IsSerching { get; set; } = false;
+    public List<GetAllBranchesResponse> BranchList = new();
+    public List<GetAllBranchesResponse> AllBranchList = new();
+    public int OppiseteBranchID { get; set; }
+    DateRange _dateRange = new DateRange(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1));
+    GetCustomerTransactionsQuery Model { get; set; } = new();
+    public string BranchName { get; set; } = "";
+    private IEnumerable<dtoPlanTransaction> pagedData;
+    private MudTable<dtoPlanTransaction> table;
+    private string searchString = null;
+
+    private int totalItems;
+    private int currentPage;
+    protected override async Task OnInitializedAsync()
+    {
+        Model.Model = new dtoGetCustomeTransactionsRequest();
+        await LoadDataAsync();
+
+    }
+    private async Task<TableData<dtoPlanTransaction>> ServerReload(TableState state)
+    {
+        await LoadData(state.Page, state.PageSize, state);
+        return new TableData<dtoPlanTransaction>() { TotalItems = totalItems, Items = pagedData };
+    }
+    private void OnSearch(string text)
+    {
+        searchString = text;
+        table.ReloadServerData();
+    }
+    private async Task ExportToExcel()
+    {
+        var base64 = await _productManager.ExportToExcelAsync();
+        await _jsRuntime.InvokeVoidAsync("Download", new
+        {
+            ByteArray = base64,
+            FileName = $"products_{DateTime.Now:ddMMyyyyHHmmss}.xlsx",
+            MimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        });
+    }
+    private async Task LoadData(int pageNumber, int PageSize, TableState state)
+    {
+        Model.Model.DateFrom = _dateRange.Start;
+        Model.Model.DateTo = _dateRange.End;
+        Model.Model.OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID;
+        Model.Model.PageNumber = pageNumber + 1;
+        Model.Model.PageSize = PageSize;
+        var Response = await customerManager.GetTransactions(Model);
+        if (Response.Succeeded)
+        {
+            totalItems = Response.TotalCount;
+            currentPage = Response.CurrentPage;
+            var data = Response.Data;
+            var loadedData = data.Where(element =>
+            {
+                if (string.IsNullOrWhiteSpace(searchString))
+                    return true;
+                if (element.OwnerBranchName?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true)
+                    return true;
+                if (element.ServedBranchName?.Contains(searchString, StringComparison.OrdinalIgnoreCase) == true)
+                    return true;
+                return false;
+            });
+            switch (state.SortLabel)
+            {
+                case "TransactionIdField":
+                    loadedData = loadedData.OrderByDirection(state.SortDirection, p => p.TransactionID);
+                    break;
+                case "BranchField":
+                    loadedData = loadedData.OrderByDirection(state.SortDirection, p => p.ServedBranchName);
+                    break;
+                case "OwnerBranchField":
+                    loadedData = loadedData.OrderByDirection(state.SortDirection, p => p.OwnerBranchName);
+                    break;
+                case "DateField":
+                    loadedData = loadedData.OrderByDirection(state.SortDirection, p => p.TransactionDate);
+                    break;
+                case "InvoiceIdField":
+                    loadedData = loadedData.OrderByDirection(state.SortDirection, p => p.InvoiceID);
+                    break;
+                case "productRateField":
+                    loadedData = loadedData.OrderByDirection(state.SortDirection, p => p.UserName);
+                    break;
+            }
+            data = loadedData.ToList();
+            pagedData = data;
+        }
+        else
+        {
+            foreach (var message in Response.Messages)
+            {
+                _snackBar.Add(localizer[message], Severity.Error);
+            }
+        }
+    }
+    private async void Search()
+    {
+        Model.Model.DateFrom = _dateRange.Start;
+        Model.Model.DateTo = _dateRange.End;
+        Model.Model.OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID;
+        IsSerching = true;
+        var Response = await customerManager.GetTransactions(Model);
+        IsSerching = false;
+        await table.ReloadServerData();
+        StateHasChanged();
+    }
+    private async Task LoadDataAsync()
+    {
+        var Branches = await BranchManager.GetAllByUserAsync();
+        BranchList = Branches.Data;
+        var AllBranches = await BranchManager.GetAllAsync();
+        AllBranches.Data.Insert(0, new GetAllBranchesResponse() { Id = 0, BranchName = "ALL" });
+        Model.Model.BranchID = BranchList.FirstOrDefault().Id;
+        BranchName = BranchList.FirstOrDefault().BranchName;
+        // await Task.CompletedTask;
+    }
+
+    private ClaimsPrincipal AuthenticationStateProviderUser { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        AuthenticationStateProviderUser = await _stateProvider.GetAuthenticationStateProviderUserAsync();
+    }
+}

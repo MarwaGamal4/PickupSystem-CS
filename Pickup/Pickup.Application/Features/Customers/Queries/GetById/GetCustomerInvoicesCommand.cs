@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using LinqKit;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
@@ -12,6 +13,7 @@ using Pickup.Shared.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -34,76 +36,59 @@ namespace Pickup.Application.Features.Customers.Queries.GetById
     }
     public class GetCustomerInvoicesCommandHandler : IRequestHandler<GetCustomerInvoicesCommand, PaginatedResult<dtoCustomerInvoiceResponse>>
     {
-        private readonly UserManager<BlazorHeroUser> _userManager;
-        private readonly IStringLocalizer<GetCustomerInvoicesCommandHandler> _localizer;
+
         private readonly IUnitOfWork _unitOfWork;
+        public Expression<Func<Invoice, bool>> Criteria = (x => x.Id != 0);
+
+        public GetCustomerInvoicesCommandHandler(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
         public async Task<PaginatedResult<dtoCustomerInvoiceResponse>> Handle(GetCustomerInvoicesCommand request, CancellationToken cancellationToken)
         {
-            var productFilterSpec = new InvoiceFilterSpecification(request.SearchString);
-            List<dtoCustomerInvoiceResponse> MyList = new List<dtoCustomerInvoiceResponse>();
-            var Branches = await _unitOfWork.Repository<Branch>().GetAllAsync();
-            var Users = _userManager.Users.AsEnumerable();
-            IEnumerable<Invoice> invList = null;
 
             if (request.Model.CustomerID != null)
             {
-                invList = _unitOfWork.Repository<Invoice>().Entities.Include(x => x.customerPlan).Include(x => x.Transactions).Where(x => x.CustomerId == request.Model.CustomerID).AsEnumerable();
+                Criteria = Criteria.And(x => x.CustomerId == request.Model.CustomerID);
             }
             if (request.Model.PlanID != null)
             {
-                invList = _unitOfWork.Repository<Invoice>().Entities.Include(x => x.customerPlan).Include(x => x.Transactions).Where(x => x.CustomerPlanId == request.Model.PlanID).AsEnumerable();
-
+                Criteria = Criteria.And(x => x.CustomerPlanId == request.Model.PlanID);
             }
             if (request.Model.BranchID != null)
             {
-                invList = _unitOfWork.Repository<Invoice>().Entities.Include(x => x.customerPlan).Include(x => x.Transactions).Where(x => x.BranchId == request.Model.BranchID).AsEnumerable();
-
+                Criteria = Criteria.And(x => x.BranchId == request.Model.BranchID);
             }
-            if (invList is null)
+            if (request.Model.DateFrom != null)
             {
-                return null;
+                Criteria = Criteria.And(x => x.CreatedOn >= request.Model.DateFrom);
             }
-
-            foreach (var item in invList)
+            if (request.Model.DateTo != null)
             {
-                dtoCustomerInvoiceResponse record = new dtoCustomerInvoiceResponse();
-                record.InvoiceID = item.Id;
-                record.PlanID = item.CustomerPlanId;
-                record.BranchID = item.BranchId;
-                record.BranchName = Branches.FirstOrDefault(x => x.Id == item.BranchId).BranchName;
-                record.CustomerID = item.CustomerId;
-                record.Invoice_Url = item.InvoiceURL;
-                record.MealsAmount = item.MealsAmount;
-                record.MealsCount = item.TotalMealsCount;
-                record.SnacksAmount = item.SnacksAmount;
-                record.SnacksCount = item.TotalSnacksCount;
-                record.TotalValue = item.SnacksAmount + item.MealsAmount;
-                record.PlanName = item.customerPlan.PlanName;
-                record.Transactions = new List<dtoPlanTransaction>();
-                foreach (var transaction in item.Transactions)
-                {
-                    dtoPlanTransaction trans = new dtoPlanTransaction();
-                    trans.CustomerID = transaction.Id;
-                    trans.InvoiceID = transaction.InvoiceID;
-                    trans.MealsAmount = transaction.MealCount * item.MealPrice;
-                    trans.SnacksAmount = transaction.SnackCount * item.SnackPrice;
-                    trans.MealsCount = transaction.MealCount;
-                    trans.SnacksCount = transaction.SnackCount;
-                    trans.OwnerBranchID = transaction.CreditBranchId;
-                    trans.OwnerBranchName = Branches.FirstOrDefault(x => x.Id == transaction.CreditBranchId).BranchName;
-                    trans.PlanID = transaction.CustomerPlanId;
-                    trans.ServedBranchID = transaction.BranchId;
-                    trans.ServedBranchName = Branches.FirstOrDefault(x => x.Id == transaction.BranchId).BranchName;
-                    trans.TotalTransactionValue = transaction.CreditValue;
-                    trans.TransactionDate = transaction.CreatedOn;
-                    trans.UserName = Users.FirstOrDefault(x => x.Id == transaction.CreatedBy).FirstName;
-                    trans.Inv_Url = transaction.Inv_url;
-                    record.Transactions.Add(trans);
-                }
-                MyList.Add(record);
+                Criteria = Criteria.And(x => x.CreatedOn <= request.Model.DateTo);
             }
-            var data = MyList.AsQueryable().ToPaginatedListAsync(request.PageNumber, request.PageSize);
-            return await data;
+            return await _unitOfWork.Repository<Invoice>().Entities.Include(x => x.branch).Include(x => x.customerPlan).Where(Criteria).Select
+                (
+                x =>
+                    new dtoCustomerInvoiceResponse
+                    {
+                        InvoiceID = x.Id,
+                        PlanID = x.CustomerPlanId,
+                        BranchID = x.BranchId,
+                        BranchName = x.branch.BranchName,
+                        CustomerID = x.CustomerId,
+                        MealsAmount = x.MealsAmount,
+                        MealsCount = x.TotalMealsCount,
+                        SnacksAmount = x.SnacksAmount,
+                        PlanName = x.customerPlan.PlanName,
+                        SnacksCount = x.TotalSnacksCount,
+                        TotalValue = x.MealsAmount + x.SnacksAmount,
+                        Invoice_Url = x.InvoiceURL
+                    }
+                ).ToPaginatedListAsync(request.PageNumber, request.PageSize);
+
+
         }
     }
 }

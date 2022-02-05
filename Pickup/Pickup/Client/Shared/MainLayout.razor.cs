@@ -42,6 +42,7 @@ namespace Pickup.Client.Shared
         private int _MessagesCounter = 0;
         private MudTheme _currentTheme;
         private bool _drawerOpen = true;
+        public bool RTL { get; set; } = false;
         public List<ChatUserResponse> ChatUsers { get; set; }
         private async void GetMessages()
         {
@@ -58,6 +59,8 @@ namespace Pickup.Client.Shared
             _currentTheme = BlazorHeroTheme.DefaultTheme;
             _currentTheme = await _clientPreferenceManager.GetCurrentThemeAsync();
             _interceptor.RegisterEvent();
+            var preference = await _clientPreferenceManager.GetPreference() as ClientPreference;
+            RTL = preference.IsRTL;
             hubConnection = hubConnection.TryInitialize(_navigationManager);
             await hubConnection.StartAsync();
             hubConnection.On<string, string, string>(ApplicationConstants.SignalR.ReceiveChatNotification, (message, receiverUserId, senderUserId) =>

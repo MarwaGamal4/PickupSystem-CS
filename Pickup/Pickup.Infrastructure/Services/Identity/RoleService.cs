@@ -88,6 +88,7 @@ namespace Pickup.Infrastructure.Services.Identity
             allPermissions.GetPermissions(typeof(Permissions.Preferences), roleId);
             allPermissions.GetPermissions(typeof(Permissions.Branches), roleId);
             allPermissions.GetPermissions(typeof(Permissions.DeliveryRPT), roleId);
+            allPermissions.GetPermissions(typeof(Permissions.Pickup), roleId);
             //Add New Roles
 
             allPermissions.Add(new RoleClaimsResponse { Value = "Permissions.Communication.Chat", Type = ApplicationClaimTypes.Permission });

@@ -4,9 +4,11 @@ using Pickup.Application.Features.Customers.Commands.AddTransaction;
 using Pickup.Application.Features.Customers.Commands.RenewPlan;
 using Pickup.Application.Features.Customers.Dto;
 using Pickup.Application.Features.Customers.Queries.GetById;
+using Pickup.Application.Features.Customers.Queries.GetTimeLine;
 using Pickup.Application.Interfaces.Services;
 using Pickup.Client.Infrastructure.Extensions;
 using Pickup.Shared.Wrapper;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -46,6 +48,24 @@ namespace Pickup.Client.Infrastructure.Managers.Customer
         {
             var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetCustomer, request);
             return await requestt.ToResult<dtoCustomerRsponse>();
+        }
+
+        public async Task<PaginatedResult<dtoCustomerInvoiceResponse>> GetInvoice(GetCustomerInvoicesCommand request)
+        {
+            var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetInvoice, request);
+            return await requestt.ToPaginatedResult<dtoCustomerInvoiceResponse>();
+        }
+
+        public async Task<IResult<List<dtoTimelineResponse>>> GetTimeline(GetTimeLineQuery request)
+        {
+            var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetTimeline, request);
+            return await requestt.ToResult<List<dtoTimelineResponse>>();
+        }
+
+        public async Task<PaginatedResult<dtoPlanTransaction>> GetTransactions(GetCustomerTransactionsQuery request)
+        {
+            var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetTransaction, request);
+            return await requestt.ToPaginatedResult<dtoPlanTransaction>();
         }
 
         public async Task<IResult<int>> RenewSubscription(dtoRenewPlanRequest request)

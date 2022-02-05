@@ -9,7 +9,7 @@
             <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="(()=>InvokeModal())">@localizer["Create"]</MudButton>
             <MudButton Variant="Variant.Filled" OnClick="GetBrandsAsync" Color="Color.Secondary">@localizer["Reload"]</MudButton>
         </div>
-        <MudToolBarSpacer />
+        <MudSpacer />
         <MudTextField @bind-Value="searchString" Immediate="true" Placeholder="@localizer["Search for Brands"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
     </ToolBarContent>
     <HeaderContent>

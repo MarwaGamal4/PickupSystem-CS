@@ -3,13 +3,13 @@
 @inject Microsoft.Extensions.Localization.IStringLocalizer<Branches> localizer
 
 <HeroTitle Title="@localizer["Branches"]" Description="@localizer["Manage Branches."]" />
-<MudTable  Loading="@_Loading" Hover="true" Elevation="25" Items="BranchList" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" Filter="new Func<GetAllBranchesResponse, bool>(Search)" @bind-brand="branch">
+<MudTable Loading="@_Loading" Hover="true" Elevation="25" Items="BranchList" Dense="@_dense" Bordered="@_bordered" Striped="@_striped" Filter="new Func<GetAllBranchesResponse, bool>(Search)" @bind-brand="branch">
     <ToolBarContent>
         <div class="justify-center mud-text-align-center">
             <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="(()=>InvokeModal())">@localizer["Create"]</MudButton>
             <MudButton Variant="Variant.Filled" OnClick="GetBranchesAsync" Color="Color.Secondary">@localizer["Reload"]</MudButton>
         </div>
-        <MudToolBarSpacer />
+        <MudSpacer />
         <MudTextField @bind-Value="searchString" Immediate="true" Placeholder="@localizer["Search for Branches"]" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0 mb-3"></MudTextField>
     </ToolBarContent>
     <HeaderContent>

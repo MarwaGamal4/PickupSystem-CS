@@ -23,6 +23,16 @@ namespace Pickup.Application.Extensions
             List<T> items = await source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
             return PaginatedResult<T>.Success(items, count, pageNumber, pageSize);
         }
+        public static async Task<PaginatedResult<T>> ToPaginatedListAsync<T>(this List<T> source, int pageNumber, int pageSize) where T : class
+        {
+            if (source == null) throw new ApiException();
+            pageNumber = pageNumber == 0 ? 1 : pageNumber;
+            pageSize = pageSize == 0 ? 10 : pageSize;
+            int count = source.Count;
+            pageNumber = pageNumber <= 0 ? 1 : pageNumber;
+            List<T> items = source.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            return PaginatedResult<T>.Success(items, count, pageNumber, pageSize);
+        }
         public static async Task<CustomPagingResult<T>> ToCustomPaginatedListAsync<T>(this IQueryable<T> source, int pageNumber, int pageSize) where T : GetAllRPTPagedResponse
         {
             if (source == null) throw new ApiException();
@@ -35,7 +45,7 @@ namespace Pickup.Application.Extensions
             int TotalDelevired = source.Where(x => x.DeliveryStatus == 1).Count();
             int TotalPending = source.Where(x => x.DeliveryStatus == 0).Count();
             int TotalNotDeleverd = source.Where(x => x.DeliveryStatus == 2).Count();
-            return CustomPagingResult<T>.Success(items, count, pageNumber, pageSize,TotalRecords,TotalDelevired,TotalPending,TotalNotDeleverd);
+            return CustomPagingResult<T>.Success(items, count, pageNumber, pageSize, TotalRecords, TotalDelevired, TotalPending, TotalNotDeleverd);
         }
 
         public static IQueryable<T> Specify<T>(this IQueryable<T> query, ISpecification<T> spec) where T : class, IEntity

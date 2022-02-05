@@ -23,7 +23,7 @@ namespace Pickup.Shared.Constants.Permission
                 Roles,
                 Products,
                 Brands,
-                Branches,Plans
+                Branches,Plans,Pickup
             };
         }
 
@@ -33,5 +33,6 @@ namespace Pickup.Shared.Constants.Permission
         public const string Brands = "Brands";
         public const string Branches = "Branches";
         public const string Plans = "Plans";
+        public const string Pickup = "Pickup";
     }
 }

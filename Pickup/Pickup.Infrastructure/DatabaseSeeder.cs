@@ -83,6 +83,7 @@ namespace Pickup.Infrastructure
                         await _roleManager.GeneratePermissionClaimByModule(adminRole, PermissionModules.Products);
                         await _roleManager.GeneratePermissionClaimByModule(adminRole, PermissionModules.Brands);
                         await _roleManager.GeneratePermissionClaimByModule(adminRole, PermissionModules.Branches);
+                        await _roleManager.GeneratePermissionClaimByModule(adminRole, PermissionModules.Pickup);
                     }
                     _logger.LogInformation("Seeded User with Administrator Role.");
                 }

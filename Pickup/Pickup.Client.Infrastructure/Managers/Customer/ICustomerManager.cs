@@ -1,11 +1,8 @@
-﻿using Pickup.Application.Features.Customers.Commands.AddEdit;
-using Pickup.Application.Features.Customers.Dto;
+﻿using Pickup.Application.Features.Customers.Dto;
 using Pickup.Application.Features.Customers.Queries.GetById;
+using Pickup.Application.Features.Customers.Queries.GetTimeLine;
 using Pickup.Shared.Wrapper;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Pickup.Client.Infrastructure.Managers.Customer
@@ -17,5 +14,8 @@ namespace Pickup.Client.Infrastructure.Managers.Customer
         public Task<IResult<int>> AddSubscription(dtoSubscriptionRequest request);
         public Task<IResult<int>> RenewSubscription(dtoRenewPlanRequest request);
         public Task<IResult<int>> AddTransaction(dtoAddTransactionRequest request);
+        public Task<PaginatedResult<dtoCustomerInvoiceResponse>> GetInvoice(GetCustomerInvoicesCommand request);
+        public Task<PaginatedResult<dtoPlanTransaction>> GetTransactions(GetCustomerTransactionsQuery request);
+        public Task<IResult<List<dtoTimelineResponse>>> GetTimeline(GetTimeLineQuery request);
     }
 }

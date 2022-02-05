@@ -56,7 +56,6 @@ namespace Pickup.Application.Features.Customers.Commands.AddEdit
                     uploadRequest.UploadType = Enums.UploadType.Invoice;
                     uploadRequest.FileName = $"INV-New-{Guid.NewGuid()}{uploadRequest.Extension}";
                 }
-                //var customer = _mapper.Map<Customer>(command);
                 Customer cust = new Customer()
                 {
                     Name = command.CustomerRequest.Name,
@@ -88,22 +87,14 @@ namespace Pickup.Application.Features.Customers.Commands.AddEdit
                     CustomerPlanId = Plan.Id,
                     RemainingMeals = command.CustomerRequest.MealsQty,
                     RemainingSnacks = command.CustomerRequest.SnacksQty,
-                    MealPrice = command.CustomerRequest.MealsAmount / command.CustomerRequest.MealsQty
-    ,
-                    SnackPrice = command.CustomerRequest.SnacksAmount / command.CustomerRequest.SnacksQty,
                     BranchId = command.CustomerRequest.BranchId,
                     InvoiceURL = command.CustomerRequest.Inv_Url
                 };
+                inv.MealPrice = inv.TotalMealsCount > 0 ? command.CustomerRequest.MealsAmount / command.CustomerRequest.MealsQty : decimal.Zero;
+                inv.SnackPrice = inv.TotalSnacksCount > 0 ? command.CustomerRequest.SnacksAmount / command.CustomerRequest.SnacksQty : decimal.Zero;
                 inv.customer = cust; inv.CustomerId = cust.Id; inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
-                //await _unitOfWork.ComitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllInvocesCacheKey);
-                //await _unitOfWork.Repository<Invoice>().AddAsync(inv);
-
-                //await _unitOfWork.Repository<CustomerPlan>().AddAsync(Plan);
-                //await _unitOfWork.ComitAndRemoveCache(cancellationToken, ApplicationConstants.Cache.GetAllCustomersPlanCacheKey);
                 Plan.Invoices = new List<Invoice>();
                 Plan.Invoices.Add(inv);
-                //cust.Invoices = new List<Invoice>();
-                //cust.Invoices.Add(inv);
                 cust.CustomerPlans = new List<CustomerPlan>();
                 cust.CustomerPlans.Add(Plan);
                 await _unitOfWork.Repository<Customer>().AddAsync(cust);

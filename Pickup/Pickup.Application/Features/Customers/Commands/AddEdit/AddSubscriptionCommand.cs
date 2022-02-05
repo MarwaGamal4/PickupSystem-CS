@@ -76,12 +76,11 @@ namespace Pickup.Application.Features.Customers.Commands.AddEdit
                 CustomerPlanId = Plan.Id,
                 RemainingMeals = command.SubscriptionModel.MealsQty,
                 RemainingSnacks = command.SubscriptionModel.SnacksQty,
-                MealPrice = command.SubscriptionModel.MealsAmount / command.SubscriptionModel.MealsQty
-,
-                SnackPrice = command.SubscriptionModel.SnacksAmount / command.SubscriptionModel.SnacksQty,
                 BranchId = command.SubscriptionModel.BranchId,
                 InvoiceURL = command.SubscriptionModel.Inv_Url
             };
+            inv.MealPrice = inv.TotalMealsCount > 0 ? command.SubscriptionModel.MealsAmount / command.SubscriptionModel.MealsQty : decimal.Zero;
+            inv.SnackPrice = inv.TotalSnacksCount > 0 ? command.SubscriptionModel.SnacksAmount / command.SubscriptionModel.SnacksQty : decimal.Zero;
             inv.customer = customer; inv.CustomerId = customer.Id; inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
             Plan.Invoices = new List<Invoice>();
             Plan.Invoices.Add(inv);

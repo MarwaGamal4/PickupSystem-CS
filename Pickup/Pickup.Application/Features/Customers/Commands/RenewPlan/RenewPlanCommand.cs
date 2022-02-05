@@ -55,12 +55,12 @@ namespace Pickup.Application.Features.Customers.Commands.RenewPlan
                 CustomerPlanId = command.Model.PlanID,
                 RemainingMeals = command.Model.MealsQty,
                 RemainingSnacks = command.Model.SnacksQty,
-                MealPrice = command.Model.MealsAmount / command.Model.MealsQty,
-                SnackPrice = command.Model.SnacksAmount / command.Model.SnacksQty,
                 BranchId = command.Model.BranchId,
                 CustomerId = Plan.CustomerId,
                 Notes = command.Model.Notes
             };
+            inv.MealPrice = inv.TotalMealsCount > 0 ? command.Model.MealsAmount / command.Model.MealsQty : decimal.Zero;
+            inv.SnackPrice = inv.TotalSnacksCount > 0 ? command.Model.SnacksAmount / command.Model.SnacksQty : decimal.Zero;
             inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
             Plan.RemainingMealsCount += command.Model.MealsQty;
             Plan.RemainingSnacksCount += command.Model.SnacksQty;

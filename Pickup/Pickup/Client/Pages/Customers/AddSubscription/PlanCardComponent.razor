@@ -10,6 +10,7 @@
             <CardHeaderActions>
                 <MudMenu Icon="@Icons.Material.Filled.MoreVert">
                     <MudMenuItem OnClick="OnRenewClick">Renew Plan</MudMenuItem>
+                    <MudMenuItem OnClick="OnPlanTimelineClick">Plan Timeline</MudMenuItem>
                     <MudMenuItem>Transactions</MudMenuItem>
                     <MudMenuItem>Invoices</MudMenuItem>
                     <MudMenuItem>Refund</MudMenuItem>
@@ -47,4 +48,6 @@
     public EventCallback<MouseEventArgs> OnAddTransactionClick { get; set; }
     [Parameter]
     public EventCallback<MouseEventArgs> OnRenewClick { get; set; }
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnPlanTimelineClick { get; set; }
 }
