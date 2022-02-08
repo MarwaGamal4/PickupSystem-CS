@@ -1,2 +1,11 @@
 2022-02-05 13:39:06.307 +02:00 [WRN] Server msi:25504:47b2d6c6 was considered dead by other servers, restarting...
 2022-02-05 13:39:06.312 +02:00 [WRN] Server msi:25504:47b2d6c6 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2022-02-05 15:41:33.012 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-05 15:41:33.046 +02:00 [INF] Hosting environment: Development
+2022-02-05 15:41:33.049 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-05 15:43:35.683 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-05 15:43:35.712 +02:00 [INF] Hosting environment: Development
+2022-02-05 15:43:35.715 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-05 15:44:33.581 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-05 15:44:33.608 +02:00 [INF] Hosting environment: Development
+2022-02-05 15:44:33.611 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

@@ -56,6 +56,14 @@ namespace Pickup.Shared.Constants.Permission
             public const string EditTransaction = "Permissions.Pickup.EditTransaction";
             public const string EditInvoice = "Permissions.Pickup.EditInvoice";
         }
+        public static class ManagerDashboard
+        {
+            public const string View = "Permissions.ManagerDashboard.View";
+            public const string Delete = "Permissions.ManagerDashboard.Delete";
+            public const string ViewDetails = "Permissions.ManagerDashboard.ViewDetails";
+            public const string AddCid = "Permissions.ManagerDashboard.AddCid";
+
+        }
         public static class DeliveryRPT
         {
             public const string View = "Permissions.DeliveryRPT.View";

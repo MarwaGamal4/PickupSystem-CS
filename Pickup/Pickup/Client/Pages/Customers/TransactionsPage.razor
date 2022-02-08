@@ -12,7 +12,7 @@
         <MudItem md="4" sm="6" xs="12">
             @if (BranchList != null)
             {
-                <MudSelect T="int" @bind-Value="Model.Model.BranchID" Text="@BranchName" Label="Branch" AnchorOrigin="Origin.BottomCenter">
+                <MudSelect T="int" @bind-Value="SelectedBranchID" Text="@BranchName" Label="Branch" AnchorOrigin="Origin.BottomCenter">
                     @foreach (var item in BranchList)
                     {
                         <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
@@ -105,6 +105,7 @@
     public bool IsSerching { get; set; } = false;
     public List<GetAllBranchesResponse> BranchList = new();
     public List<GetAllBranchesResponse> AllBranchList = new();
+    public int SelectedBranchID { get; set; }
     public int OppiseteBranchID { get; set; }
     DateRange _dateRange = new DateRange(new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1), new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(1).AddDays(-1));
     GetCustomerTransactionsQuery Model { get; set; } = new();
@@ -145,6 +146,7 @@
     {
         Model.Model.DateFrom = _dateRange.Start;
         Model.Model.DateTo = _dateRange.End;
+        Model.Model.BranchID = SelectedBranchID;
         Model.Model.OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID;
         Model.Model.PageNumber = pageNumber + 1;
         Model.Model.PageSize = PageSize;
@@ -186,6 +188,7 @@
                     break;
             }
             data = loadedData.ToList();
+            //data = loadedData.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList();
             pagedData = data;
         }
         else
@@ -200,11 +203,12 @@
     {
         Model.Model.DateFrom = _dateRange.Start;
         Model.Model.DateTo = _dateRange.End;
+        Model.Model.BranchID = SelectedBranchID;
         Model.Model.OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID;
         IsSerching = true;
-        var Response = await customerManager.GetTransactions(Model);
-        IsSerching = false;
+        // var Response = await customerManager.GetTransactions(Model);
         await table.ReloadServerData();
+        IsSerching = false;
         StateHasChanged();
     }
     private async Task LoadDataAsync()
@@ -214,6 +218,7 @@
         var AllBranches = await BranchManager.GetAllAsync();
         AllBranches.Data.Insert(0, new GetAllBranchesResponse() { Id = 0, BranchName = "ALL" });
         Model.Model.BranchID = BranchList.FirstOrDefault().Id;
+        SelectedBranchID = (int)Model.Model.BranchID;
         BranchName = BranchList.FirstOrDefault().BranchName;
         // await Task.CompletedTask;
     }

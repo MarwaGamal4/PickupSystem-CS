@@ -1,0 +1,9 @@
+﻿@page "/Manager"
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await _managerDashboard.GetAgents();
+    }
+}
