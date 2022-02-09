@@ -177,10 +177,8 @@
         Model.AgentID = SelectedAgent == 0 ? null : SelectedAgent;
         Model.BranchID = SelectedBranch == 0 ? null : SelectedBranch;
         Model.EmariteID = SelectedEmarit == 0 ? null : SelectedEmarit;
-        if (SelectedPaymnet != "ALL")
-        {
-            Model.SubFrom = SelectedPaymnet;
-        }
+        Model.SubFrom = SelectedPaymnet == "ALL" ? string.Empty : SelectedPaymnet;
+
         var response = await _managerDashboard.GetSubscriptions(Model, state.PageSize, state.Page + 1);
         IEnumerable<SubscriptionsResponse> data = response.Data;
         totalItems = response.TotalCount;
