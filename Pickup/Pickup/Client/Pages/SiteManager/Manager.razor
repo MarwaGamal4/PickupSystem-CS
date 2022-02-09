@@ -97,7 +97,7 @@
         </ToolBarContent>
         <HeaderContent>
             <MudTh><MudTableSortLabel SortLabel="Count_field" T="SubscriptionsResponse">#</MudTableSortLabel></MudTh>
-            <MudTh><MudTableSortLabel SortLabel="Id_field" T="SubscriptionsResponse">Id</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Id_field" T="SubscriptionsResponse">Invoice Number</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortLabel="SubFrom_field" T="SubscriptionsResponse">Payment</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortLabel="FullName_field" T="SubscriptionsResponse">Full Name</MudTableSortLabel></MudTh>
             <MudTh><MudTableSortLabel SortLabel="Mobile_field" T="SubscriptionsResponse">Mobile</MudTableSortLabel></MudTh>
@@ -113,7 +113,7 @@
         </HeaderContent>
         <RowTemplate>
             <MudTd Style=" width: fit-content;" DataLabel="#"></MudTd>
-            <MudTd Style=" width: fit-content;" DataLabel="Id">@context.Id</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Id">@context.InvoiceNum</MudTd>
             <MudTd Style=" width: fit-content;" DataLabel="Payment">@context.SubFrom</MudTd>
             <MudTd Style=" width: fit-content;" DataLabel="Full Name">@context.FullName</MudTd>
             <MudTd Style=" width: fit-content;" DataLabel="Mobile">@context.Mobile</MudTd>
