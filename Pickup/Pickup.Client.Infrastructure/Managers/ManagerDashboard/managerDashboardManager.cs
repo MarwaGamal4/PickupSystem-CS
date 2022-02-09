@@ -20,6 +20,7 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri("http://lowcalories.ae:51");
+
             //_httpClient.BaseAddress = new Uri("https://localhost:5001");
             //_httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("*/*"));
             //_httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Mode", "no-cors");
