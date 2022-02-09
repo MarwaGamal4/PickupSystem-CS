@@ -129,3 +129,277 @@ Error Number:-2,State:0,Class:11
 2022-02-08 22:26:18.993 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-02-08 22:26:19.019 +02:00 [INF] Hosting environment: Development
 2022-02-08 22:26:19.021 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 22:54:42.859 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 22:54:42.886 +02:00 [INF] Hosting environment: Development
+2022-02-08 22:54:42.888 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 22:59:52.101 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 22:59:52.140 +02:00 [INF] Hosting environment: Development
+2022-02-08 22:59:52.144 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:02:50.515 +02:00 [INF] Application is shutting down...
+2022-02-08 23:03:11.292 +02:00 [INF] Now listening on: https://localhost:5001
+2022-02-08 23:03:11.353 +02:00 [INF] Now listening on: http://localhost:5000
+2022-02-08 23:03:11.355 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:03:11.356 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:03:11.356 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:05:21.292 +02:00 [INF] Now listening on: http://localhost:5000
+2022-02-08 23:05:21.320 +02:00 [INF] Now listening on: https://localhost:5001
+2022-02-08 23:05:21.323 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:05:21.324 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:05:21.324 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:05:23.771 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:05:23.771 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:05:23.788 +02:00 [ERR] Connection id "0HMFB8QRSO7R9", Request id "0HMFB8QRSO7R9:000000A9": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-02-08 23:05:23.788 +02:00 [ERR] Connection id "0HMFB8QRSO7R9", Request id "0HMFB8QRSO7R9:000000AB": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-02-08 23:05:23.903 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:05:23.904 +02:00 [ERR] Connection id "0HMFB8QRSO7R9", Request id "0HMFB8QRSO7R9:000000AF": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-02-08 23:05:24.185 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:05:24.186 +02:00 [ERR] Connection id "0HMFB8QRSO7R9", Request id "0HMFB8QRSO7R9:000000B3": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-02-08 23:05:50.611 +02:00 [INF] Application is shutting down...
+2022-02-08 23:07:51.764 +02:00 [INF] Now listening on: http://localhost:5000
+2022-02-08 23:07:51.837 +02:00 [INF] Now listening on: https://localhost:5001
+2022-02-08 23:07:51.840 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:07:51.841 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:07:51.842 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:11:24.897 +02:00 [INF] Now listening on: http://localhost:5000
+2022-02-08 23:11:24.939 +02:00 [INF] Now listening on: https://localhost:5001
+2022-02-08 23:11:24.941 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:11:24.942 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:11:24.942 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:14:12.083 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:14:12.194 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:14:12.198 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:14:21.591 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:14:21.591 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:14:21.655 +02:00 [ERR] Connection ID "17726168152120754181", Request ID "80000006-0004-f600-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:14:21.655 +02:00 [ERR] Connection ID "17870283335901642790", Request ID "80000027-0003-f800-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:14:21.982 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:14:21.983 +02:00 [ERR] Connection ID "17726168134940884993", Request ID "80000002-0000-f600-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:14:24.975 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:14:24.976 +02:00 [ERR] Connection ID "17726168152120754183", Request ID "80000008-0004-f600-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:17:37.067 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:17:37.097 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:17:37.099 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:18:28.445 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:18:28.471 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:18:28.473 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:20:24.609 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:20:24.641 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:20:24.643 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:28:49.958 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:28:49.985 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:28:49.987 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:29:12.952 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:29:12.979 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:29:12.983 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:29:36.941 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:29:36.969 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:29:36.971 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:46:17.043 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-08 23:46:17.086 +02:00 [INF] Hosting environment: Development
+2022-02-08 23:46:17.089 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-08 23:48:28.224 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:48:28.235 +02:00 [ERR] Connection ID "18014398519682531400", Request ID "80000049-0002-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:48:28.443 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:48:28.443 +02:00 [ERR] Connection ID "17726168147825786891", Request ID "8000000c-0003-f600-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:48:28.666 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:48:28.667 +02:00 [ERR] Connection ID "17798225733273780250", Request ID "8000001b-0001-f700-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-08 23:48:29.215 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-08 23:48:29.215 +02:00 [ERR] Connection ID "18014398519682531402", Request ID "8000004b-0002-fa00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()

@@ -1,9 +1,277 @@
 ﻿@page "/Manager"
+@using System.Collections.Generic
+<MudPaper Class="pb-10">
+    <MudGrid Class="px-5">
+        <MudItem md="3" sm="6" xs="12">
+            <MudTextField Clearable="true" @bind-Value="@Model.InvoiceId" Label="Invoice Id" HelperText="(Optional)"></MudTextField>
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            <MudTextField Clearable="true" @bind-Value="@Model.GiftCode" Label="Gift Code" HelperText="(Optional)"></MudTextField>
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            <MudTextField InputType="InputType.Telephone" Clearable="true" @bind-Value="@Model.MobileNumber" Label="Mobile Number" HelperText="(Optional)"></MudTextField>
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            <MudNumericField HideSpinButtons="true" AdornmentColor="Color.Primary" Clearable="true" @bind-Value="@Model.DiscountValue" Adornment="Adornment.End" AdornmentText="%" Label="Discount" HelperText="(Optional)"></MudNumericField>
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            @if (Emarits != null)
+            {
+                <MudSelect T="int" @bind-Value="SelectedEmarit" HelperText="(Optional)" Text="ALL" Label="Emirate" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in Emarits)
+                    {
+                        <MudSelectItem Value="item.Id">@item.EmariteName</MudSelectItem>
+
+                    }
+                </MudSelect>
+            }
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            <MudTextField Clearable="true" @bind-Value="@Model.Plan" Label="Plan" HelperText="(Optional)"></MudTextField>
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            @if (Branches != null)
+            {
+                <MudSelect T="int" @bind-Value="SelectedBranch" HelperText="(Optional)" Text="ALL" Label="Branch" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in Branches)
+                    {
+                        <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
+
+                    }
+                </MudSelect>
+            }
+        </MudItem>
+        <MudItem md="3" sm="6" xs="12">
+            @if (Agents != null)
+            {
+                <MudSelect T="int" @bind-Value="SelectedAgent" HelperText="(Optional)" Text="ALL" Label="Agent" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in Agents)
+                    {
+                        <MudSelectItem Value="item.AgentID">@item.AgentName</MudSelectItem>
+
+                    }
+                </MudSelect>
+            }
+        </MudItem>
+
+
+        <MudItem md="3" sm="6" xs="12">
+            @if (Payments != null)
+            {
+                <MudSelect T="string" @bind-Value="SelectedPaymnet" Text="ALL" HelperText="(Optional)" Label="Payment" AnchorOrigin="Origin.BottomCenter">
+                    @foreach (var item in Payments)
+                    {
+                        <MudSelectItem Value="@item">@item</MudSelectItem>
+
+                    }
+                </MudSelect>
+            }
+        </MudItem>
+
+
+
+        <MudItem md="3" sm="6" xs="12">
+            <MudDatePicker @ref="_picker" PickerVariant="PickerVariant.Dialog" Label="Start Date" HelperText="(Optional)" @bind-Date="Model.StartDate" AutoClose="true">
+                <PickerActions>
+                    <MudButton Class="mr-auto align-self-start" OnClick="@(() => _picker.Clear())">Clear</MudButton>
+                    <MudButton OnClick="@(() => _picker.Close(false))">Cancel</MudButton>
+                    <MudButton Color="Color.Primary" OnClick="@(() => _picker.Close())">Ok</MudButton>
+                </PickerActions>
+            </MudDatePicker>
+        </MudItem>
+        <MudItem md="5" sm="11" xs="11">
+            <WaitingSaveButton WaitingText="Searching.." OnClick="Search" IsProcessing="IsSerching" FullWidth="true" StartIcon="@Icons.Material.Filled.Search" Color="Color.Primary" Size="Size.Large" Variant="Variant.Outlined" Text="Search"></WaitingSaveButton>
+        </MudItem>
+        <MudItem md="1" sm="1" xs="1">
+            <MudButton EndIcon="@Icons.Material.Filled.Clear" Color="Color.Primary" Size="Size.Small" Variant="Variant.Filled" OnClick="ResetSearch">Reset</MudButton>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+<MudSpacer />
+<MudPaper>
+    <MudTable Style=" width: fit-content;" Class="pt-5" RowsPerPage="100" ServerData="@(new Func<TableState, Task<TableData<SubscriptionsResponse>>>(ServerReload))"
+              Dense="true" HorizontalScrollbar="true" FixedFooter="true" Striped="true" Hover="true" @ref="table">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">Invoices</MudText>
+            <MudSpacer />
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh><MudTableSortLabel SortLabel="Count_field" T="SubscriptionsResponse">#</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Id_field" T="SubscriptionsResponse">Id</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="SubFrom_field" T="SubscriptionsResponse">Payment</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="FullName_field" T="SubscriptionsResponse">Full Name</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Mobile_field" T="SubscriptionsResponse">Mobile</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Code_field" T="SubscriptionsResponse">Gift Code</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="AgentName_field" T="SubscriptionsResponse">Agent</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Discount_field" T="SubscriptionsResponse">Discount</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="TotalPrice_field" T="SubscriptionsResponse">Total</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="DeliveryStartingDay_field" T="SubscriptionsResponse">Start Date</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Mode_field" T="SubscriptionsResponse">Mode</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="PlanName_field" T="SubscriptionsResponse">Plan</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Area_field" T="SubscriptionsResponse">Area</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="Emarite_field" T="SubscriptionsResponse">Emirate</MudTableSortLabel></MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd Style=" width: fit-content;" DataLabel="#"></MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Id">@context.Id</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Payment">@context.SubFrom</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Full Name">@context.FullName</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Mobile">@context.Mobile</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Gift Code">@context.Code</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Agent">@context.AgentName</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Discount">@context.Discount</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Total">@context.TotalPrice</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Start Date">@context.DeliveryStartingDay.Date.ToString("d/M/yyyy")</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Mode"><MudChip Color="@(ModeColor(context.Mode))">@context.Mode</MudChip></MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Plan">@context.PlanName</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Area">@context.Area</MudTd>
+            <MudTd Style=" width: fit-content;" DataLabel="Emirate">@context.Emarite</MudTd>
+
+        </RowTemplate>
+        <NoRecordsContent>
+            <MudText>No matching records found</MudText>
+        </NoRecordsContent>
+        <LoadingContent>
+            <MudProgressCircular Class="ms-n1" Size="Size.Large" Indeterminate="true" />
+            <MudText Class="ms-2">Loading Data ..</MudText>
+        </LoadingContent>
+        <PagerContent>
+            <MudTablePager />
+        </PagerContent>
+    </MudTable>
+</MudPaper>
 
 
 @code {
+    MudDatePicker _picker;
+    public List<BranchesResponse> Branches { get; set; } = new();
+    public List<AgentsResponse> Agents { get; set; } = new();
+    public List<string> Payments { get; set; } = new();
+    public List<EmaritsResponse> Emarits { get; set; } = new();
+    public ManagerRequest Model { get; set; } = new();
+    public int PageNumber { get; set; } = 1;
+    public int PageSize { get; set; } = 100;
+    public int SelectedAgent { get; set; } = 0;
+    public int SelectedBranch { get; set; } = 0;
+    public int SelectedEmarit { get; set; } = 0;
+    public string SelectedPaymnet { get; set; } = "ALL";
+    public bool IsSerching { get; set; } = false;
+
+    /// <summary>
+    /// ////////////////Result Table
+    /// </summary>
+    /// <returns></returns>
+    ///
+
+    private IEnumerable<SubscriptionsResponse> pagedData;
+    private MudTable<SubscriptionsResponse> table;
+
+    private int totalItems;
+    private string searchString = null;
+    private async void Search()
+    {
+        await table.ReloadServerData();
+    }
+    private async Task<TableData<SubscriptionsResponse>> ServerReload(TableState state)
+    {
+        Model.AgentID = SelectedAgent == 0 ? null : SelectedAgent;
+        Model.BranchID = SelectedBranch == 0 ? null : SelectedBranch;
+        Model.EmariteID = SelectedEmarit == 0 ? null : SelectedEmarit;
+        if (SelectedPaymnet != "ALL")
+        {
+            Model.SubFrom = SelectedPaymnet;
+        }
+        var response = await _managerDashboard.GetSubscriptions(Model, state.PageSize, state.Page + 1);
+        IEnumerable<SubscriptionsResponse> data = response.Data;
+        totalItems = response.TotalCount;
+        switch (state.SortLabel)
+        {
+            case "Id_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Id);
+                break;
+            case "SubFrom_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.SubFrom);
+                break;
+            case "FullName_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.FullName);
+                break;
+            case "Mobile_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Mobile);
+                break;
+            case "Code_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Code);
+                break;
+            case "AgentName_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.AgentName);
+                break;
+            case "Discount_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Discount);
+                break;
+            case "TotalPrice_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.TotalPrice);
+                break;
+            case "DeliveryStartingDay_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.DeliveryStartingDay);
+                break;
+            case "Mode_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Mode);
+                break;
+            case "PlanName_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.PlanName);
+                break;
+            case "Area_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Area);
+                break;
+            case "Emarite_field":
+                data = data.OrderByDirection(state.SortDirection, o => o.Emarite);
+                break;
+        }
+
+        //  pagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToArray();
+        return new TableData<SubscriptionsResponse>() { TotalItems = totalItems, Items = data };
+    }
+    private void OnSearch(string text)
+    {
+        searchString = text;
+        table.ReloadServerData();
+    }
+
+    public Color ModeColor(string Mode)
+    {
+        switch (Mode)
+        {
+            case "Completed":
+                return Color.Success;
+            case "Pending":
+                return Color.Primary;
+            case "NotComplete":
+                return Color.Warning;
+            default: return Color.Success;
+
+
+        }
+
+    }
+
     protected override async Task OnInitializedAsync()
     {
-        await _managerDashboard.GetAgents();
+
+        Agents = await _managerDashboard.GetAgents();
+        Branches = await _managerDashboard.GetBranches();
+        Payments = await _managerDashboard.GetPayments();
+        Emarits = await _managerDashboard.GetEmarits();
+        Agents.Insert(0, new AgentsResponse() { AgentID = 0, AgentName = "ALL" });
+        Branches.Insert(0, new BranchesResponse() { Id = 0, BranchName = "ALL" });
+        Emarits.Insert(0, new EmaritsResponse() { Id = 0, EmariteName = "ALL" });
+        Payments.Insert(0, "ALL");
+
+    }
+    private void ResetSearch()
+    {
+        Model = new ManagerRequest();
+        SelectedAgent = 0;
+        SelectedBranch = 0;
+        SelectedEmarit = 0;
+        SelectedPaymnet = "ALL";
     }
 }

@@ -65,6 +65,7 @@ namespace Pickup.Client.Infrastructure.Managers.Customer
         public async Task<PaginatedResult<dtoPlanTransaction>> GetTransactions(GetCustomerTransactionsQuery request)
         {
             var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetTransaction, request);
+
             return await requestt.ToPaginatedResult<dtoPlanTransaction>();
         }
 

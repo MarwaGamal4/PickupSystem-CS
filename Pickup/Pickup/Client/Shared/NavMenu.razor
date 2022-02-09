@@ -46,6 +46,11 @@
         }
 
     </MudNavGroup>
+    <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Website Administration"]">
+        <MudNavLink Href="/Manager" Icon="@Icons.Material.Outlined.Report">
+            @localizer["Subscription Manager"]
+        </MudNavLink>
+    </MudNavGroup>
     @if ((_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Roles.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.Users.View).Result.Succeeded) && (UserType != Pickup.Shared.Constants.User.UserConstants.UserType.Branch || UserType != Pickup.Shared.Constants.User.UserConstants.UserType.BranchOwner))
     {
         <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Administrator"]">

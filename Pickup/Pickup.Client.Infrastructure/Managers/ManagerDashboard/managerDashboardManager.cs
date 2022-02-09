@@ -1,5 +1,7 @@
-﻿using Pickup.Client.Infrastructure.SiteModels.Requests;
+﻿using Pickup.Client.Infrastructure.Extensions;
+using Pickup.Client.Infrastructure.SiteModels.Requests;
 using Pickup.Client.Infrastructure.SiteModels.Response;
+using Pickup.Shared.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +19,13 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
         public managerDashboardManager(HttpClient httpClient)
         {
             _httpClient = new HttpClient();
-
             _httpClient.BaseAddress = new Uri("http://lowcalories.ae:51");
+            //_httpClient.BaseAddress = new Uri("https://localhost:5001");
+            //_httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("*/*"));
+            //_httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Mode", "no-cors");
+            //_httpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
+
+
         }
 
         public async Task<List<AgentsResponse>> GetAgents()
@@ -33,6 +40,12 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
             return response;
         }
 
+        public async Task<List<EmaritsResponse>> GetEmarits()
+        {
+            var response = await _httpClient.GetFromJsonAsync<List<EmaritsResponse>>(Routes.SiteRoutes.ManagerEndpoints.GetEmarits);
+            return response;
+        }
+
         public async Task<List<string>> GetPayments()
         {
             var response = await _httpClient.GetFromJsonAsync<List<string>>(Routes.SiteRoutes.ManagerEndpoints.GetPaymentMethods);
@@ -42,13 +55,14 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
         public async Task<List<ProgramsResponse>> GetPrograms()
         {
             var response = await _httpClient.GetFromJsonAsync<List<ProgramsResponse>>(Routes.SiteRoutes.ManagerEndpoints.GetPrograms);
+
             return response;
         }
 
-        public async Task<List<SubscriptionsResponse>> GetSubscriptions(ManagerRequest request, int PageSize, int PageNumber)
+        public async Task<PaginatedResult<SubscriptionsResponse>> GetSubscriptions(ManagerRequest request, int PageSize, int PageNumber)
         {
-            var response = await _httpClient.PostAsJsonAsync<ManagerRequest>(Routes.SiteRoutes.ManagerEndpoints.GetSubscriptions(PageSize, PageNumber), request);
-            return await response.Content.ReadFromJsonAsync<List<SubscriptionsResponse>>();
+            var response = await _httpClient.PostAsJsonAsync(Routes.SiteRoutes.ManagerEndpoints.GetSubscriptions(PageSize, PageNumber), request);
+            return await response.ToPaginatedResult<SubscriptionsResponse>();
         }
     }
 }
