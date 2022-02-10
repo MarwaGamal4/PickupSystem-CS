@@ -358,3 +358,15 @@ Error Number:-1,State:0,Class:20
 2022-02-10 17:51:49.887 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-02-10 17:51:49.913 +02:00 [INF] Hosting environment: Development
 2022-02-10 17:51:49.915 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-10 17:55:12.867 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-10 17:55:12.901 +02:00 [INF] Hosting environment: Development
+2022-02-10 17:55:12.904 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-10 18:25:23.145 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-10 18:25:23.172 +02:00 [INF] Hosting environment: Development
+2022-02-10 18:25:23.174 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-10 18:25:35.454 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-10 18:25:35.485 +02:00 [INF] Hosting environment: Development
+2022-02-10 18:25:35.487 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-10 18:29:51.198 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-10 18:29:51.232 +02:00 [INF] Hosting environment: Development
+2022-02-10 18:29:51.235 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

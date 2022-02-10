@@ -7,13 +7,13 @@
 <MudPaper Class="pb-10">
     <MudGrid Class="px-5" Spacing="1" Justify="Justify.Center">
         <MudItem md="3" sm="6" xs="12">
-            <MudTextField Clearable="true" @bind-Value="@Model.InvoiceId" Label="Invoice Id" HelperText="(Optional)"></MudTextField>
+            <MudTextField Immediate="true" OnKeyDown="SearchEnter" Clearable="true" @bind-Value="@Model.InvoiceId" Label="Invoice Id" HelperText="(Optional)"></MudTextField>
         </MudItem>
         <MudItem md="3" sm="6" xs="12">
-            <MudTextField InputType="InputType.Telephone" Clearable="true" @bind-Value="@Model.MobileNumber" Label="Mobile Number" HelperText="(Optional)"></MudTextField>
+            <MudTextField Immediate="true" OnKeyDown="SearchEnter" InputType="InputType.Telephone" Clearable="true" @bind-Value="@Model.MobileNumber" Label="Mobile Number" HelperText="(Optional)"></MudTextField>
         </MudItem>
         <MudItem md="3" sm="6" xs="12">
-            <MudSelect T="int" @bind-Value="SelectedMode" HelperText="(Optional)" Text="ALL" Label="Mode" AnchorOrigin="Origin.BottomCenter">
+            <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="int" @bind-Value="SelectedMode" HelperText="(Optional)" Text="ALL" Label="Mode" AnchorOrigin="Origin.BottomCenter">
                 <MudSelectItem Value="-1">ALL</MudSelectItem>
                 <MudSelectItem Value="2">Complete</MudSelectItem>
                 <MudSelectItem Value="1">Pending</MudSelectItem>
@@ -23,7 +23,7 @@
         <MudItem md="3" sm="6" xs="12">
             @if (Payments != null)
             {
-                <MudSelect T="string" @bind-Value="SelectedPaymnet" Text="ALL" HelperText="(Optional)" Label="Payment" AnchorOrigin="Origin.BottomCenter">
+                <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="string" @bind-Value="SelectedPaymnet" Text="ALL" HelperText="(Optional)" Label="Payment" AnchorOrigin="Origin.BottomCenter">
                     @foreach (var item in Payments)
                     {
                         <MudSelectItem Value="@item">@item</MudSelectItem>
@@ -37,16 +37,16 @@
                 <MudExpansionPanel Text="Advanced Search" Icon="@Icons.Filled.YoutubeSearchedFor" DisableGutters="true">
                     <MudGrid Spacing="1" Justify="Justify.Center">
                         <MudItem md="3" sm="6" xs="12">
-                            <MudTextField Clearable="true" @bind-Value="@Model.GiftCode" Label="Gift Code" HelperText="(Optional)"></MudTextField>
+                            <MudTextField OnKeyDown="SearchEnter" Immediate="true" Clearable="true" @bind-Value="@Model.GiftCode" Label="Gift Code" HelperText="(Optional)"></MudTextField>
                         </MudItem>
 
                         <MudItem md="3" sm="6" xs="12">
-                            <MudNumericField HideSpinButtons="true" AdornmentColor="Color.Primary" Clearable="true" @bind-Value="@Model.DiscountValue" Adornment="Adornment.End" AdornmentText="%" Label="Discount" HelperText="(Optional)"></MudNumericField>
+                            <MudNumericField OnKeyDown="SearchEnter" Immediate="true" HideSpinButtons="true" AdornmentColor="Color.Primary" Clearable="true" @bind-Value="@Model.DiscountValue" Adornment="Adornment.End" AdornmentText="%" Label="Discount" HelperText="(Optional)"></MudNumericField>
                         </MudItem>
                         <MudItem md="3" sm="6" xs="12">
                             @if (Emarits != null)
                             {
-                                <MudSelect T="int" @bind-Value="SelectedEmarit" HelperText="(Optional)" Text="ALL" Label="Emirate" AnchorOrigin="Origin.BottomCenter">
+                                <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="int" @bind-Value="SelectedEmarit" HelperText="(Optional)" Text="ALL" Label="Emirate" AnchorOrigin="Origin.BottomCenter">
                                     @foreach (var item in Emarits)
                                     {
                                         <MudSelectItem Value="item.Id">@item.EmariteName</MudSelectItem>
@@ -56,12 +56,12 @@
                             }
                         </MudItem>
                         <MudItem md="3" sm="6" xs="12">
-                            <MudTextField Clearable="true" @bind-Value="@Model.Plan" Label="Plan" HelperText="(Optional)"></MudTextField>
+                            <MudTextField OnKeyDown="SearchEnter" Immediate="true" Clearable="true" @bind-Value="@Model.Plan" Label="Plan" HelperText="(Optional)"></MudTextField>
                         </MudItem>
                         <MudItem md="3" sm="6" xs="12">
                             @if (Branches != null)
                             {
-                                <MudSelect T="int" @bind-Value="SelectedBranch" HelperText="(Optional)" Text="ALL" Label="Branch" AnchorOrigin="Origin.BottomCenter">
+                                <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="int" @bind-Value="SelectedBranch" HelperText="(Optional)" Text="ALL" Label="Branch" AnchorOrigin="Origin.BottomCenter">
                                     @foreach (var item in Branches)
                                     {
                                         <MudSelectItem Value="item.Id">@item.BranchName</MudSelectItem>
@@ -72,7 +72,7 @@
                         </MudItem>
 
                         <MudItem md="3" sm="6" xs="12">
-                            <MudSelect T="int" @bind-Value="SelectedType" HelperText="(Optional)" Text="ALL" Label="Type" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="int" @bind-Value="SelectedType" HelperText="(Optional)" Text="ALL" Label="Type" AnchorOrigin="Origin.BottomCenter">
                                 <MudSelectItem Value="-1">ALL</MudSelectItem>
                                 <MudSelectItem Value="1">Subsctiption</MudSelectItem>
                                 <MudSelectItem Value="0">Appointment</MudSelectItem>
@@ -82,7 +82,7 @@
                         <MudItem md="3" sm="6" xs="12">
                             @if (Agents != null)
                             {
-                                <MudSelect T="int" @bind-Value="SelectedAgent" HelperText="(Optional)" Text="ALL" Label="Agent" AnchorOrigin="Origin.BottomCenter">
+                                <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="int" @bind-Value="SelectedAgent" HelperText="(Optional)" Text="ALL" Label="Agent" AnchorOrigin="Origin.BottomCenter">
                                     @foreach (var item in Agents)
                                     {
                                         <MudSelectItem Value="item.AgentID">@item.AgentName</MudSelectItem>
@@ -102,7 +102,7 @@
                                 <PickerActions>
                                     <MudButton Class="mr-auto align-self-start" OnClick="@(() => _picker.Clear())">Clear</MudButton>
                                     <MudButton OnClick="@(() => _picker.Close(false))">Cancel</MudButton>
-                                    <MudButton Color="Color.Primary" OnClick="@(() => _picker.Close())">Ok</MudButton>
+                                    <MudButton Color="Color.Primary" OnClick="@(() => { _picker.Close(); table.ReloadServerData(); })">Ok</MudButton>
                                 </PickerActions>
                             </MudDatePicker>
                         </MudItem>
@@ -286,6 +286,15 @@
 
         //  pagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToArray();
         return new TableData<SubscriptionsResponse>() { TotalItems = totalItems, Items = data };
+    }
+    private void SearchEnter(KeyboardEventArgs e)
+    {
+
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            table.ReloadServerData();
+        }
+
     }
     private void OnSearch(string text)
     {
