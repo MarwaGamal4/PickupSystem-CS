@@ -7,10 +7,10 @@
 <MudPaper Class="pb-10">
     <MudGrid Class="px-5" Spacing="1" Justify="Justify.Center">
         <MudItem md="3" sm="6" xs="12">
-            <MudTextField Immediate="true" OnKeyDown="SearchEnter" Clearable="true" @bind-Value="@Model.InvoiceId" Label="Invoice Id" HelperText="(Optional)"></MudTextField>
+            <SearchTextBox @bind-Value="Model.InvoiceId" Label="Invoice Id" SearchFunction="@(()=>table.ReloadServerData())"></SearchTextBox>
         </MudItem>
         <MudItem md="3" sm="6" xs="12">
-            <MudTextField Immediate="true" OnKeyDown="SearchEnter" InputType="InputType.Telephone" Clearable="true" @bind-Value="@Model.MobileNumber" Label="Mobile Number" HelperText="(Optional)"></MudTextField>
+            <SearchTextBox MaxLenght="10" InputType="InputType.Telephone" @bind-Value="Model.MobileNumber" Label="Mobile Number" SearchFunction="@(()=>table.ReloadServerData())"></SearchTextBox>
         </MudItem>
         <MudItem md="3" sm="6" xs="12">
             <MudSelect OnKeyDown="SearchEnter" SelectedValuesChanged="@((e)=>table.ReloadServerData())" Immediate="true" T="int" @bind-Value="SelectedMode" HelperText="(Optional)" Text="ALL" Label="Mode" AnchorOrigin="Origin.BottomCenter">
@@ -37,11 +37,11 @@
                 <MudExpansionPanel Text="Advanced Search" Icon="@Icons.Filled.YoutubeSearchedFor" DisableGutters="true">
                     <MudGrid Spacing="1" Justify="Justify.Center">
                         <MudItem md="3" sm="6" xs="12">
-                            <MudTextField OnKeyDown="SearchEnter" Immediate="true" Clearable="true" @bind-Value="@Model.GiftCode" Label="Gift Code" HelperText="(Optional)"></MudTextField>
+                            <SearchTextBox @bind-Value="Model.GiftCode" Label="Gift Code" SearchFunction="@(()=>table.ReloadServerData())"></SearchTextBox>
                         </MudItem>
 
                         <MudItem md="3" sm="6" xs="12">
-                            <MudNumericField OnKeyDown="SearchEnter" Immediate="true" HideSpinButtons="true" AdornmentColor="Color.Primary" Clearable="true" @bind-Value="@Model.DiscountValue" Adornment="Adornment.End" AdornmentText="%" Label="Discount" HelperText="(Optional)"></MudNumericField>
+                            <SearchNumberBox @bind-Value="Model.DiscountValue" Label="Discount" SearchFunction="@(()=>table.ReloadServerData())" Adornment="Adornment.End" AdornmentText="%"></SearchNumberBox>
                         </MudItem>
                         <MudItem md="3" sm="6" xs="12">
                             @if (Emarits != null)
@@ -56,7 +56,7 @@
                             }
                         </MudItem>
                         <MudItem md="3" sm="6" xs="12">
-                            <MudTextField OnKeyDown="SearchEnter" Immediate="true" Clearable="true" @bind-Value="@Model.Plan" Label="Plan" HelperText="(Optional)"></MudTextField>
+                            <SearchTextBox @bind-Value="Model.Plan" Label="Plan" SearchFunction="@(()=>table.ReloadServerData())"></SearchTextBox>
                         </MudItem>
                         <MudItem md="3" sm="6" xs="12">
                             @if (Branches != null)
@@ -91,12 +91,6 @@
                                 </MudSelect>
                             }
                         </MudItem>
-
-
-
-
-
-
                         <MudItem md="3" sm="6" xs="12">
                             <MudDatePicker @ref="_picker" PickerVariant="PickerVariant.Dialog" Label="Start Date" HelperText="(Optional)" @bind-Date="Model.StartDate" AutoClose="true">
                                 <PickerActions>
@@ -153,15 +147,15 @@
         </HeaderContent>
         <RowTemplate>
             <MudTd Style=" width: fit-content;" DataLabel="#">
-                @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.Delete).Result.Succeeded)
+                @if (CanDelete)
                 {
                     <MudTooltip Text="Delete"><MudIconButton Icon="@Icons.Material.Filled.Delete" Size="Size.Small"></MudIconButton></MudTooltip>
                 }
-                @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.ViewDetails).Result.Succeeded)
+                @if (CanViewDetails)
                 {
                     <MudTooltip Text="Preview"> <MudIconButton Icon="@Icons.Material.Filled.Preview" Size="Size.Small"></MudIconButton></MudTooltip>
                 }
-                @if (_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.AddCid).Result.Succeeded)
+                @if (CanAddCid)
                 {
                     <MudTooltip Text="Add CID">   <MudIconButton Icon="@Icons.Material.Filled.Add" Size="Size.Small"></MudIconButton></MudTooltip>
                 }
@@ -203,7 +197,7 @@
     public List<AgentsResponse> Agents { get; set; } = new();
     public List<string> Payments { get; set; } = new();
     public List<EmaritsResponse> Emarits { get; set; } = new();
-    public ManagerRequest Model { get; set; } = new();
+    public ManagerRequest Model { get; set; }
     public int PageNumber { get; set; } = 1;
     public int PageSize { get; set; } = 100;
     public int SelectedAgent { get; set; } = 0;
@@ -214,11 +208,26 @@
     public int SelectedMode { get; set; } = -1;
     public int SelectedType { get; set; } = -1;
 
+
     /// <summary>
     /// ////////////////Result Table
     /// </summary>
     /// <returns></returns>
     ///
+    public bool CanViewDetails { get; set; }
+    public bool CanDelete { get; set; }
+    public bool CanAddCid { get; set; }
+    private async Task GetPermmision()
+    {
+        AuthenticationStateProviderUser = await _stateProvider.GetAuthenticationStateProviderUserAsync();
+        var CanViewDetailsResponse = await _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.ViewDetails);
+        var CanAddCidResponse = await _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.AddCid);
+        var CanDeleteResponse = await _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.Delete);
+        CanViewDetails = CanViewDetailsResponse.Succeeded;
+        CanAddCid = CanAddCidResponse.Succeeded;
+        CanDelete = CanDeleteResponse.Succeeded;
+        StateHasChanged();
+    }
 
     private IEnumerable<SubscriptionsResponse> pagedData;
     private MudTable<SubscriptionsResponse> table;
@@ -296,15 +305,21 @@
         }
 
     }
+    private async Task SearchEnter2(KeyboardEventArgs e)
+    {
+
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            await table.ReloadServerData();
+        }
+
+    }
     private void OnSearch(string text)
     {
         searchString = text;
         table.ReloadServerData();
     }
-    protected override async Task OnParametersSetAsync()
-    {
-        AuthenticationStateProviderUser = await _stateProvider.GetAuthenticationStateProviderUserAsync();
-    }
+
     public Color ModeColor(string Mode)
     {
         switch (Mode)
@@ -331,7 +346,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-
+        Model = new ManagerRequest();
+        await GetPermmision();
         Agents = await _managerDashboard.GetAgents();
         Branches = await _managerDashboard.GetBranches();
         Payments = await _managerDashboard.GetPayments();
@@ -342,14 +358,7 @@
         Payments.Insert(0, "ALL");
 
     }
-    protected override Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            Model.Mode = 2;
-        }
-        return base.OnAfterRenderAsync(firstRender);
-    }
+
     private void ResetSearch()
     {
         Model = new ManagerRequest();
