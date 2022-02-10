@@ -11,8 +11,11 @@ namespace Pickup.Shared.Constants.Permission
                 $"Permissions.{module}.Create",
                 $"Permissions.{module}.View",
                 $"Permissions.{module}.Edit",
-                $"Permissions.{module}.Delete"
+                $"Permissions.{module}.Delete",
+                $"Permissions.{module}.ViewDetails",
+                $"Permissions.{module}.AddCid",
             };
+
         }
 
         public static List<string> GetAllPermissionsModules()
@@ -23,7 +26,10 @@ namespace Pickup.Shared.Constants.Permission
                 Roles,
                 Products,
                 Brands,
-                Branches,Plans,Pickup
+                Branches,
+                Plans,
+                Pickup,
+                ManagerDashboard,
             };
         }
 
@@ -34,5 +40,6 @@ namespace Pickup.Shared.Constants.Permission
         public const string Branches = "Branches";
         public const string Plans = "Plans";
         public const string Pickup = "Pickup";
+        public const string ManagerDashboard = "ManagerDashboard";
     }
 }

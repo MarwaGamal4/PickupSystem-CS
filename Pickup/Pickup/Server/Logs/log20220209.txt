@@ -915,3 +915,48 @@ System.Data.SqlClient.SqlException (0x80131904): Timeout expired.  The timeout p
 ClientConnectionId:9405eb1c-20f4-4e78-a058-914ebcc97187
 Error Number:-2,State:0,Class:11
 2022-02-09 18:28:51.093 +02:00 [INF] Application is shutting down...
+2022-02-09 22:57:29.744 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 22:57:29.782 +02:00 [INF] Hosting environment: Development
+2022-02-09 22:57:29.784 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:01:54.158 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:01:54.184 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:01:54.194 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:07:12.548 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:07:12.585 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:07:12.588 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:08:26.573 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:08:26.600 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:08:26.602 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:09:13.888 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:09:13.913 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:09:13.916 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:09:44.636 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:09:44.664 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:09:44.666 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:10:34.892 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:10:34.929 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:10:34.931 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:17:47.147 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:17:47.181 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:17:47.184 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:19:51.819 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:19:51.844 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:19:51.846 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:20:58.338 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:20:58.364 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:20:58.366 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:22:56.195 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:22:56.222 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:22:56.237 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:24:47.695 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:24:47.720 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:24:47.723 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:26:00.442 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:26:00.467 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:26:00.469 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:26:45.019 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:26:45.046 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:26:45.048 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-09 23:27:51.009 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-09 23:27:51.035 +02:00 [INF] Hosting environment: Development
+2022-02-09 23:27:51.039 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
