@@ -1,6 +1,5 @@
 ﻿<MudNumericField HideSpinButtons="true" MaxLength="@MaxLenght" Adornment="@Adornment"
                  AdornmentColor="@AdornmentColor" AdornmentText="@AdornmentText"
-                 DebounceInterval="0" OnDebounceIntervalElapsed="HandleIntervalElapsed" OnKeyDown="Search"
                  Clearable="true" @bind-Value="Value" @bind-Value:event="ValueChanged" Label="@Label" HelperText="@HelperText"></MudNumericField>
 
 @code {
@@ -31,7 +30,7 @@
     public EventCallback<int?> ValueChanged { get; set; }
     void HandleIntervalElapsed(string debouncedText)
     {
-        // at this stage, interval has elapsed
+
     }
     private async Task Search(KeyboardEventArgs e)
     {

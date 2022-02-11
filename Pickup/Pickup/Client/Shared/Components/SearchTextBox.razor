@@ -1,4 +1,4 @@
-﻿<MudTextField MaxLength="@MaxLenght" @ref="Box" DebounceInterval="0" OnDebounceIntervalElapsed="HandleIntervalElapsed" OnKeyDown="Search" InputType="InputType" Clearable="true" @bind-Value="Value" @bind-Value:event="ValueChanged" Label="@Label" HelperText="@HelperText"></MudTextField>
+﻿<MudTextField MaxLength="@MaxLenght" InputType="InputType" Clearable="true" @bind-Value="Value" @bind-Value:event="ValueChanged" Label="@Label" HelperText="@HelperText"></MudTextField>
 
 @code {
     MudTextField<string> Box;
