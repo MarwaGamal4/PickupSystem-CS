@@ -4,6 +4,7 @@ using Pickup.Client.Infrastructure.SiteModels.Response;
 using Pickup.Shared.Wrapper;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -25,7 +26,7 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
             //_httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("*/*"));
             //_httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Mode", "no-cors");
             //_httpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
-
+            // _httpClient.DefaultRequestHeaders.Add("Accept", "*/*");
 
         }
 
@@ -62,6 +63,7 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
 
         public async Task<PaginatedResult<SubscriptionsResponse>> GetSubscriptions(ManagerRequest request, int PageSize, int PageNumber)
         {
+
             var response = await _httpClient.PostAsJsonAsync(Routes.SiteRoutes.ManagerEndpoints.GetSubscriptions(PageSize, PageNumber), request);
             return await response.ToPaginatedResult<SubscriptionsResponse>();
         }

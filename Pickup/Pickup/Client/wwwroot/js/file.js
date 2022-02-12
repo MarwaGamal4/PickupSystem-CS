@@ -11,7 +11,7 @@
             document.body.removeChild(link);
         });
 }
-function copyToClipboard(text) {
+window.copyToClipboard = (text) => {
 
     // Create a "hidden" input
     var aux = document.createElement("input");
@@ -41,23 +41,7 @@ window.clipboardCopy = {
         });
     }
 }
-function processKey(key) {
-    if (key == 13) {
-        alert("Entered");
-    }
-}
-var inputc = document.getElementsByClassName('enter')[0]
-for (var i = 0; i < inputc.childElementCount; i++) {
-    inputc.addEventListener(onkeydown, e => console.log(e));
-}
 
-(function () {
-    var inputc = document.getElementsByClassName('enter')[0];
-    var submitbtn = document.getElementsByClassName('btn')[0];
-
-    inputc.addEventListener("keydown", e => processKey(e.keyCode));
-    submitbtn.addEventListener("click", _ => processKey(13));
-})();
 
 
 //$(document).ready(function () {

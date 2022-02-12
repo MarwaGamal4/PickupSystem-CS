@@ -1,0 +1,136 @@
+2022-02-12 01:46:59.200 +02:00 [WRN] Server msi:20064:240a4f71 was considered dead by other servers, restarting...
+2022-02-12 01:46:59.206 +02:00 [WRN] Server msi:20064:240a4f71 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2022-02-12 01:47:52.251 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 01:47:52.277 +02:00 [INF] Hosting environment: Development
+2022-02-12 01:47:52.279 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 01:49:14.520 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 01:49:14.545 +02:00 [INF] Hosting environment: Development
+2022-02-12 01:49:14.547 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 01:50:53.994 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 01:50:54.018 +02:00 [INF] Hosting environment: Development
+2022-02-12 01:50:54.020 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 01:58:06.427 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 01:58:06.453 +02:00 [INF] Hosting environment: Development
+2022-02-12 01:58:06.455 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 01:59:40.914 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 01:59:40.943 +02:00 [INF] Hosting environment: Development
+2022-02-12 01:59:40.945 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:00:30.375 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:00:30.400 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:00:30.402 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:04:44.200 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:04:44.227 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:04:44.230 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:06:05.807 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:06:05.837 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:06:05.839 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:08:07.888 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:08:07.914 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:08:07.916 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:09:31.911 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:09:31.937 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:09:31.939 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:13:33.138 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:13:33.177 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:13:33.180 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:21:07.768 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:21:07.798 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:21:07.801 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:23:41.726 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:23:41.761 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:23:41.765 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:25:25.460 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:25:25.485 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:25:25.487 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:26:47.387 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:26:47.411 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:26:47.413 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:27:19.317 +02:00 [ERR] Failed executing DbCommand (19,222ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[BranchName], [b].[CreatedBy], [b].[CreatedOn], [b].[LastModifiedBy], [b].[LastModifiedOn]
+FROM [Branches] AS [b]
+2022-02-12 02:27:19.420 +02:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Pickup.Infrastructure.Contexts.BlazorHeroContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:54a83e78-bb83-4805-a890-2859fc70c100
+Error Number:-1,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__169_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(DbContext _, Boolean result, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:54a83e78-bb83-4805-a890-2859fc70c100
+Error Number:-1,State:0,Class:20
+2022-02-12 02:28:40.282 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:28:40.307 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:28:40.309 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:29:48.635 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:29:48.659 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:29:48.661 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:30:51.185 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:30:51.210 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:30:51.212 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:32:31.993 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:32:32.018 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:32:32.020 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:35:40.792 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:35:40.823 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:35:40.826 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:37:40.753 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:37:40.776 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:37:40.779 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:38:31.169 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:38:31.195 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:38:31.197 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:39:07.664 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:39:07.689 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:39:07.691 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:40:37.622 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:40:37.654 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:40:37.658 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:42:03.747 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:42:03.775 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:42:03.777 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:43:55.040 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:43:55.067 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:43:55.069 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:45:03.833 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:45:03.862 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:45:03.864 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:45:42.675 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:45:42.698 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:45:42.701 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:47:13.262 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:47:13.287 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:47:13.290 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:48:29.055 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:48:29.079 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:48:29.081 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:49:28.264 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:49:28.293 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:49:28.295 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:51:10.519 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:51:10.543 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:51:10.545 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:51:59.049 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:51:59.075 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:51:59.077 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 02:52:39.181 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 02:52:39.205 +02:00 [INF] Hosting environment: Development
+2022-02-12 02:52:39.207 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
