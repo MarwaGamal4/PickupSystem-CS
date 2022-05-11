@@ -117,7 +117,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
 
             var data = await _unitOfWork.Repository<DeliveryRPT>().Entities
                .Specify(RptFilterSpec)
-               .Select(expression)
+               .Select(expression).OrderByDescending(x=>x.ActionTime)
                .ToCustomPaginatedListAsync(request.PageNumber, request.PageSize);
             return data;
 

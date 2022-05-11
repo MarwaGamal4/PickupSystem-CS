@@ -81,13 +81,14 @@ namespace Pickup.Infrastructure.Services
             {
                 var LastMessage = History.Where(y => y.FromUserId == x.Id || y.ToUserId == x.Id).OrderByDescending(y => y.Id).FirstOrDefault();
                 x.LastMessage = LastMessage.Message;
+                x.LastMessageTime = LastMessage.CreatedDate;
                 if (LastMessage.FromUserId != userId)
                 {
                     x.Readed = LastMessage.isReaded;
                 }
             }
                 );
-            return await Result<IEnumerable<ChatUserResponse>>.SuccessAsync(chatUsers);
+            return await Result<IEnumerable<ChatUserResponse>>.SuccessAsync(chatUsers.OrderByDescending(x => x.LastMessageTime));
 
         }
 

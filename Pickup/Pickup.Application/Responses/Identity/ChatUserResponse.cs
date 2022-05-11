@@ -1,4 +1,5 @@
 ﻿using Pickup.Application.Models.Chat;
+using System;
 using System.Collections.Generic;
 
 namespace Pickup.Application.Responses.Identity
@@ -12,6 +13,7 @@ namespace Pickup.Application.Responses.Identity
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string LastMessage { get; set; }
+        public DateTime LastMessageTime { get; set; }
         public bool Readed { get; set; } = true;
         public virtual ICollection<ChatHistory> ChatHistoryFromUsers { get; set; }
         public virtual ICollection<ChatHistory> ChatHistoryToUsers { get; set; }

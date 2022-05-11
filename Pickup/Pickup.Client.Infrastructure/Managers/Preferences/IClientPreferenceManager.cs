@@ -11,5 +11,6 @@ namespace Pickup.Client.Infrastructure.Managers.Preferences
         Task<bool> ToggleDarkModeAsync();
 
         Task ChangeLanguageAsync(string languageCode);
+        Task ToggleDrawer(bool state);
     }
 }

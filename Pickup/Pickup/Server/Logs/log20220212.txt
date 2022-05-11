@@ -134,3 +134,20 @@ Error Number:-1,State:0,Class:20
 2022-02-12 02:52:39.181 +02:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-02-12 02:52:39.205 +02:00 [INF] Hosting environment: Development
 2022-02-12 02:52:39.207 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 13:16:22.546 +02:00 [WRN] Server msi:12500:5f180d50 was considered dead by other servers, restarting...
+2022-02-12 13:16:22.547 +02:00 [WRN] Server msi:12500:5f180d50 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2022-02-12 13:41:36.521 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 13:41:36.569 +02:00 [INF] Hosting environment: Development
+2022-02-12 13:41:36.572 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 14:06:22.243 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 14:06:22.270 +02:00 [INF] Hosting environment: Development
+2022-02-12 14:06:22.272 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 14:07:46.993 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 14:07:47.021 +02:00 [INF] Hosting environment: Development
+2022-02-12 14:07:47.032 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 14:08:50.816 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 14:08:50.842 +02:00 [INF] Hosting environment: Development
+2022-02-12 14:08:50.844 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-12 14:09:20.444 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-12 14:09:20.476 +02:00 [INF] Hosting environment: Development
+2022-02-12 14:09:20.478 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

@@ -14,6 +14,7 @@ namespace Pickup.Client.Pages.Authentication
 
         private FluentValidationValidator _fluentValidationValidator;
         private bool validated => _fluentValidationValidator.Validate(options => { options.IncludeAllRuleSets(); });
+        [Parameter] public string ReturnUrl { get; set; } = "/";
 
         private TokenRequest tokenModel = new TokenRequest();
 
@@ -22,7 +23,8 @@ namespace Pickup.Client.Pages.Authentication
             var state = await _stateProvider.GetAuthenticationStateAsync();
             if (state != new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity())))
             {
-                _navigationManager.NavigateTo("/");
+                // _navigationManager.NavigateTo("/");
+                _navigationManager.NavigateTo(ReturnUrl);
             }
         }
 
@@ -32,7 +34,8 @@ namespace Pickup.Client.Pages.Authentication
             if (result.Succeeded)
             {
                 _snackBar.Add($"{localizer["Welcome"]} {tokenModel.Email}.", Severity.Success);
-                _navigationManager.NavigateTo("/", true);
+                // _navigationManager.NavigateTo("/", true);
+                _navigationManager.NavigateTo(ReturnUrl, true);
             }
             else
             {

@@ -20,14 +20,20 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
         public managerDashboardManager(HttpClient httpClient)
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://lowcalories.ae:51");
+            //_httpClient.BaseAddress = new Uri("http://lowcalories.ae:51");
 
-            //_httpClient.BaseAddress = new Uri("https://localhost:5001");
+            _httpClient.BaseAddress = new Uri("https://localhost:5001");
             //_httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("*/*"));
             //_httpClient.DefaultRequestHeaders.Add("Sec-Fetch-Mode", "no-cors");
             //_httpClient.DefaultRequestHeaders.Add("Access-Control-Allow-Origin", "*");
             // _httpClient.DefaultRequestHeaders.Add("Accept", "*/*");
 
+        }
+
+        public async Task<string> Export(List<SubscriptionsResponse> data, int type)
+        {
+            var response = await _httpClient.PostAsJsonAsync(Routes.SiteRoutes.ManagerEndpoints.Export(type), data);
+            return await response.Content.ReadAsStringAsync();
         }
 
         public async Task<List<AgentsResponse>> GetAgents()

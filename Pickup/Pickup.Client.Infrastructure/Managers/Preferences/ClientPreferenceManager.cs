@@ -65,5 +65,15 @@ namespace Pickup.Client.Infrastructure.Managers.Preferences
         {
             await _localStorageService.SetItemAsync("clientPreference", preference as ClientPreference);
         }
+
+        public async Task ToggleDrawer(bool state)
+        {
+            var preference = await GetPreference() as ClientPreference;
+            if (preference != null)
+            {
+                preference.IsDrawerOpen = state;
+                await SetPreference(preference);
+            }
+        }
     }
 }

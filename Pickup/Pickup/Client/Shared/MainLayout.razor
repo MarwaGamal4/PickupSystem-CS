@@ -31,7 +31,8 @@
         </MudContainer>
     </NotAuthorized>
     <Authorized>
-        @(LoadDataAsync())
+        @*@(LoadDataAsync())*@
+        @{Task.Run(LoadDataAsync);}
         <MudOverlay @bind-Visible="IsLoading" DarkBackground="true" ZIndex="9999" />
         <MudRTLProvider RightToLeft="@RTL">
             <MudLayout>
@@ -41,11 +42,12 @@
                     <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" OnClick="@((e) => DrawerToggle())" Class="ml-3" />
 
                     <MudSpacer />
+                    <Messages MessagesCounter="@appState.MessagesCounter" ChatUsers="ChatUsers" />
+                    <MudTooltip Text="@localizer["Notifications"]">
+                        <MudIconButton Icon="@Icons.Material.Filled.NotificationsActive" Color="Color.Inherit" />
+                    </MudTooltip>
                     <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
-                        <Messages MessagesCounter="@appState.MessagesCounter" ChatUsers="ChatUsers" />
-                        <MudTooltip Text="@localizer["Notifications"]">
-                            <MudIconButton Icon="@Icons.Material.Filled.NotificationsActive" Color="Color.Inherit" />
-                        </MudTooltip>
+
                         <MudDivider Vertical="true" FlexItem="true" DividerType="DividerType.Middle" Class="mx-4 my-5" />
                         <MudMenu EndIcon="@Icons.Filled.KeyboardArrowDown" Label="@localizer["Support"]" Color="Color.Inherit" Dense="true" Direction="Direction.Right" OffsetY="true">
                             <MudText Typo="Typo.body2" Class="px-4 py-2"><b>@localizer["Community"]</b></MudText>

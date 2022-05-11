@@ -1,0 +1,61 @@
+2022-02-14 15:29:06.866 +02:00 [ERR] Execution Worker is in the Failed state now due to an exception, execution will be retried no more than in 00:00:04
+System.Data.SqlClient.SqlException (0x80131904): A transport-level error has occurred when receiving results from the server. (provider: Session Provider, error: 19 - Physical connection is not usable)
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at System.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at System.Data.SqlClient.TdsParserStateObject.TryPrepareBuffer()
+   at System.Data.SqlClient.TdsParserStateObject.TryReadByte(Byte& value)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.TdsExecuteTransactionManagerRequest(Byte[] buffer, TransactionManagerRequestType request, String transactionName, TransactionManagerIsolationLevel isoLevel, Int32 timeout, SqlInternalTransaction transaction, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlInternalConnectionTds.ExecuteTransactionYukon(TransactionRequest transactionRequest, String transactionName, IsolationLevel iso, SqlInternalTransaction internalTransaction)
+   at System.Data.SqlClient.SqlInternalConnection.BeginSqlTransaction(IsolationLevel iso, String transactionName, Boolean shouldReconnect)
+   at System.Data.SqlClient.SqlConnection.BeginTransaction(IsolationLevel iso, String transactionName)
+   at System.Data.SqlClient.SqlConnection.BeginDbTransaction(IsolationLevel isolationLevel)
+   at Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   at Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   at Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   at Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   at Hangfire.Server.BackgroundProcessDispatcherBuilder.ExecuteProcess(Guid executionId, Object state)
+   at Hangfire.Processing.BackgroundExecution.Run(Action`2 callback, Object state)
+ClientConnectionId:a32f64e5-5334-40f6-9e6e-8f3a935a3bad
+Error Number:-1,State:0,Class:20
+2022-02-14 15:29:34.084 +02:00 [WRN] Server msi:31920:b594c6fc was considered dead by other servers, restarting...
+2022-02-14 15:29:34.085 +02:00 [WRN] Server msi:31920:b594c6fc stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2022-02-14 15:39:02.209 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:39:02.236 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:39:02.238 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 15:40:12.356 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:40:12.381 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:40:12.384 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 15:41:19.413 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:41:19.438 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:41:19.440 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 15:43:11.806 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:43:11.831 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:43:11.833 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 15:48:42.763 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:48:42.787 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:48:42.789 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 15:49:10.977 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:49:11.007 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:49:11.009 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 15:50:29.266 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 15:50:29.291 +02:00 [INF] Hosting environment: Development
+2022-02-14 15:50:29.293 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 16:04:47.573 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 16:04:47.609 +02:00 [INF] Hosting environment: Development
+2022-02-14 16:04:47.611 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 16:05:20.980 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 16:05:21.004 +02:00 [INF] Hosting environment: Development
+2022-02-14 16:05:21.006 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 16:45:33.516 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 16:45:33.543 +02:00 [INF] Hosting environment: Development
+2022-02-14 16:45:33.545 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 17:20:20.330 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-14 17:20:20.355 +02:00 [INF] Hosting environment: Development
+2022-02-14 17:20:20.357 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-14 18:50:01.304 +02:00 [INF] Application is shutting down...

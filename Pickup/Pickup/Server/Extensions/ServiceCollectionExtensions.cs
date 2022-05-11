@@ -187,9 +187,9 @@ namespace Pickup.Server.Extensions
                         },
                         OnChallenge = context =>
                         {
-
-                            context.Response.StatusCode = 401;
-                            context.Response.ContentType = "application/json";
+                            //context.HandleResponse();
+                            //context.Response.StatusCode = 401;
+                            //context.Response.ContentType = "application/json";
                             context.HandleResponse();
                             var result = JsonConvert.SerializeObject(Result.Fail("You are not Authorized."));
                             return context.Response.WriteAsync(result);

@@ -1,8 +1,9 @@
+
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
             <NotAuthorized>
-                <Login />
+                <Login ReturnUrl="@_navigationManager.Uri" />
             </NotAuthorized>
         </AuthorizeRouteView>
     </Found>

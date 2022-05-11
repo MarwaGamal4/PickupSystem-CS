@@ -11,7 +11,7 @@
             document.body.removeChild(link);
         });
 }
-window.copyToClipboard = (text) => {
+window.copyToClipboard = (text, DotNetHelper) => {
 
     // Create a "hidden" input
     var aux = document.createElement("input");
@@ -30,7 +30,7 @@ window.copyToClipboard = (text) => {
 
     // Remove it from the body
     document.body.removeChild(aux);
-
+    DotNetHelper.invokeMethodAsync('CopiedMessage');
 }
 window.clipboardCopy = {
     copyText: function (text) {

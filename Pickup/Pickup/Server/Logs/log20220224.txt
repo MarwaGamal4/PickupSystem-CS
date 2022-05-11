@@ -1,0 +1,388 @@
+2022-02-24 00:04:16.226 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:04:16.259 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:04:16.261 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:04:29.047 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-24 00:04:29.059 +02:00 [ERR] Connection ID "7638104999695745037", Request ID "8000000e-0007-6a00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-24 00:04:29.258 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-24 00:04:29.259 +02:00 [ERR] Connection ID "17509995370006970383", Request ID "80000010-0004-f300-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.set_ContentType(String value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-24 00:18:29.945 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:18:29.979 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:18:29.981 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:22:13.738 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:22:13.763 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:22:13.766 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:23:01.137 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:23:01.164 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:23:01.166 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:27:10.227 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:27:10.252 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:27:10.254 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:28:10.827 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:28:10.857 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:28:10.859 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:29:22.255 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:29:22.284 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:29:22.286 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:31:19.064 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:31:19.096 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:31:19.119 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:31:27.021 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:31:27.055 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:31:27.058 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:50:16.918 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:50:16.943 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:50:16.946 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:53:17.372 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:53:17.398 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:53:17.400 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 00:54:25.341 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 00:54:25.367 +02:00 [INF] Hosting environment: Development
+2022-02-24 00:54:25.369 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 01:01:10.099 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 01:01:10.124 +02:00 [INF] Hosting environment: Development
+2022-02-24 01:01:10.126 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 01:02:33.125 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 01:02:33.154 +02:00 [INF] Hosting environment: Development
+2022-02-24 01:02:33.157 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 14:45:15.247 +02:00 [WRN] Server msi:24544:0d1db386 was considered dead by other servers, restarting...
+2022-02-24 14:45:15.252 +02:00 [WRN] Server msi:24544:0d1db386 stopped non-gracefully due to ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler. Outstanding work on those dispatchers could be aborted, and there can be delays in background processing. This server instance will be incorrectly shown as active for a while. To avoid non-graceful shutdowns, investigate what prevents from stopping gracefully and add CancellationToken support for those methods.
+2022-02-24 14:51:49.614 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 14:51:49.655 +02:00 [INF] Hosting environment: Development
+2022-02-24 14:51:49.659 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 14:54:48.858 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 14:54:48.886 +02:00 [INF] Hosting environment: Development
+2022-02-24 14:54:48.888 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 14:57:41.662 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 14:57:41.690 +02:00 [INF] Hosting environment: Development
+2022-02-24 14:57:41.692 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 15:00:28.891 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 15:00:28.916 +02:00 [INF] Hosting environment: Development
+2022-02-24 15:00:28.918 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 15:06:17.073 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 15:06:17.106 +02:00 [INF] Hosting environment: Development
+2022-02-24 15:06:17.109 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:15:07.327 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:15:07.353 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:15:07.355 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:18:11.206 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:18:11.233 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:18:11.235 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:20:10.175 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:20:10.208 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:20:10.211 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:22:34.294 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:22:34.321 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:22:34.331 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:28:25.625 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:28:25.652 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:28:25.654 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:30:43.353 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:30:43.378 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:30:43.380 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:31:51.931 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:31:51.959 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:31:51.962 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:32:15.406 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:32:15.432 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:32:15.434 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:33:00.056 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:33:00.082 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:33:00.084 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:34:35.030 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:34:35.063 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:34:35.066 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:39:30.419 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:39:30.444 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:39:30.446 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:40:59.376 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:40:59.400 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:40:59.402 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:45:35.645 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:45:35.672 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:45:35.674 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:45:56.705 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:45:56.731 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:45:56.733 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:46:36.061 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-02-24 16:46:36.072 +02:00 [ERR] Connection ID "15852670694249726006", Request ID "80000037-0001-dc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+2022-02-24 16:49:50.788 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:49:50.815 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:49:50.817 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:53:01.977 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:53:02.005 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:53:02.008 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 16:53:30.020 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 16:53:30.047 +02:00 [INF] Hosting environment: Development
+2022-02-24 16:53:30.050 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 17:01:35.185 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 17:01:35.220 +02:00 [INF] Hosting environment: Development
+2022-02-24 17:01:35.223 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 17:04:15.308 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 17:04:15.335 +02:00 [INF] Hosting environment: Development
+2022-02-24 17:04:15.338 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 17:05:08.425 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 17:05:08.451 +02:00 [INF] Hosting environment: Development
+2022-02-24 17:05:08.453 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 17:05:32.038 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 17:05:32.063 +02:00 [INF] Hosting environment: Development
+2022-02-24 17:05:32.065 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 17:05:48.830 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 17:05:48.857 +02:00 [INF] Hosting environment: Development
+2022-02-24 17:05:48.860 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 17:08:20.808 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 17:08:20.838 +02:00 [INF] Hosting environment: Development
+2022-02-24 17:08:20.840 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 19:17:25.334 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 19:17:25.361 +02:00 [INF] Hosting environment: Development
+2022-02-24 19:17:25.364 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 19:21:46.834 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 19:21:46.873 +02:00 [INF] Hosting environment: Development
+2022-02-24 19:21:46.877 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 19:22:59.607 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 19:22:59.634 +02:00 [INF] Hosting environment: Development
+2022-02-24 19:22:59.636 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 19:52:56.540 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 19:52:56.566 +02:00 [INF] Hosting environment: Development
+2022-02-24 19:52:56.568 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 19:57:28.265 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 19:57:28.293 +02:00 [INF] Hosting environment: Development
+2022-02-24 19:57:28.296 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:00:36.960 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:00:36.986 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:00:36.988 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:03:15.543 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:03:15.578 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:03:15.580 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:06:10.815 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:06:10.848 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:06:10.851 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:20:00.808 +02:00 [ERR] Execution Worker is in the Failed state now due to an exception, execution will be retried no more than in 00:00:04
+System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=10977; handshake=4022; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   at Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   at Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   at Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   at Hangfire.Server.BackgroundProcessDispatcherBuilder.ExecuteProcess(Guid executionId, Object state)
+   at Hangfire.Processing.BackgroundExecution.Run(Action`2 callback, Object state)
+ClientConnectionId:4f60a400-d9c2-4e24-8a67-07a5d01d02ca
+Error Number:-2,State:0,Class:11
+2022-02-24 20:20:20.072 +02:00 [WRN] An exception occurred while trying to perform the migration. Retrying...
+System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13897; handshake=1101; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func)
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action)
+   at Hangfire.SqlServer.SqlServerStorage.Initialize()
+ClientConnectionId:9984e11c-4bfe-4b19-985f-d6250e5cce01
+Error Number:-2,State:0,Class:11
+2022-02-24 20:20:20.137 +02:00 [WRN] An exception occurred while trying to perform the migration. Retrying...
+System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13897; handshake=1101; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func)
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action)
+   at Hangfire.SqlServer.SqlServerStorage.Initialize()
+ClientConnectionId:9984e11c-4bfe-4b19-985f-d6250e5cce01
+Error Number:-2,State:0,Class:11
+2022-02-24 20:20:20.138 +02:00 [WRN] An exception occurred while trying to perform the migration.
+System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13897; handshake=1101; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func)
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action)
+   at Hangfire.SqlServer.SqlServerStorage.Initialize()
+ClientConnectionId:9984e11c-4bfe-4b19-985f-d6250e5cce01
+Error Number:-2,State:0,Class:11
+2022-02-24 20:20:20.138 +02:00 [WRN] Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13897; handshake=1101; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func)
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action)
+   at Hangfire.SqlServer.SqlServerStorage.Initialize()
+ClientConnectionId:9984e11c-4bfe-4b19-985f-d6250e5cce01
+Error Number:-2,State:0,Class:11
+2022-02-24 20:20:20.225 +02:00 [ERR] Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=13897; handshake=1101; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func)
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action)
+   at Hangfire.SqlServer.SqlServerConnection.AnnounceServer(String serverId, ServerContext context)
+   at Hangfire.Server.BackgroundServerProcess.CreateServer(BackgroundServerContext context)
+   at Hangfire.Server.BackgroundServerProcess.Execute(Guid executionId, BackgroundExecution execution, CancellationToken stoppingToken, CancellationToken stoppedToken, CancellationToken shutdownToken)
+   at Hangfire.Server.BackgroundProcessingServer.RunServer(Guid executionId, Object state)
+   at Hangfire.Processing.BackgroundExecution.Run(Action`2 callback, Object state)
+ClientConnectionId:9984e11c-4bfe-4b19-985f-d6250e5cce01
+Error Number:-2,State:0,Class:11
+2022-02-24 20:20:44.349 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:20:44.350 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:20:44.351 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:22:08.136 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:22:08.162 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:22:08.164 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:24:27.058 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:24:27.085 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:24:27.087 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:29:10.980 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:29:11.007 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:29:11.009 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:32:07.184 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:32:07.215 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:32:07.218 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:32:25.090 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:32:25.116 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:32:25.119 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:33:15.694 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:33:15.729 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:33:15.732 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:35:01.359 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:35:01.384 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:35:01.386 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 20:59:38.666 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 20:59:38.695 +02:00 [INF] Hosting environment: Development
+2022-02-24 20:59:38.705 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:16:10.654 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:16:10.679 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:16:10.681 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:17:56.864 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:17:56.890 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:17:56.892 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:23:46.739 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:23:46.765 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:23:46.767 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:25:32.266 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:25:32.293 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:25:32.295 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:30:35.181 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:30:35.209 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:30:35.212 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:32:46.142 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:32:46.167 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:32:46.168 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:39:03.502 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:39:03.532 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:39:03.534 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:43:58.577 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:43:58.603 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:43:58.605 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:48:02.609 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:48:02.635 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:48:02.637 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:48:54.080 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:48:54.112 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:48:54.114 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 21:51:11.699 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 21:51:11.728 +02:00 [INF] Hosting environment: Development
+2022-02-24 21:51:11.731 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 22:03:07.884 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 22:03:07.909 +02:00 [INF] Hosting environment: Development
+2022-02-24 22:03:07.911 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-24 22:04:14.162 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-24 22:04:14.189 +02:00 [INF] Hosting environment: Development
+2022-02-24 22:04:14.191 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

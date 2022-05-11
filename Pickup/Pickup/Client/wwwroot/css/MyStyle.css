@@ -3,6 +3,8 @@
     bottom: 30px;
     right: 10px;
     display: none;
+    transition: all ease-out 5s;
+    transition-delay: 2s;
 }
 
     #back-to-top img {
@@ -26,6 +28,8 @@
     padding: 15px;
     border-radius: 4px;
 }
+
+
 
     #myBtn:hover {
         background-color: #555;

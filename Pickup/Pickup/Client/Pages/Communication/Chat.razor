@@ -22,10 +22,10 @@
                 <MudIconButton OnClick="@(() => OpenDrawer(Anchor.Right))" Icon="@Icons.Material.Outlined.PeopleAlt" Color="Color.Inherit" Class="ml-3" />
             </MudHidden>
         </MudToolBar>
-        <div class="d-flex flex-column px-4" style="max-height:65vh;min-height:65vh; overflow:scroll;" id="chatContainer">
+        <div class="d-flex flex-column px-4" style="max-height: 65vh; min-height: 65vh; overflow: scroll; background-image: url(images/wa-bg.png); background-size: contain;" id="chatContainer">
             @foreach (var message in messages)
             {
-                <div class="d-flex flex-row my-4">
+                <div class="d-flex flex-row my-4" style="direction:@msgDirection(message)">
                     <div class="mr-4">
                         @if (string.IsNullOrEmpty(message.FromUserImageURL))
                         {
@@ -39,13 +39,13 @@
                     <div>
                         <MudText Typo="Typo.body1">@message.FromUserFullName</MudText>
                         <MudText Typo="Typo.caption" Style="font-size: xx-small!important;">@message.CreatedDate.ToString("dd MMM, yyyy hh:mm tt")</MudText>
-                        <MudText Typo="Typo.body2" Style=" padding: 15px;background-color: var(--mud-palette-background-grey);border-radius: 5px;margin-top:5px">@message.Message</MudText>
+                        <MudText Typo="Typo.body2" Style=@BackColorStyle(message)>@message.Message</MudText>
                     </div>
                 </div>
             }
         </div>
         <MudPaper Elevation="25" Class="d-flex flex-row px-2 mx-4" Style="">
-            <MudTextField T="string" Placeholder="@localizer["Enter your message..."]" @onkeydown="OnKeyPressInChat" DisableUnderLine="true" Class="mt-n2 mx-4"
+            <MudTextField T="string" Immediate="true" id="msg" Placeholder="@localizer["Enter your message..."]" DisableUnderLine="true" Class="mt-n2 mx-4"
                           @bind-Value="CurrentMessage" For="@(()=> CurrentMessage)" />
             <MudButton OnClick="SubmitAsync" StartIcon="@Icons.Material.Outlined.Send" Color="Color.Secondary" ButtonType="ButtonType.Button">@localizer["Send"]</MudButton>
         </MudPaper>
@@ -127,4 +127,4 @@
         </MudList>
     </div>
 </MudDrawer>
-<MudAlert Style="margin-top:10px;margin-bottom:20px" Severity="Severity.Success">@localizer["Want to understand how Chat is implemented in BlazorHero ? Refer this"] <MudLink Href="https://codewithmukesh.com/blog/realtime-chat-application-with-blazor">@localizer["detailed guide for more."]</MudLink></MudAlert>
+<MudAlert Style="margin-top:10px;margin-bottom:20px" Severity="Severity.Success">@localizer["This Section is under Development"] <MudLink Href="*">@localizer["detailed guide for more."]</MudLink></MudAlert>

@@ -21,7 +21,10 @@ namespace Pickup.Client.Shared
         private string Email { get; set; }
         private char FirstLetterOfName { get; set; }
         public Action GetMessagess { get; set; }
-
+        private void LoadData()
+        {
+            LoadDataAsync().Wait();
+        }
         private async Task LoadDataAsync()
         {
             var state = await _stateProvider.GetAuthenticationStateAsync();
@@ -53,6 +56,7 @@ namespace Pickup.Client.Shared
         }
         protected override async Task OnInitializedAsync()
         {
+            await LoadDataAsync();
             GetMessages();
             //  appState2.GetMessages();
             GetMessagess = GetMessages;
@@ -61,6 +65,7 @@ namespace Pickup.Client.Shared
             _interceptor.RegisterEvent();
             var preference = await _clientPreferenceManager.GetPreference() as ClientPreference;
             RTL = preference.IsRTL;
+            _drawerOpen = preference.IsDrawerOpen;
             hubConnection = hubConnection.TryInitialize(_navigationManager);
             await hubConnection.StartAsync();
             hubConnection.On<string, string, string>(ApplicationConstants.SignalR.ReceiveChatNotification, (message, receiverUserId, senderUserId) =>
@@ -70,22 +75,27 @@ namespace Pickup.Client.Shared
                     GetMessages();
                     // appState2.GetMessages();
                     // _jsRuntime.InvokeAsync<string>("PlayAudio", "notification");
-                    _snackBar.Add(message, Severity.Info, config =>
+                    var curentUrl = _navigationManager.Uri;
+                    if (!curentUrl.Contains(senderUserId))
                     {
-                        config.VisibleStateDuration = 10000;
-                        config.HideTransitionDuration = 500;
-                        config.ShowTransitionDuration = 500;
-                        config.Action = "Chat?";
-                        config.ActionColor = Color.Primary;
-                        config.Onclick = snackbar =>
+                        _snackBar.Add(message, Severity.Info, config =>
                         {
-                            _navigationManager.NavigateTo($"chat/{senderUserId}");
-                            _chatManager.MarkasRead(senderUserId);
-                            GetMessages();
-                            //appState2.GetMessages();
-                            return Task.CompletedTask;
-                        };
-                    });
+                            config.VisibleStateDuration = 10000;
+                            config.HideTransitionDuration = 500;
+                            config.ShowTransitionDuration = 500;
+                            config.Action = "Chat?";
+                            config.ActionColor = Color.Primary;
+                            config.Onclick = snackbar =>
+                            {
+                                _navigationManager.NavigateTo($"chat/{senderUserId}");
+                                _chatManager.MarkasRead(senderUserId);
+                                GetMessages();
+                                //appState2.GetMessages();
+                                return Task.CompletedTask;
+                            };
+                        });
+                    }
+
                 }
             });
             hubConnection.On(ApplicationConstants.SignalR.ReceiveRegenerateTokens, async () =>
@@ -125,9 +135,10 @@ namespace Pickup.Client.Shared
             _dialogService.Show<Dialogs.Logout>(localizer["Logout"], parameters, options);
         }
 
-        private void DrawerToggle()
+        private async Task DrawerToggle()
         {
             _drawerOpen = !_drawerOpen;
+            await _clientPreferenceManager.ToggleDrawer(_drawerOpen);
         }
 
         private async Task DarkMode()

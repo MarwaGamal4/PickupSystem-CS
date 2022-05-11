@@ -1,0 +1,9 @@
+2022-02-18 23:32:51.923 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-18 23:32:51.952 +02:00 [INF] Hosting environment: Development
+2022-02-18 23:32:51.955 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-18 23:33:43.972 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-18 23:33:43.998 +02:00 [INF] Hosting environment: Development
+2022-02-18 23:33:44.001 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-02-18 23:35:09.664 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-18 23:35:09.693 +02:00 [INF] Hosting environment: Development
+2022-02-18 23:35:09.695 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

@@ -17,5 +17,6 @@ namespace Pickup.Client.Infrastructure.Managers.ManagerDashboard
         Task<List<EmaritsResponse>> GetEmarits();
         Task<PaginatedResult<SubscriptionsResponse>> GetSubscriptions(ManagerRequest request, int PageSize, int PageNumber);
         Task<List<String>> GetPayments();
+        Task<string> Export(List<SubscriptionsResponse> data, int type);
     }
 }

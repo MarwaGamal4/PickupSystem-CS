@@ -21,6 +21,7 @@ namespace Pickup.Client.Pages.Communication
         [Parameter] public string CurrentUserId { get; set; }
         [Parameter] public string CurrentUserImageURL { get; set; }
         [CascadingParameter] private bool IsConnected { get; set; }
+        public string direction { get; set; } = "rtl";
         private List<ChatHistoryResponse> messages = new List<ChatHistoryResponse>();
 
         private class MessageRequest
@@ -28,15 +29,38 @@ namespace Pickup.Client.Pages.Communication
             public string userName { get; set; }
             public string message { get; set; }
         }
+        public string msgDirection(ChatHistoryResponse msg)
+        {
+            if (msg.FromUserId == CurrentUserId)
+            {
+                return "rtl";
+            }
+            return "inherit";
+        }
+        ElementReference MsgBackground;
+        public string BackColorStyle(ChatHistoryResponse msg)
+        {
 
+            if (msg.FromUserId == CurrentUserId)
+            {
+                return "padding: 15px; background-color: #D9FDD3; border-radius: 17px;border-top-right-radius: 0; margin-top: 5px; width: fit-content";
+            }
+            return "padding: 15px; background-color: #FFFFFF; border-radius: 17px;border-top-left-radius: 0; margin-top: 5px; width: fit-content";
+        }
         private MessageRequest model = new MessageRequest();
-
+        private DotNetObjectReference<Chat> ChatObj;
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            ChatObj = DotNetObjectReference.Create(this);
             await _jsRuntime.InvokeAsync<string>("ScrollToBottom", "chatContainer");
+            await _jsRuntime.InvokeVoidAsync("SendMessage", ChatObj);
         }
-
-        private async Task SubmitAsync()
+        public void Dispose()
+        {
+            ChatObj?.Dispose();
+        }
+        [JSInvokable("SubmitAsync")]
+        public async Task SubmitAsync()
         {
             if (!string.IsNullOrEmpty(CurrentMessage) && !string.IsNullOrEmpty(CId))
             {
@@ -47,6 +71,7 @@ namespace Pickup.Client.Pages.Communication
                     ToUserId = CId,
                     CreatedDate = DateTime.Now
                 };
+                CurrentMessage = string.Empty;
                 var response = await _chatManager.SaveMessageAsync(chatHistory);
                 if (response.Succeeded)
                 {
@@ -56,7 +81,7 @@ namespace Pickup.Client.Pages.Communication
                     chatHistory.FromUserId = CurrentUserId;
                     var userName = $"{user.GetFirstName()} {user.GetLastName()}";
                     await hubConnection.SendAsync(ApplicationConstants.SignalR.SendMessage, chatHistory, userName);
-                    CurrentMessage = string.Empty;
+                    //CurrentMessage = string.Empty;
                 }
                 else
                 {
@@ -90,12 +115,15 @@ namespace Pickup.Client.Pages.Communication
                  {
                      if ((CId == chatHistory.ToUserId && CurrentUserId == chatHistory.FromUserId))
                      {
-                         messages.Add(new ChatHistoryResponse { Message = chatHistory.Message, FromUserFullName = userName, CreatedDate = chatHistory.CreatedDate, FromUserImageURL = CurrentUserImageURL });
+                         messages.Add(new ChatHistoryResponse { Message = chatHistory.Message, FromUserId = chatHistory.FromUserId, ToUserId = chatHistory.ToUserId, FromUserFullName = userName, CreatedDate = chatHistory.CreatedDate, FromUserImageURL = CurrentUserImageURL });
+
                          await hubConnection.SendAsync(ApplicationConstants.SignalR.SendChatNotification, $"New Message From {userName}", CId, CurrentUserId);
                      }
                      else if ((CId == chatHistory.FromUserId && CurrentUserId == chatHistory.ToUserId))
                      {
-                         messages.Add(new ChatHistoryResponse { Message = chatHistory.Message, FromUserFullName = userName, CreatedDate = chatHistory.CreatedDate, FromUserImageURL = CImageURL });
+                         await _chatManager.MarkasRead(CId);
+                         messages.Add(new ChatHistoryResponse { Message = chatHistory.Message, FromUserId = chatHistory.FromUserId, ToUserId = chatHistory.ToUserId, FromUserFullName = userName, CreatedDate = chatHistory.CreatedDate, FromUserImageURL = CImageURL });
+
                      }
                      await _jsRuntime.InvokeAsync<string>("ScrollToBottom", "chatContainer");
                      StateHasChanged();
@@ -135,6 +163,7 @@ namespace Pickup.Client.Pages.Communication
                 CImageURL = contact.ProfilePictureDataUrl;
                 _navigationManager.NavigateTo($"chat/{CId}");
                 //Load messages from db here
+
                 messages = new List<ChatHistoryResponse>();
                 var historyResponse = await _chatManager.GetChatHistoryAsync(CId);
                 if (historyResponse.Succeeded)
@@ -148,6 +177,7 @@ namespace Pickup.Client.Pages.Communication
                         _snackBar.Add(localizer[message], Severity.Error);
                     }
                 }
+
                 await _chatManager.MarkasRead(CId);
             }
             else

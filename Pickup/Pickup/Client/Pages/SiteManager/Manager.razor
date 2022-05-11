@@ -2,10 +2,10 @@
 @using System.Collections.Generic
 @inject IJSRuntime JS
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@implements IDisposable
 @using Microsoft.AspNetCore.Components.Authorization
 @using System.Security.Claims
 <MudPaper Class="pb-10">
-
     <EditForm Model="Model" OnValidSubmit="@(async (e)=> await table.ReloadServerData())">
         <MudGrid Class="px-5" Spacing="1" Justify="Justify.Center">
             <MudItem md="3" sm="6" xs="12">
@@ -35,7 +35,7 @@
                 }
             </MudItem>
             <MudItem md="12">
-                <MudExpansionPanels DisableGutters="true" DisableBorders="true" Elevation="0">
+                <MudExpansionPanels DisableGutters="false" DisableBorders="true" Elevation="0">
                     <MudExpansionPanel Text="Advanced Search" Icon="@Icons.Filled.YoutubeSearchedFor" DisableGutters="true">
                         <MudGrid Spacing="1" Justify="Justify.Center">
                             <MudItem md="3" sm="6" xs="12">
@@ -119,12 +119,15 @@
 </MudPaper>
 <MudSpacer />
 
-<MudTable Class="pt-5" Style=" width: max-content" RowsPerPage="50" ServerData="@(new Func<TableState, Task<TableData<SubscriptionsResponse>>>(ServerReload))"
+<MudTable id="tbl" Class="pt-5" Virtualize="true" Style=" white-space: nowrap;width:max-content" RowsPerPage="50" ServerData="@(new Func<TableState, Task<TableData<SubscriptionsResponse>>>(ServerReload))"
           Dense="true" Striped="true" Hover="true" @ref="table">
 
     <ToolBarContent>
         <MudText Typo="Typo.h6">Invoices</MudText>
+        <MudIconButton OnClick="@(()=>Export(2))" Title="Export Excel" Icon="@Icons.Custom.FileFormats.FileExcel"></MudIconButton>
+        <MudIconButton OnClick="@(()=>Export(1))" Title="Export Pdf" Icon="@Icons.Custom.FileFormats.FilePdf"></MudIconButton>
         <MudSpacer />
+
     </ToolBarContent>
     <HeaderContent>
         <MudTh><MudTableSortLabel SortLabel="Count_field" T="SubscriptionsResponse"> </MudTableSortLabel></MudTh>
@@ -183,7 +186,7 @@
         <MudText>No matching records found</MudText>
     </NoRecordsContent>
     <LoadingContent>
-        <MudProgressCircular Class="ms-n1" Size="Size.Large" Indeterminate="true" />
+        @*<MudProgressCircular Class="ms-n1" Size="Size.Large" Indeterminate="true" />*@
         <MudText Class="ms-2">Loading Data ..</MudText>
     </LoadingContent>
     <PagerContent>
@@ -236,12 +239,34 @@
     {
         return string.IsNullOrEmpty(Value) ? "--" : Value;
     }
-    private IEnumerable<SubscriptionsResponse> pagedData;
+    private async Task Export(int type)
+    {
+        var data = await _managerDashboard.Export(pagedData, type);
+        if (type == 1)
+        {
+            await JS.InvokeVoidAsync("Download", new
+            {
+                ByteArray = data,
+                FileName = $"Subscription_{DateTime.Now:ddMMyyyyHHmmss}.pdf",
+                MimeType = "application/pdf"
+            });
+        }
+        if (type == 2)
+        {
+            await JS.InvokeVoidAsync("Download", new
+            {
+                ByteArray = data,
+                FileName = $"Subscription_{DateTime.Now:ddMMyyyyHHmmss}.xlsx",
+                MimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            });
+        }
+    }
+    private List<SubscriptionsResponse> pagedData;
     private MudTable<SubscriptionsResponse> table;
 
     private int totalItems;
     private string searchString = null;
-
+    private DotNetObjectReference<Manager> MangerObj;
     private async Task<TableData<SubscriptionsResponse>> ServerReload(TableState state)
     {
         Model.AgentID = SelectedAgent == 0 ? null : SelectedAgent;
@@ -251,53 +276,54 @@
         Model.Mode = SelectedMode == -1 ? null : SelectedMode;
         Model.InvType = SelectedType == -1 ? null : SelectedType;
 
+
         var response = await _managerDashboard.GetSubscriptions(Model, state.PageSize, state.Page + 1);
         IEnumerable<SubscriptionsResponse> data = response.Data;
         totalItems = response.TotalCount;
-        switch (state.SortLabel)
-        {
-            case "Id_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Id);
-                break;
-            case "SubFrom_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.SubFrom);
-                break;
-            case "FullName_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.FullName);
-                break;
-            case "Mobile_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Mobile);
-                break;
-            case "Code_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Code);
-                break;
-            case "AgentName_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.AgentName);
-                break;
-            case "Discount_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Discount);
-                break;
-            case "TotalPrice_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.TotalPrice);
-                break;
-            case "DeliveryStartingDay_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.DeliveryStartingDay);
-                break;
-            case "Mode_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Mode);
-                break;
-            case "PlanName_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.PlanName);
-                break;
-            case "Area_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Area);
-                break;
-            case "Emarite_field":
-                data = data.OrderByDirection(state.SortDirection, o => o.Emarite);
-                break;
-        }
+        pagedData = response.Data;
+        //switch (state.SortLabel)
+        //{
+        //    case "Id_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Id);
+        //        break;
+        //    case "SubFrom_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.SubFrom);
+        //        break;
+        //    case "FullName_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.FullName);
+        //        break;
+        //    case "Mobile_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Mobile);
+        //        break;
+        //    case "Code_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Code);
+        //        break;
+        //    case "AgentName_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.AgentName);
+        //        break;
+        //    case "Discount_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Discount);
+        //        break;
+        //    case "TotalPrice_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.TotalPrice);
+        //        break;
+        //    case "DeliveryStartingDay_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.DeliveryStartingDay);
+        //        break;
+        //    case "Mode_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Mode);
+        //        break;
+        //    case "PlanName_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.PlanName);
+        //        break;
+        //    case "Area_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Area);
+        //        break;
+        //    case "Emarite_field":
+        //        data = data.OrderByDirection(state.SortDirection, o => o.Emarite);
+        //        break;
+        //}
 
-        //  pagedData = data.Skip(state.Page * state.PageSize).Take(state.PageSize).ToArray();
         return new TableData<SubscriptionsResponse>() { TotalItems = totalItems, Items = data };
     }
 
@@ -319,14 +345,34 @@
 
     }
 
+    private async Task TakeScreenshot()
+    {
+        MangerObj = DotNetObjectReference.Create(this);
+        await JS.InvokeVoidAsync("TakeScreenShoot", MangerObj);
+
+    }
     private void CopyInvNum(string invNum)
     {
-        _snackBar.Add("Copied To Clipboard", Severity.Normal,
-            (o) => { o.VisibleStateDuration = 2000; o.ShowCloseIcon = false; });
-        JS.InvokeVoidAsync("copyToClipboard", invNum);
+        MangerObj = DotNetObjectReference.Create(this);
+        JS.InvokeVoidAsync("copyToClipboard", invNum, MangerObj);
+
         //  JS.InvokeVoidAsync("navigator.clipboard.writeText", invNum);
     }
+    [JSInvokable]
+    public void CopiedMessage()
+    {
+        _snackBar.Add("Copied To Clipboard", Severity.Normal,
+    (o) => { o.VisibleStateDuration = 2000; o.ShowCloseIcon = false; });
+    }
+    public async Task ExportExcel()
+    {
+        await JS.InvokeVoidAsync("EportTableToExcel", "tbl", $"INVOICES-{DateTime.Now.Date.ToString("d-M-yyyy")}");
+    }
 
+    public void Dispose()
+    {
+        MangerObj?.Dispose();
+    }
     protected override async Task OnInitializedAsync()
     {
 
@@ -354,4 +400,9 @@
         SelectedPaymnet = "ALL";
         SelectedMode = -1;
     }
+}
+@functions
+{
+
+
 }
