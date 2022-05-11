@@ -101,7 +101,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
             {
                 var dataa = await _unitOfWork.Repository<DeliveryRPT>().Entities
                .Specify(RptFilterSpec)
-               .Select(expression).Where(x => x.PrintDate == request.From)
+               .Select(expression).Where(x => x.PrintDate == request.From).OrderByDescending(x => x.ActionTime)
                .ToCustomPaginatedListAsync(request.PageNumber, request.PageSize);
                 return dataa;
             }
@@ -110,7 +110,7 @@ namespace Pickup.Application.Features.DeliveryRpt.Queries.GetAllPaged
                
                 var dataa = await _unitOfWork.Repository<DeliveryRPT>().Entities
                     .Specify(RptFilterSpec)
-                    .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To)
+                    .Select(expression).Where(x => x.PrintDate >= request.From && x.PrintDate <= request.To).OrderByDescending(x => x.ActionTime)
                     .ToCustomPaginatedListAsync(request.PageNumber, request.PageSize);
                 return dataa;
             }
