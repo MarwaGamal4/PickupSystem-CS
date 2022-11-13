@@ -54,7 +54,7 @@ namespace Pickup.Application.Features.Customers.Queries.GetById
             }
             if (request.Model.BranchID != null)
             {
-                Criteria = Criteria.And(x => x.BranchId == request.Model.BranchID);
+                Criteria = Criteria.And(x => x.BranchId == request.Model.BranchID ||x.CreditBranchId == request.Model.BranchID);
             }
             if (request.Model.InvoiceId != null)
             {

@@ -21,14 +21,14 @@
             @localizer["Account"]
         </MudNavLink>
     </MudNavGroup>
-    @if ((_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.ViewDetails).Result.Succeeded))
+   @* @if ((_authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.View).Result.Succeeded || _authorizationService.AuthorizeAsync(AuthenticationStateProviderUser, Permissions.ManagerDashboard.ViewDetails).Result.Succeeded))
     {
         <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Website"]">
             <MudNavLink Href="/Manager" Icon="@Icons.Material.Outlined.Report">
                 @localizer["Subscription Manager"]
             </MudNavLink>
         </MudNavGroup>
-    }
+    }*@
 
     <MudNavGroup Class="mt-2 mb-n2" Expanded="true" Title="@localizer["Pickup System"]">
         <MudNavLink Href="/Pickup/Customers" Icon="@Icons.Material.Outlined.Person">
@@ -37,9 +37,9 @@
         <MudNavLink Href="/AddCustomer" Icon="@Icons.Material.Outlined.PersonAdd">
             @localizer["Add New Customer"]
         </MudNavLink>
-        <MudNavLink Href="/RenewCustomer" Icon="@Icons.Material.Outlined.Autorenew">
+@*        <MudNavLink Href="/RenewCustomer" Icon="@Icons.Material.Outlined.Autorenew">
             @localizer["Renew Subscription"]
-        </MudNavLink>
+        </MudNavLink>*@
         <MudNavLink Href="/Transaction" Icon="@Icons.Material.Outlined.Transform">
             @localizer["Pickup Transaction"]
         </MudNavLink>
