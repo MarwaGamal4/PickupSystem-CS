@@ -81,7 +81,11 @@ namespace Pickup.Application.Features.Customers.Commands.AddEdit
             };
             inv.MealPrice = inv.TotalMealsCount > 0 ? command.SubscriptionModel.MealsAmount / command.SubscriptionModel.MealsQty : decimal.Zero;
             inv.SnackPrice = inv.TotalSnacksCount > 0 ? command.SubscriptionModel.SnacksAmount / command.SubscriptionModel.SnacksQty : decimal.Zero;
-            inv.customer = customer; inv.CustomerId = customer.Id; inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
+            inv.customer = customer; inv.CustomerId = customer.Id;
+            if (command.SubscriptionModel.Invoice_Image != null)
+            {
+                inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
+            }
             Plan.Invoices = new List<Invoice>();
             Plan.Invoices.Add(inv);
 

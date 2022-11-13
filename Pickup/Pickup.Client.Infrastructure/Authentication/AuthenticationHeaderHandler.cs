@@ -17,8 +17,10 @@ namespace Pickup.Client.Infrastructure.Authentication
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
+            request.Headers.Add("Branch", "3");
             if (request.Headers.Authorization?.Scheme != "Bearer")
             {
+
                 var savedToken = await this.localStorage.GetItemAsync<string>("authToken");
 
                 if (!string.IsNullOrWhiteSpace(savedToken))

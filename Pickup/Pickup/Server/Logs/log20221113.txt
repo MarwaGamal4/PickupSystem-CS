@@ -1,0 +1,86 @@
+2022-11-13 10:27:33.782 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:27:33.817 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:27:33.821 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:27:33.822 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:27:33.822 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 10:41:34.940 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:41:34.967 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:41:34.970 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:41:34.970 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:41:34.971 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 10:45:13.972 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:45:14.015 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:45:14.018 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:45:14.019 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:45:14.020 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 10:45:28.519 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-13 10:45:28.541 +02:00 [ERR] Connection id "0HMM5ADGUM1MH", Request id "0HMM5ADGUM1MH:000001A9": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-11-13 10:45:28.868 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-11-13 10:45:28.871 +02:00 [ERR] Connection id "0HMM5ADGUM1MH", Request id "0HMM5ADGUM1MH:000001AB": An unhandled exception was thrown by the application.
+System.InvalidOperationException: Headers are read-only, response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.ThrowHeadersReadOnlyException()
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpHeaders.Microsoft.AspNetCore.Http.IHeaderDictionary.set_Item(String key, StringValues value)
+   at Pickup.Server.Middlewares.ErrorHandlerMiddleware.Invoke(HttpContext context) in C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server\Middlewares\ErrorHandlerMiddleware.cs:line 30
+   at Microsoft.AspNetCore.Builder.Extensions.MapMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Builder.Extensions.MapWhenMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2022-11-13 10:47:23.637 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:47:23.665 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:47:23.668 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:47:23.668 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:47:23.669 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 10:50:27.106 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:50:27.140 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:50:27.143 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:50:27.143 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:50:27.144 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 10:54:12.841 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:54:12.880 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:54:12.883 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:54:12.884 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:54:12.884 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 10:57:32.547 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 10:57:32.574 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 10:57:32.576 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 10:57:32.577 +02:00 [INF] Hosting environment: Development
+2022-11-13 10:57:32.578 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 11:00:25.482 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 11:00:25.509 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 11:00:25.512 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 11:00:25.513 +02:00 [INF] Hosting environment: Development
+2022-11-13 11:00:25.514 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 11:01:08.775 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 11:01:08.804 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 11:01:08.808 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 11:01:08.809 +02:00 [INF] Hosting environment: Development
+2022-11-13 11:01:08.809 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server
+2022-11-13 11:01:49.407 +02:00 [INF] Now listening on: http://localhost:5000
+2022-11-13 11:01:49.434 +02:00 [INF] Now listening on: https://localhost:5001
+2022-11-13 11:01:49.437 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-11-13 11:01:49.438 +02:00 [INF] Hosting environment: Development
+2022-11-13 11:01:49.439 +02:00 [INF] Content root path: C:\Users\lowca\source\repos\Pickup\Pickup\Pickup\Server

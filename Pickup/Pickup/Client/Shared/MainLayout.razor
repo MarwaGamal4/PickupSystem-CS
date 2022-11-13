@@ -32,7 +32,7 @@
     </NotAuthorized>
     <Authorized>
         @*@(LoadDataAsync())*@
-        @{Task.Run(LoadDataAsync);}
+       @* @{Task.Run(LoadDataAsync);}*@
         <MudOverlay @bind-Visible="IsLoading" DarkBackground="true" ZIndex="9999" />
         <MudRTLProvider RightToLeft="@RTL">
             <MudLayout>

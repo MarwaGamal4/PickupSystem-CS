@@ -16,7 +16,6 @@ namespace Pickup.Application.Features.Customers.Dto
         public int PlanID { get; set; }
         public int MealsCount { get; set; } = 0;
         public int SnacksCount { get; set; } = 0;
-        [Required(ErrorMessage = "Please Provide The Invoice Image To Add")]
         public UploadRequest Invoice_Image { get; set; }
         public string Inv_url { get; set; }
     }

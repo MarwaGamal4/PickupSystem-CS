@@ -25,6 +25,13 @@ namespace Pickup.Client.Shared
         {
             LoadDataAsync().Wait();
         }
+        protected async override Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await LoadDataAsync();
+            }
+        }
         private async Task LoadDataAsync()
         {
             var state = await _stateProvider.GetAuthenticationStateAsync();
@@ -49,10 +56,18 @@ namespace Pickup.Client.Shared
         public List<ChatUserResponse> ChatUsers { get; set; }
         private async void GetMessages()
         {
-            var ChatUserss = await _chatManager.GetOldMessages();
-            ChatUsers = ChatUserss.Data.ToList();
-            appState.SetMessageCounter(ChatUsers.Where(x => x.Readed == false).Count());
-            StateHasChanged();
+            if (await _authenticationManager.CurrentUser() != null)
+            {
+                var ChatUserss = await _chatManager.GetOldMessages();
+                if (ChatUserss.Data != null)
+                {
+                    ChatUsers = ChatUserss.Data.ToList();
+                    appState.SetMessageCounter(ChatUsers.Where(x => x.Readed == false).Count());
+                    StateHasChanged();
+                }
+             
+            }
+         
         }
         protected override async Task OnInitializedAsync()
         {

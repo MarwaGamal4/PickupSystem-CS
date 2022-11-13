@@ -61,7 +61,10 @@ namespace Pickup.Application.Features.Customers.Commands.RenewPlan
             };
             inv.MealPrice = inv.TotalMealsCount > 0 ? command.Model.MealsAmount / command.Model.MealsQty : decimal.Zero;
             inv.SnackPrice = inv.TotalSnacksCount > 0 ? command.Model.SnacksAmount / command.Model.SnacksQty : decimal.Zero;
-            inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
+            if (command.Model.Invoice_Image != null)
+            {
+                inv.InvoiceURL = _uploadService.UploadAsync(uploadRequest);
+            }
             Plan.RemainingMealsCount += command.Model.MealsQty;
             Plan.RemainingSnacksCount += command.Model.SnacksQty;
             await _unitOfWork.Repository<Invoice>().AddAsync(inv);

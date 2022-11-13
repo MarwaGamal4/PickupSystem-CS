@@ -26,7 +26,7 @@ namespace Pickup.Application.Features.Customers.Dto
         public string RefrenceId { get; set; }
         public string Inv_Url { get; set; }
         public string PlanName { get; set; }
-        [Required]
+       
         public UploadRequest Invoice_Image { get; set; }
     }
 }

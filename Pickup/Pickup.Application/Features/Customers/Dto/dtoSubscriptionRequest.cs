@@ -23,7 +23,7 @@ namespace Pickup.Application.Features.Customers.Dto
         [Required]
         public int CustomerId { get; set; }
         public string PlanName { get; set; }
-        [Required(ErrorMessage = "Please Provide The Invoice Image To Add")]
+       
         public UploadRequest Invoice_Image { get; set; }
     }
 }

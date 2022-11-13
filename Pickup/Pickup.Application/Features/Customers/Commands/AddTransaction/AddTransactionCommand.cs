@@ -119,7 +119,10 @@ namespace Pickup.Application.Features.Customers.Commands.AddTransaction
                 trans.CreditBranchId = invoice.BranchId;
                 trans.CustomerId = plan.CustomerId;
                 trans.CustomerPlanId = plan.Id;
-                trans.Inv_url = _uploadService.UploadAsync(uploadRequest);
+                if (command.Model.Invoice_Image != null)
+                {
+                  trans.Inv_url = _uploadService.UploadAsync(uploadRequest);
+                }
                 trans.InvoiceID = invoice.Id;
                 TList.Add(trans);
                 await _unitOfWork.Repository<Invoice>().UpdateAsync(invoice);
