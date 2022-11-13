@@ -25,6 +25,21 @@
             <MudDateRangePicker Rounded="true" Label="Transaction Criteria Range" @bind-DateRange="_dateRange" />
         </MudItem>
         <MudItem md="4" sm="6" xs="12">
+            <MudTable Items="@creditTotals" Hover="true" Breakpoint="Breakpoint.Sm">
+                <HeaderContent>
+                    <MudTh>Branch</MudTh>
+                    <MudTh>Oppossit Branch</MudTh>
+                    <MudTh>Total Credit</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="Branch">@context.BranchId</MudTd>
+                    <MudTd DataLabel="Oppossit Branch">@context.OppossitBranch</MudTd>
+                    <MudTd DataLabel="Total Credit">@context.TotalCredit</MudTd>
+                </RowTemplate>
+            </MudTable>
+
+        </MudItem>
+        <MudItem md="4" sm="6" xs="12">
             @if (AllBranchList != null)
             {
                 <MudSelect T="int" @bind-Value="OppiseteBranchID" Text="ALL" Label="Opposite Branch" AnchorOrigin="Origin.BottomCenter">
@@ -87,6 +102,9 @@
                 <MudTd DataLabel="Owner">
                     <MudHighlighter Text="@context.OwnerBranchName" HighlightedText="@searchString" />
                 </MudTd>
+                <MudTd DataLabel="MCount">@context.MealsCount</MudTd>
+                <MudTd DataLabel="SCount">@context.SnacksCount</MudTd>
+
                 <MudTd DataLabel="Date">
                     <MudHighlighter Text="@context.TransactionDate.AddHours(2).ToString("d/M/yyyy h:m tt")" HighlightedText="@searchString" />
                 </MudTd>
@@ -113,6 +131,8 @@
     private IEnumerable<dtoPlanTransaction> pagedData;
     private MudTable<dtoPlanTransaction> table;
     private string searchString = null;
+    List<CreditTotals> creditTotals = new List<CreditTotals>();
+    dtoGetCustomeTransactionsRequest param = new dtoGetCustomeTransactionsRequest();
 
     private int totalItems;
     private int currentPage;
@@ -144,12 +164,22 @@
     }
     private async Task LoadData(int pageNumber, int PageSize, TableState state)
     {
-        Model.Model.DateFrom = _dateRange.Start;
-        Model.Model.DateTo = _dateRange.End;
-        Model.Model.BranchID = SelectedBranchID;
-        Model.Model.OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID;
-        Model.Model.PageNumber = pageNumber + 1;
-        Model.Model.PageSize = PageSize;
+        param = new dtoGetCustomeTransactionsRequest() 
+        {
+        //        Model.Model.DateFrom = _dateRange.Start;
+        //Model.Model.DateTo = _dateRange.End;
+        //Model.Model.BranchID = SelectedBranchID;
+        //Model.Model.OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID;
+        //Model.Model.PageNumber = pageNumber + 1;
+        //Model.Model.PageSize = PageSize;
+        DateFrom = _dateRange.Start ,
+        DateTo = _dateRange.End ,
+        BranchID = SelectedBranchID ,
+        OwnerBranchID = OppiseteBranchID == 0 ? null : OppiseteBranchID ,
+        PageNumber = pageNumber + 1,
+        PageSize = PageSize
+    };
+        Model.Model = param;
         var Response = await customerManager.GetTransactions(Model);
         if (Response.Succeeded)
         {
@@ -190,6 +220,13 @@
             data = loadedData.ToList();
             //data = loadedData.Skip(state.Page * state.PageSize).Take(state.PageSize).ToList();
             pagedData = data;
+
+            var query = new GetTransactionTotalsQuery() { Model = param };
+            var result = await customerManager.GetTotalTransactions(query);
+            if(result.Succeeded)
+            {
+               //var TotalDebt = result.Data.
+            }
         }
         else
         {
@@ -228,5 +265,11 @@
     protected override async Task OnParametersSetAsync()
     {
         AuthenticationStateProviderUser = await _stateProvider.GetAuthenticationStateProviderUserAsync();
+    }
+    class CreditTotals
+    {
+        public string BranchId { get; set; }
+        public string OppossitBranch { get; set; }
+        public decimal TotalCredit { get; set; }
     }
 }

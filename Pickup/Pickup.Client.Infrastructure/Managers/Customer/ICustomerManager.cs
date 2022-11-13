@@ -16,6 +16,7 @@ namespace Pickup.Client.Infrastructure.Managers.Customer
         public Task<IResult<int>> AddTransaction(dtoAddTransactionRequest request);
         public Task<PaginatedResult<dtoCustomerInvoiceResponse>> GetInvoice(GetCustomerInvoicesCommand request);
         public Task<PaginatedResult<dtoPlanTransaction>> GetTransactions(GetCustomerTransactionsQuery request);
+        public Task<IResult<List<dtoPlanTransaction>>> GetTotalTransactions(GetTransactionTotalsQuery request);
         public Task<IResult<List<dtoTimelineResponse>>> GetTimeline(GetTimeLineQuery request);
     }
 }

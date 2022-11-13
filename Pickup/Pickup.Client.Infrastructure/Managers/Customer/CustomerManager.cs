@@ -62,6 +62,13 @@ namespace Pickup.Client.Infrastructure.Managers.Customer
             return await requestt.ToResult<List<dtoTimelineResponse>>();
         }
 
+        public async Task<IResult<List<dtoPlanTransaction>>> GetTotalTransactions(GetTransactionTotalsQuery request)
+        {
+            var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetTotalTransaction, request);
+
+            return await requestt.ToResult<List<dtoPlanTransaction>>();
+        }
+
         public async Task<PaginatedResult<dtoPlanTransaction>> GetTransactions(GetCustomerTransactionsQuery request)
         {
             var requestt = await _httpClient.PostAsJsonAsync(Routes.CustomersEndPoint.GetTransaction, request);

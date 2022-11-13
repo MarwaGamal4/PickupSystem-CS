@@ -16,6 +16,7 @@ namespace Pickup.Client.Infrastructure.Routes
         public static string AddTransaction = $"{ApiVirsion.Api_Virsion}/Customer/AddTransaction";
         public static string GetInvoice = $"{ApiVirsion.Api_Virsion}/Customer/GetInvoices";
         public static string GetTransaction = $"{ApiVirsion.Api_Virsion}/Customer/GetTransaction";
+        public static string GetTotalTransaction = $"{ApiVirsion.Api_Virsion}/Customer/GetTotalTransaction";
         public static string GetTimeline = $"{ApiVirsion.Api_Virsion}/Customer/GetTimeline";
     }
 }

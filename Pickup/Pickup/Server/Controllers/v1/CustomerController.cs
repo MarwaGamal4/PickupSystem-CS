@@ -47,6 +47,11 @@ namespace Pickup.Server.Controllers.v1
         {
             return Ok(await _mediator.Send(command));
         }
+        [HttpPost("GetTotalTransaction")]
+        public async Task<IActionResult> GetTotalTransaction(GetTransactionTotalsQuery command)
+        {
+            return Ok(await _mediator.Send(command));
+        }
 
         [HttpPost("GetInvoices")]
         public async Task<IActionResult> GetInvoices(GetCustomerInvoicesCommand command)
